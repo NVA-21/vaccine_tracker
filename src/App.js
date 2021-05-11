@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import { fetchApiData, PUBLIC_IMAGE_PATH } from "./utils/Constants";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("110031");
-  const [pinCode, setPinCode] = useState("110031");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [pinCode, setPinCode] = useState("");
 
-  useEffect(() => {
-    console.log("useEffect Called");
-    searchVaccineSlots("110031");
-    // sendNotification();
-  }, [pinCode]);
+  // useEffect(() => {
+  //   console.log("useEffect Called");
+  //   searchVaccineSlots("110031");
+  //   // sendNotification();
+  // }, [pinCode]);
 
   async function searchVaccineSlots(searchQuery) {
     const responseValue = await fetchApiData(
