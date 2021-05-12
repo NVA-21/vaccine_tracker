@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .searchBtn:hover{
@@ -46,10 +47,13 @@
 
 .App input{
   padding: 20px;
+  color: #1a1a1d;
   font-size: 30px;
   height: 10px;
   width: 350px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-weight: 700;
 }
 
 .App p{

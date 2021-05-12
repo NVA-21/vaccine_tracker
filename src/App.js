@@ -4,8 +4,10 @@ import { fetchApiData, PUBLIC_IMAGE_PATH } from "./utils/Constants";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
+  
 
   async function searchVaccineSlots(searchQuery) {
+    if(searchQuery.length<6){return false}
     const responseValue = await fetchApiData(
       `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${searchQuery}&date=13-05-2021`
     );
