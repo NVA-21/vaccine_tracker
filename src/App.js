@@ -4,7 +4,6 @@ import { fetchApiData, PUBLIC_IMAGE_PATH } from "./utils/Constants";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [pinCode, setPinCode] = useState("");
 
   async function searchVaccineSlots(searchQuery) {
     const responseValue = await fetchApiData(
