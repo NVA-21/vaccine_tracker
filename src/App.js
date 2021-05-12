@@ -39,7 +39,6 @@ function App() {
         }}
       >
         <img src={PUBLIC_IMAGE_PATH + "search.svg"} />
-        {/* <image src */}
       </div>
     </div>
   );
