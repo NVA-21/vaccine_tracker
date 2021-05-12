@@ -1,9 +1,20 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchApiData, PUBLIC_IMAGE_PATH } from "./utils/Constants";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    // console.log(Notification.permission);
+
+    if (Notification.permission === "default") {
+      // alert("do nothing");
+      Notification.requestPermission();
+    }
+
+    // sendNotification();
+  }, []);
 
   async function searchVaccineSlots(searchQuery) {
     if (searchQuery.length < 6) {
@@ -20,7 +31,8 @@ function App() {
   }
 
   function sendNotification() {
-    alert("Notifcation");
+    // alert("Notifcation");
+    const notification = new Notification("New message");
   }
 
   return (
