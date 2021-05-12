@@ -38,7 +38,8 @@ function App() {
           searchVaccineSlots(searchQuery);
         }}
       >
-        <image src={PUBLIC_IMAGE_PATH + "search.svg"} />
+        <img src={PUBLIC_IMAGE_PATH + "search.svg"} />
+        {/* <image src */}
       </div>
     </div>
   );
