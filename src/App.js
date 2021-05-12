@@ -22,6 +22,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>COVID VACCINE TRACKER</h1>
+      <label>Enter your Pincode:</label>
       <input
         type="text"
         className="input"
@@ -32,6 +34,7 @@ function App() {
         maxLength={6}
       />
 
+
       <div
         className="searchBtn"
         onClick={() => {
@@ -40,6 +43,7 @@ function App() {
       >
         <img src={PUBLIC_IMAGE_PATH + "search.svg"} />
       </div>
+      <p>This app will send you a notification as soon as there is a slot available in your area.</p>
     </div>
   );
 }
