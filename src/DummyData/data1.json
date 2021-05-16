@@ -1,0 +1,168 @@
+ 
+{
+  "centers":[
+    {
+      "center_id":7955,
+      "name":"Chacha Nehru Bal Chikitsalaya",
+      "address":"Chacha Nehru Bal Chikitsalaya, Geeta Colony, Delhi",
+      "state_name":"Delhi",
+      "district_name":"East Delhi",
+      "block_name":"Not Applicable",
+      "pincode":110031,
+      "lat":28,
+      "long":77,
+      "from":"21:00:00",
+      "to":"09:00:00",
+      "fee_type":"Free",
+      "sessions":[
+        {
+          "session_id":"690f94c5-809d-49d8-9dc3-9d22c192a33b",
+          "date":"15-05-2021",
+          "available_capacity":174,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"8e9410aa-80da-4e2b-a6ea-8623248ae23e",
+          "date":"17-05-2021",
+          "available_capacity":198,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"1180e36f-1432-4ef8-9825-f7b557908e9e",
+          "date":"18-05-2021",
+          "available_capacity":190,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"8a0a61de-3229-4606-9b29-f8057d1cc37c",
+          "date":"19-05-2021",
+          "available_capacity":0,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-05:00PM"
+          ]
+        },
+        {
+          "session_id":"add840ba-da3f-4ef8-a2b8-992ea0d06482",
+          "date":"20-05-2021",
+          "available_capacity":199,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"6e067430-0996-4b53-a9d9-bebed7dfe784",
+          "date":"21-05-2021",
+          "available_capacity":0,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            "09:00AM-11:00AM",
+            "11:00AM-01:00PM",
+            "01:00PM-03:00PM",
+            "03:00PM-05:00PM"
+          ]
+        }
+      ]
+    },
+    {
+      "center_id":593520,
+      "name":"CNBC Hospital-2",
+      "address":"Chacha Nehru Bal Chikitsalaya, Geeta Colony, Delhi",
+      "state_name":"Delhi",
+      "district_name":"East Delhi",
+      "block_name":"Not Applicable",
+      "pincode":110031,
+      "lat":28,
+      "long":77,
+      "from":"21:00:00",
+      "to":"09:00:00",
+      "fee_type":"Free",
+      "sessions":[
+        {
+          "session_id":"ebe41383-65e4-4d2f-ba5d-2fd8ac3021ad",
+          "date":"15-05-2021",
+          "available_capacity":45,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"41db7552-9108-4418-8052-beb2b628db0a",
+          "date":"17-05-2021",
+          "available_capacity":95,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"19f6ad20-d95c-423e-8831-76e5dbcf7df8",
+          "date":"18-05-2021",
+          "available_capacity":0,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            "09:00AM-12:00PM",
+            "12:00PM-03:00PM",
+            "03:00PM-06:00PM",
+            "06:00PM-09:00PM"
+          ]
+        },
+        {
+          "session_id":"075e3959-fb6c-4aec-b9a1-dc8f98d3b259",
+          "date":"19-05-2021",
+          "available_capacity":90,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"91fd6be2-f967-46f7-83ff-36898a1754df",
+          "date":"20-05-2021",
+          "available_capacity":100,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        },
+        {
+          "session_id":"df618f5b-355a-462c-92a1-d36adfd9c208",
+          "date":"21-05-2021",
+          "available_capacity":89,
+          "min_age_limit":45,
+          "vaccine":"COVISHIELD",
+          "slots":[
+            
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+

@@ -1,38 +1,78 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
-import { fetchApiData, PUBLIC_IMAGE_PATH } from "./utils/Constants";
+import React, { useState } from "react";
+import {
+  fetchApiData,
+  NUMBER_REGEX,
+  PUBLIC_IMAGE_PATH,
+} from "./utils/Constants";
+import useInterval from "./utils/useInterval";
 
 function App() {
+  // Input values
+  const [input, setInput] = useState("");
+  const [inputError, setInputError] = useState(false);
+
+  //pincodes value when search btn clicked
   const [searchQuery, setSearchQuery] = useState("");
+  // Starts to fetch from api only if pincode entered is valid.
+  const [apiFetching, setApiFetching] = useState(false);
+  // Keeps track whether notification prev sent or not
+  const [notificationSent, setNotificationSent] = useState(false);
 
-  useEffect(() => {
-    // console.log(Notification.permission);
+  useInterval(async () => {
+    if (apiFetching) {
+      // `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${input}&date=16-05-2021`
+      const date = "17-05-2021";
+      const responseValue = await fetchApiData(
+        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
+      );
+      console.log(responseValue);
 
-    if (Notification.permission === "default") {
-      // alert("do nothing");
-      Notification.requestPermission();
+      handleNotification();
     }
+  }, 3000);
 
-    // sendNotification();
-  }, []);
-
-  async function searchVaccineSlots(searchQuery) {
-    if (searchQuery.length < 6) {
-      return false;
-    }
-    const responseValue = await fetchApiData(
-      `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${searchQuery}&date=13-05-2021`
-    );
-
-    // Sending Push notification when vaccine center exists
-    if (responseValue.sessions.length) {
-      sendNotification();
+  function handleNotification() {
+    // Sending notif first time
+    if (!notificationSent) {
+      console.log("Notif SEND BOII");
+      setNotificationSent(true);
+      sendNotification(
+        "Hurry Up Vaccination available",
+        "Click me to reach COWIN site"
+      );
     }
   }
 
-  function sendNotification() {
-    // alert("Notifcation");
-    const notification = new Notification("New message");
+  function sendNotification(title, body) {
+    const notification = new Notification(title, {
+      icon: PUBLIC_IMAGE_PATH + "logo.png",
+      body: body,
+    });
+
+    notification.onclick = () => window.open("https://www.cowin.gov.in/home");
+  }
+
+  function handleInput(value) {
+    if (NUMBER_REGEX.test(value) || value === "") {
+      setInput(value);
+    }
+  }
+
+  function handleSearch() {
+    if (input.length < 6) {
+      setInputError(true);
+      return false;
+    }
+
+    // Disabling inputError
+    setInputError(false);
+
+    // Setting input value as Search Query value
+    setSearchQuery(input);
+
+    // To start the api call
+    setApiFetching(true);
   }
 
   return (
@@ -42,13 +82,13 @@ function App() {
       <input
         style={{
           border: "3px solid",
-          borderColor: searchQuery.length < 6 ? "red" : "blue",
+          borderColor: inputError && "red",
         }}
         type="text"
         className="input"
-        value={searchQuery}
+        value={input}
         onChange={(e) => {
-          setSearchQuery(e.target.value);
+          handleInput(e.target.value);
         }}
         maxLength={6}
       />
@@ -56,7 +96,7 @@ function App() {
       <div
         className="searchBtn"
         onClick={() => {
-          searchVaccineSlots(searchQuery);
+          handleSearch();
         }}
       >
         <img src={PUBLIC_IMAGE_PATH + "search.svg"} alt="Search" />
