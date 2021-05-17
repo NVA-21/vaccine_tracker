@@ -7,6 +7,7 @@ import {
   getDate,
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
+import Footer from "./components/Footer/Footer"
 
 function App() {
   // Input values
@@ -89,11 +90,14 @@ function App() {
   return (
     <div className="App">
       {/* <h1>COVID VACCINE TRACKER</h1> */}
-      <div className="brandLogo">
-        <img src={PUBLIC_IMAGE_PATH + "logo-title.svg"} />
+      <div className="background">
+        <img src={PUBLIC_IMAGE_PATH + "Background.png"} />
       </div>
-      <label>Enter your Pincode:</label>
-      <input
+      <div className="brandLogo">
+        <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
+      </div>
+
+      {/* <input
         style={{
           border: "3px solid",
           borderColor: inputError && "red",
@@ -105,20 +109,16 @@ function App() {
           handleInput(e.target.value);
         }}
         maxLength={6}
-      />
+      /> */}
 
-      <div
+      {/* <div
         className="searchBtn"
         onClick={() => {
           handleSearch();
         }}
       >
-        <img src={PUBLIC_IMAGE_PATH + "search.svg"} alt="Search" />
-      </div>
-      <p>
-        This app will send you a notification as soon as there is a slot
-        available in your area.
-      </p>
+      </div> */}
+      <Footer />
     </div>
   );
 }
