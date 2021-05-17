@@ -4,6 +4,7 @@ import {
   fetchApiData,
   NUMBER_REGEX,
   PUBLIC_IMAGE_PATH,
+  getDate,
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
 
@@ -19,16 +20,26 @@ function App() {
   // Keeps track whether notification prev sent or not
   const [notificationSent, setNotificationSent] = useState(false);
 
+  // Storing api data
+  const [data, setData] = useState({});
+
   useInterval(async () => {
     if (apiFetching) {
       // `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${input}&date=16-05-2021`
-      const date = "17-05-2021";
+      // const date = "17-05-2021";
+      const date = getDate();
+      console.log(date);
       const responseValue = await fetchApiData(
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
       );
       console.log(responseValue);
 
-      handleNotification();
+      // let result = responseValue.centers.filter((center) =>
+      //   center.sessions.some((c) => c.available_capacity > 0)
+      // );
+      // console.log(result);
+
+      // handleNotification();
     }
   }, 3000);
 
@@ -77,7 +88,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>COVID VACCINE TRACKER</h1>
+      {/* <h1>COVID VACCINE TRACKER</h1> */}
+      <div className="brandLogo">
+        <img src={PUBLIC_IMAGE_PATH + "logo-title.svg"} />
+      </div>
       <label>Enter your Pincode:</label>
       <input
         style={{

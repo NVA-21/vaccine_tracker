@@ -25,3 +25,7 @@ export const fetchApiData = async (url) => {
 
 export const PUBLIC_IMAGE_PATH = "/assets/images/";
 export const NUMBER_REGEX = /^[0-9]+$/;
+
+export const getDate = () => {
+  return "17-05-2021";
+};
