@@ -18,7 +18,29 @@
 .brandLogo img{
   width: 200px;
   height: 73px;
-  margin-left: 7%;
-  margin-top: 4%;
 }
+
+.slots-container{
+  margin-left: 65%;
+  background-color: #d0fbf8;
+  height: 500px;
+  width: 25%;
+  border-radius: 20px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.slots-container h4{
+  color: #cd1f43;
+  padding-top: 8px;
+  margin-left: 13px;
+  margin-bottom: 0;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.toggle-result{
+  display: flex;
+}
+
+
 
