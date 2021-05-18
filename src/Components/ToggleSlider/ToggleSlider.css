@@ -38,31 +38,3 @@
   position: relative;
   display: inline;
 }
-
-.toggle label{
-  position: absolute;
-  color: var(--primary-color);
-  font-size: 20px;
-  font-weight: 700;
-  pointer-events: none;
-}
-
-.toggle .pin{
-  display: none;
-  left: 61px;
-  bottom: 10px;
-  z-index: 10;
-}
-
-input:checked + .pin{
-  display: block;
-}
-
-.toggle .dist{
-  left: 291px;
-  bottom: 10px;
-}
-
-input:checked + .dist{
-  display: none;
-}

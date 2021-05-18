@@ -10,6 +10,7 @@ import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
 import Switch from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
+import Button from "./Components/Button/Button"
 
 function App() {
   // Input values
@@ -117,6 +118,8 @@ function App() {
           }}
           maxLength={6}
           />
+
+          <Button />
 
         
           {/* <div

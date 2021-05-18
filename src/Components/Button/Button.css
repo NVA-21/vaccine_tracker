@@ -1,0 +1,78 @@
+.button{
+  margin-top: 25px;
+}
+
+.get_notified{
+  position: relative;
+  width: 30%;
+  height: 40px;
+  border-radius: 40px;
+  outline: 0;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.get_notified:active{
+  background-color: var(--primary-light-color);
+}
+
+.button_text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.loading .button_text{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loading::after{
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: button-spin 1s ease infinite;
+  transition: 0.5s;
+}
+
+@keyframes button-spin {
+  from{
+    transform:  rotate(0turn);
+  }
+
+  to{
+    transform: rotate(1turn);
+  }
+  
+}
+
+.loading:hover{
+  background-color: var(--secondary-color);
+}
+
+.loading:hover::after{
+  content: "X";
+  font-size: 25px;
+  color: #fff;
+  animation: none;
+  width: 0;
+  height: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
