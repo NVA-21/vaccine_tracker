@@ -1,7 +1,12 @@
+@import url("/src/Components/fonts/helveticanowdisplay/stylesheet.css");
+
 :root {
-  --primaryColor: #cd1f43;
-  --secondaryColor: #283893;
-  --tertiaryColor: #64c9cf;
+  --primary-color: #283893;
+  --secondary-color: #cd1f43;
+  --tertiary-color: #d0fbf8;
+
+  --slotsAvailable-color: #00ff33;
+  --primary-light-color: #3e447e;
 }
 
 * {
@@ -14,6 +19,7 @@
 
 body {
   margin: 0;
+  font-family: "Helvetica Now Display";
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
