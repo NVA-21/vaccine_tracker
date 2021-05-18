@@ -8,7 +8,7 @@ import {
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
-import Switch from "./Components/ToggleSlider/ToggleSlider";
+// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 
 function App() {
@@ -103,33 +103,34 @@ function App() {
           <div className="brandLogo">
             <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
           </div>
-          <h1>Get Notified when your area has Slots Available.</h1>
-          <Switch />
 
+          <h1 className="mainHead">
+            Get Notified when your <br />
+            area has a slots availability.
+          </h1>
+          {/* <ToggleSlider /> */}
 
           <input
-          placeholder="Enter your Pincode"
-          type="text"
-          className="input"
-          value={input}
-          onChange={(e) => {
-            handleInput(e.target.value);
-          }}
-          maxLength={6}
+            placeholder="Enter your Pincode"
+            type="text"
+            className="input"
+            value={input}
+            onChange={(e) => {
+              handleInput(e.target.value);
+            }}
+            maxLength={6}
           />
 
-        
           {/* <div
-        className="searchBtn"
-        onClick={() => {
-          handleSearch();
-        }}
-      >
-      </div> */}
+            className="searchBtn"
+            onClick={() => {
+              handleSearch();
+            }}
+          ></div> */}
         </div>
 
         <div className="rightContainer">
-          <div className="slotsContaienr">
+          <div className="slotsContainer">
             <h4>SLOTS AVAILABLE</h4>
 
             <SlotCard />

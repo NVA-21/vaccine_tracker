@@ -1,69 +1,66 @@
 .App {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
-*{margin: 0; padding: 0;}
 
 .contentContainers {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: calc(100% - var(--footer-height));
-  padding: 60px 100px;
+  padding: 40px 80px;
 }
 
 .leftContainer {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   width: 60%;
 }
 
 .rightContainer {
-  margin-right: 5%;
-  /* border: 1px solid blue; */
-  width: 30%;
+  border: 1px solid blue;
+  width: 40%;
 }
 
 .brandLogo img {
   width: 200px;
   height: 73px;
+  margin-bottom: 50px;
 }
 
-.slotsContaienr {
+.mainHead {
+  font-size: 52px;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-weight: 700;
+  width: 100%;
+  word-break: keep-all;
+  margin-bottom: 40px;
+}
+
+.leftContainer input {
+  width: 80%;
+  height: 35px;
+  padding: 30px 25px;
+  border-radius: 40px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  height: 72px;
+  box-shadow: var(--input-boxShadow);
+  margin-bottom: 25px;
+}
+
+.slotsContainer {
   background-color: var(--tertiary-color);
-  height: 490px;
-  border-radius: 20px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  height: 100%;
+  border-radius: 13px;
+  padding: 18px 15px;
+  box-shadow: var(--slotCards-boxShadow);
 }
 
-.slotsContaienr h4 {
-  color: var(--primary-color);
-  padding-top: 8px;
-  margin-left: 13px;
-  margin-bottom: 0;
+.slotsContainer h4 {
+  color: var(--secondary-color);
   font-size: 23px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
-
-.leftContainer h1{
-  margin-top: 25px;
-  color: var(--secondary-color);
-  font-size: 50px;
-  font-weight: 900;
-  width: 85%;
-}
-
-.leftContainer input{
-  margin-top: 20px;
-  margin-left: 2px;
-  width: 70%;
-  height: 35px;
-  padding: 10px;
-  padding-left: 50px;
-  border-radius: 40px;
-  border: 0px;
-  outline: 0;
-  font-size: 20px;
-  box-shadow: 1px 3px 3px 2px rgba(0, 0, 0, 0.5);
-}
-
-

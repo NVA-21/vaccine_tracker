@@ -1,7 +1,3 @@
-/* @import url("/src/Components/fonts/helveticanowdisplay/stylesheet.css"); */
-/* @import url("%PUBLIC_URL%/assets/fonts/helveticanowdisplay/stylesheet.css"); */
-/* @import url("./assets/fonts/helveticanowdisplay/stylesheet.css"); */
-
 :root {
   --primary-color: #283893;
   --secondary-color: #cd1f43;
@@ -11,6 +7,9 @@
   --primary-light-color: #3e447e;
 
   --footer-height: 7vh;
+
+  --input-boxShadow: 3.878px 6.997px 7.2px 0.8px rgb(4 4 4 / 10%);
+  --slotCards-boxShadow: 2.424px 4.373px 4.5px 0.5px rgba(4, 4, 4, 0.1);
 }
 
 * {
