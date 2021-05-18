@@ -1,4 +1,4 @@
-@import url("/src/Components/fonts/helveticanowdisplay/stylesheet.css");
+/* @import url("/src/Components/fonts/helveticanowdisplay/stylesheet.css"); */
 /* @import url("%PUBLIC_URL%/assets/fonts/helveticanowdisplay/stylesheet.css"); */
 /* @import url("./assets/fonts/helveticanowdisplay/stylesheet.css"); */
 
@@ -21,10 +21,10 @@
 
 body {
   margin: 0;
-  font-family: "Helvetica Now Display";
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Helvetica Now Display", "Segoe UI";
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
