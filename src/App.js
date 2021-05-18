@@ -7,9 +7,9 @@ import {
   getDate,
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
-import Footer from "./components/Footer/Footer"
-import Switch from "./components/Toggle/Switch"
-import SlotCard from "./components/SlotsCard/SlotsCard"
+import Footer from "./Components/Footer/Footer";
+import Switch from "./Components/ToggleSlider/ToggleSlider";
+import SlotCard from "./Components/SlotsCard/SlotsCard";
 
 function App() {
   // Input values
@@ -90,17 +90,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {/* <h1>COVID VACCINE TRACKER</h1> */}
-      {/* <div className="background">
-        <img src={PUBLIC_IMAGE_PATH + "Background.png"} />
-      </div> */}
+    <div
+      className="App"
+      // style={{
+      //   background: `url(${PUBLIC_IMAGE_PATH}background.png)`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "right -100px bottom",
+      // }}
+    >
       <div className="brandLogo">
         <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
       </div>
 
       {/* <Switch /> */}
-      <div className="slots-container">
+      <div className="slotsContainer">
         <h4>SLOTS AVAILABLE</h4>
         <SlotCard />
       </div>

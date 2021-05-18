@@ -1,27 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-:root{
-  primary_color: #cd1f43;
-  secondary_color: #283893;
-  tertiary_color: #64c9cf;
-}
-
-.app{
-  box-sizing: border-box;
-}
-
-.background img{
-  position: absolute;
-  width: 60%;
-  right: 0;
-}
-
-.brandLogo img{
+.brandLogo img {
   width: 200px;
   height: 73px;
 }
 
-.slots-container{
-  margin-left: 65%;
+.slotsContainer {
   background-color: #d0fbf8;
   height: 500px;
   width: 25%;
@@ -29,7 +11,7 @@
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
 
-.slots-container h4{
+.slotsContainer h4 {
   color: #cd1f43;
   padding-top: 8px;
   margin-left: 13px;
@@ -37,10 +19,3 @@
   font-size: 23px;
   font-weight: 700;
 }
-
-.toggle-result{
-  display: flex;
-}
-
-
-
