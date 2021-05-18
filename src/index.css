@@ -1,4 +1,6 @@
 @import url("/src/Components/fonts/helveticanowdisplay/stylesheet.css");
+/* @import url("%PUBLIC_URL%/assets/fonts/helveticanowdisplay/stylesheet.css"); */
+/* @import url("./assets/fonts/helveticanowdisplay/stylesheet.css"); */
 
 :root {
   --primary-color: #283893;

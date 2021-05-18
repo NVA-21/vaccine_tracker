@@ -1,3 +1,7 @@
+.App {
+  background: url("./logo192.png");
+}
+
 .brandLogo img {
   width: 200px;
   height: 73px;
