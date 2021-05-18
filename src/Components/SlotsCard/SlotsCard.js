@@ -19,7 +19,7 @@ const SlotCard = () => {
           <h6 className="slots first-col">150</h6>
         </div>
 
-        {/* <div className="slots-table-set-empty"></div> */}
+        <div className="slots-table-set-empty"></div>
       </div>
     </div>
   );

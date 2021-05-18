@@ -21,41 +21,54 @@
   width: 40%;
 }
 
-.brandLogo img {
+.brandLogo {
   width: 200px;
   height: 73px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 .mainHead {
   font-size: 52px;
   color: var(--secondary-color);
   font-weight: bold;
-  font-weight: 700;
+  font-weight: 800;
   width: 100%;
   word-break: keep-all;
   margin-bottom: 40px;
 }
 
-.leftContainer input {
+.inputContainer {
+  position: relative;
   width: 80%;
-  height: 35px;
-  padding: 30px 25px;
+  height: 50px;
   border-radius: 40px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--input-boxShadow);
+  margin-bottom: 25px;
+  padding: 0 25px;
+}
+
+.inputContainer input {
   font-size: 20px;
   border: none;
   outline: none;
-  height: 72px;
-  box-shadow: var(--input-boxShadow);
-  margin-bottom: 25px;
+  height: 100%;
+  width: 100%;
+}
+
+.inputContainer .searchIcon {
+  position: absolute;
+  right: 25px;
 }
 
 .slotsContainer {
   background-color: var(--tertiary-color);
   height: 100%;
   border-radius: 13px;
-  padding: 18px 15px;
+  padding: 10px 15px 15px;
   box-shadow: var(--slotCards-boxShadow);
+  overflow-y: scroll;
 }
 
 .slotsContainer h4 {

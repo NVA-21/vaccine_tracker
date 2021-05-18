@@ -100,9 +100,10 @@ function App() {
     >
       <div className="contentContainers">
         <div className="leftContainer">
-          <div className="brandLogo">
-            <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
-          </div>
+          <img
+            src={PUBLIC_IMAGE_PATH + "logo-title.png"}
+            className="brandLogo"
+          />
 
           <h1 className="mainHead">
             Get Notified when your <br />
@@ -110,16 +111,26 @@ function App() {
           </h1>
           {/* <ToggleSlider /> */}
 
-          <input
-            placeholder="Enter your Pincode"
-            type="text"
-            className="input"
-            value={input}
-            onChange={(e) => {
-              handleInput(e.target.value);
-            }}
-            maxLength={6}
-          />
+          <div className="inputContainer">
+            <input
+              placeholder="Enter your Pincode"
+              type="text"
+              className="input"
+              value={input}
+              onChange={(e) => {
+                handleInput(e.target.value);
+              }}
+              maxLength={6}
+            />
+
+            <img
+              src={PUBLIC_IMAGE_PATH + "search.svg"}
+              className="searchIcon"
+              alt=""
+              width={22}
+              height={23}
+            />
+          </div>
 
           {/* <div
             className="searchBtn"
@@ -134,6 +145,10 @@ function App() {
             <h4>SLOTS AVAILABLE</h4>
 
             <SlotCard />
+            <SlotCard />
+            <SlotCard />
+            <SlotCard />
+            {/* <SlotCard /> */}
           </div>
         </div>
       </div>
