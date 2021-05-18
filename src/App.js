@@ -98,17 +98,15 @@ function App() {
       //   backgroundPosition: "right -100px bottom",
       // }}
     >
-      <div className="brandLogo">
-        <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
-      </div>
+      <div className="contentContainers">
+        <div className="leftContainer">
+          <div className="brandLogo">
+            <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
+          </div>
 
-      {/* <Switch /> */}
-      <div className="slotsContainer">
-        <h4>SLOTS AVAILABLE</h4>
-        <SlotCard />
-      </div>
+          {/* <Switch /> */}
 
-      {/* <input
+          {/* <input
         style={{
           border: "3px solid",
           borderColor: inputError && "red",
@@ -122,13 +120,24 @@ function App() {
         maxLength={6}
       /> */}
 
-      {/* <div
+          {/* <div
         className="searchBtn"
         onClick={() => {
           handleSearch();
         }}
       >
       </div> */}
+        </div>
+
+        <div className="rightContainer">
+          <div className="slotsContaienr">
+            <h4>SLOTS AVAILABLE</h4>
+
+            <SlotCard />
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

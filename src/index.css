@@ -9,6 +9,8 @@
 
   --slotsAvailable-color: #00ff33;
   --primary-light-color: #3e447e;
+
+  --footer-height: 7vh;
 }
 
 * {
