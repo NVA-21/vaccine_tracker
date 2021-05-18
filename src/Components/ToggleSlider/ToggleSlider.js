@@ -3,10 +3,11 @@ import "./ToggleSlider.css";
 
 const Switch = () => {
   return (
-    <label className="switch">
+    <div className="toggle">
       <input type="checkbox" />
-      <span className="slider" />
-    </label>
+      <label for="" className="pin">Search by PIN</label>
+      <label for="" className="dist">Search by District</label>
+    </div>
   );
 };
 

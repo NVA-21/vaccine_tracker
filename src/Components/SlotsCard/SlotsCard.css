@@ -23,22 +23,15 @@
 
 .info-card .main-info{
   display: flex;
-  margin: 10px;
+  margin: 5px;
   margin-left: 10px;
-  margin-right: 70px;
   padding-top: 3px;
   justify-content: space-between;
+  width: 60%;
 }
 
 .info-card .main-info h6{
   color: #283893;
-}
-
-.info-card .main-info h6:nth-child(2){
-  background-color: lightgreen;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
 }
 
 .info-card h6:nth-child(4){
@@ -48,6 +41,109 @@
   margin-left: 10px;
   margin-right: 70px;
 }
+
+.info-card .date-line1{
+  display: flex;
+  margin: 5px;
+  margin-left: 10px;
+  
+}
+
+.info-card .date-line1 .date1, .date2{
+  display: flex;
+}
+
+.info-card .date-line1 .date2{
+  margin-left: 22px;
+}
+
+.info-card .date-line1 .date1 h6:nth-child(1){
+  color: var(--secondary-color);
+  margin-right: 15px;
+  padding: 0;
+  padding-left: 0;
+  font-size: 12px;
+}
+
+.info-card .date-line1 .date1 h6:nth-child(2){
+  color: var(--primary-color);
+  background-color: var(--slotsAvailable-color);
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.info-card .date-line1 .date2 h6:nth-child(1){
+  color: var(--secondary-color);
+  margin-right: 15px;
+  padding: 0;
+  padding-left: 0;
+  font-size: 12px;
+}
+
+.info-card .date-line1 .date2 h6:nth-child(2){
+  color: var(--primary-color);
+  background-color: var(--slotsAvailable-color);
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.info-card .date-line2{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.info-card .date-line2 .date3, .date4{
+  display: flex;
+}
+
+.info-card .date-line2 .date4{
+  margin-left: 22px;
+}
+
+.info-card .date-line2 .date3 h6:nth-child(1){
+  color: var(--secondary-color);
+  margin-right: 15px;
+  padding: 0;
+  padding-left: 0;
+  font-size: 12px;
+}
+
+.info-card .date-line2 .date3 h6:nth-child(2){
+  color: var(--primary-color);
+  background-color: var(--slotsAvailable-color);
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.info-card .date-line2 .date4 h6:nth-child(1){
+  color: var(--secondary-color);
+  margin-right: 15px;
+  padding: 0;
+  padding-left: 0;
+  font-size: 12px;
+}
+
+.info-card .date-line2 .date4 h6:nth-child(2){
+  color: var(--primary-color);
+  background-color: var(--slotsAvailable-color);
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+
 
 
 

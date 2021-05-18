@@ -103,23 +103,22 @@ function App() {
           <div className="brandLogo">
             <img src={PUBLIC_IMAGE_PATH + "logo-title.png"} />
           </div>
+          <h1>Get Notified when your area has Slots Available.</h1>
+          <Switch />
 
-          {/* <Switch /> */}
 
-          {/* <input
-        style={{
-          border: "3px solid",
-          borderColor: inputError && "red",
-        }}
-        type="text"
-        className="input"
-        value={input}
-        onChange={(e) => {
-          handleInput(e.target.value);
-        }}
-        maxLength={6}
-      /> */}
+          <input
+          placeholder="Enter your Pincode"
+          type="text"
+          className="input"
+          value={input}
+          onChange={(e) => {
+            handleInput(e.target.value);
+          }}
+          maxLength={6}
+          />
 
+        
           {/* <div
         className="searchBtn"
         onClick={() => {

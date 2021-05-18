@@ -1,46 +1,49 @@
-.switch {
-  margin: 7%;
+.toggle{
   position: relative;
-  display: inline-block;
-  width: 40%;
-  height: 45px;
-  background-color: #fff;
-  border-radius: 40px;
-  box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.2);
+  display: inline;
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.toggle input[type="checkbox"]{
+  position: relative;
+  width: 70%;
+  height: 40px;
+  background: #fff;
+  -webkit-appearance: none;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-color: var(secondary_color);
-}
-
-.slider::before {
+.toggle input[type="checkbox"]::before{
   position: absolute;
   content: "Search by PIN";
   color: #fff;
-  font-weight: 300;
-  font-size: 30px;
+  display: flex;
   text-align: center;
-  height: 45px;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  top: 0px;
   width: 50%;
+  height: 40px;
+  background-color: var(--primary-color);
   border-radius: 40px;
-  background-color: #283893;
-  transition: 0.5s;
 }
 
-input:checked + .slider::before {
-  content: "Search by District";
+.toggle input:checked[type="checkbox"]::before{
   transform: translateX(100%);
+  content: "Search by District";
+  color: #fff;
+  text-align: center;
+}
+
+.toggle label{
+  position: absolute;
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.toggle .pin{
+  left: 61px;
+  bottom: 10px;
 }
