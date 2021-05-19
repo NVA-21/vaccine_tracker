@@ -80,7 +80,7 @@
 
 .slotsContainerScrollbar {
   display: block;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100% - 35px);
 }
 
