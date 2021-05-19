@@ -84,67 +84,17 @@
   height: calc(100% - 35px);
 }
 
+/* Scrollbar CSS  */
 .slotsContainerScrollbar::-webkit-scrollbar {
   background: #fff;
   border-radius: 8px;
   margin-left: 20px;
   box-shadow: var(--input-boxShadow);
 }
-
 .slotsContainerScrollbar::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
   border-radius: 8px;
   box-shadow: var(--input-boxShadow);
-}
-
-/* .Rounded_Rectangle_2_copy_4 {
-  border-radius: 8px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 3.878px 6.997px 7.2px 0.8px rgba(4, 4, 4, 0.1);
-  position: absolute;
-  left: 1746px;
-  top: 118px;
-  width: 18px;
-  height: 744px;
-  z-index: 73;
-} */
-/* .Rounded_Rectangle_2_copy_5 {
-  border-radius: 8px;
-  background-color: rgb(205, 31, 67);
-  box-shadow: 3.878px 6.997px 7.2px 0.8px rgba(4, 4, 4, 0.1);
-  position: absolute;
-  left: 1746px;
-  top: 118px;
-  width: 18px;
-  height: 246px;
-  z-index: 74;
-} */
-.registerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 15%;
-}
-
-.registerContainer .arogya-cont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 70px;
-}
-
-.registerContainer-head {
-  color: #283893;
-  font-weight: 800;
-  font-size: 20px;
-}
-
-.registerContainer-img {
-  height: 50px;
-  width: auto;
 }
 
 .slotCard {
@@ -159,4 +109,32 @@
 
 .slotCard:last-child {
   margin-bottom: 0;
+}
+
+.registerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 15%;
+}
+
+.registerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.registerContainer-head {
+  color: #283893;
+  font-weight: 800;
+  font-size: 20px;
+  word-break: keep-all;
+  width: min-content;
+}
+
+.registerContainer-img {
+  height: 50px;
+  width: auto;
 }

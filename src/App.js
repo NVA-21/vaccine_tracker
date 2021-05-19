@@ -14,6 +14,8 @@ import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 
 function App() {
+  const [searchMode, setSearchMode] = useState("pincode");
+
   // Input values
   const [input, setInput] = useState("");
   const [inputError, setInputError] = useState(false);
@@ -26,183 +28,9 @@ function App() {
   const [notificationSent, setNotificationSent] = useState(false);
 
   // Storing api data
-  const [data, setData] = useState([
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address: "Pocket A 2, Sector C, Gharoli, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605931,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Kondli Mayur Vihar Phase 3",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 200,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 2,
-          date: "20-05-2021",
-          min_age_limit: 45,
-          session_id: "9a0018ab-1dd4-4dc2-add1-f7049b845960",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-06:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "18:00:00",
-    },
-  ]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log(Notification.permission);
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     }
@@ -216,42 +44,57 @@ function App() {
 
   useInterval(async () => {
     if (apiFetching) {
-      // `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${input}&date=16-05-2021`
       // const date = "17-05-2021";
       const date = getDate();
-      console.log(date);
-      const responseValue = await fetchApiData(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
-      );
-      // console.log(responseValue);
+      // console.log(date);
 
-      async function filter() {
-        let filtered = await responseValue.centers.map((center) => ({
+      if (searchMode === "pincode") {
+        const responseValue = await fetchApiData(
+          `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
+        );
+        // console.log(responseValue);
+
+        const filtered = await responseValue.centers.map((center) => ({
           ...center,
           sessions: center.sessions.filter(
             (session) => session.available_capacity > 0
-
-            /*  transactions: product.transactions.filter(
-               transaction => transaction.purchase === dataItem.purchase
-             )*/
           ),
         }));
 
-        let finalResult = filtered.filter(
+        const finalResult = filtered.filter(
           (center) => center.sessions.length > 0
         );
+
+        if (finalResult.length > 0 && !notificationSent) {
+          handleNotification();
+        } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+          setNotificationSent(false);
+          handleNotification();
+        }
+        console.log(JSON.stringify(finalResult) === JSON.stringify(data));
+
         setData(finalResult);
       }
 
-      filter();
+      // pincodeDataFilter();
       // let result = responseValue.centers.filter((center) =>
       //   center.sessions.some((c) => c.available_capacity > 0)
       // );
       // console.log(result);
-
-      handleNotification();
     }
   }, 3000);
+
+  // To Check array equal or not
+  function objectsAreSame(x, y) {
+    var objectsAreSame = true;
+    for (var propertyName in x) {
+      if (x[propertyName] !== y[propertyName]) {
+        objectsAreSame = false;
+        break;
+      }
+    }
+    return objectsAreSame;
+  }
 
   function handleNotification() {
     // Sending notif first time
@@ -259,8 +102,8 @@ function App() {
       console.log("Notif SEND BOII");
       setNotificationSent(true);
       sendNotification(
-        "Hurry Up Vaccination available",
-        "Click me to reach COWIN site"
+        "Hurry Up New Vaccination Center just available",
+        "Click here to see the center"
       );
     }
   }
@@ -344,16 +187,14 @@ function App() {
               />
             </div>
             <div className="btnContainer">
-              <div className="helpBtn">
-                <Button />
-              </div>
+              <div className="helpBtn">{/* <Button /> */}</div>
               <div
                 className="searchBtn"
                 onClick={() => {
                   handleSearch();
                 }}
               >
-                {/* <Button /> */}
+                <Button />
               </div>
             </div>
           </div>

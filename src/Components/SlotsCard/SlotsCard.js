@@ -2,10 +2,6 @@ import React from "react";
 import "./SlotsCard.css";
 
 const SlotCard = (props) => {
-  // let data = [];
-  // if (props.data) {
-  //   data = props.data;
-  // }
   const data = props.data;
   // console.log(props.data);
   return (
@@ -16,7 +12,8 @@ const SlotCard = (props) => {
       </h5>
       <p className="center-location">
         {/* Pocket A 2 Sector C Gharoli Delhi, East Delhi, Delhi, 110096 */}
-        {data.address}
+        {/* {data.address}, */}
+        {data.district_name}, {data.pincode}
       </p>
 
       {data.sessions.map((session, index) => (
