@@ -1,0 +1,60 @@
+.slotCard {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--slotCards-boxShadow);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+}
+
+.center-name {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 700;
+  word-break: keep-all;
+  margin-bottom: 4px;
+}
+
+.center-location {
+  color: var(--primary-color);
+  font-size: 15px;
+  width: 100%;
+  font-weight: 400;
+  word-break: keep-all;
+  margin-bottom: 10px;
+}
+
+.slots-table-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.slots-table-set {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.date {
+  color: var(--secondary-color);
+  font-size: 15px;
+}
+
+.slots {
+  background-color: var(--slotsAvailable-color);
+  padding: 3px 10px;
+  border-radius: 7px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.slotCard .vaccine-category {
+  color: var(--primary-color);
+  font-size: 15px;
+}

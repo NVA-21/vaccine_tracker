@@ -1,0 +1,38 @@
+.toggle input[type="checkbox"] {
+  position: relative;
+  width: 70%;
+  height: 40px;
+  background: #fff;
+  -webkit-appearance: none;
+}
+
+.toggle input[type="checkbox"]::before {
+  position: absolute;
+  content: "Search by PIN";
+  color: #fff;
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 50%;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 40px;
+  z-index: 20;
+}
+
+.toggle input:checked[type="checkbox"]::before {
+  transform: translateX(100%);
+  content: "Search by District";
+  color: #fff;
+  text-align: center;
+}
+
+.toggle {
+  position: relative;
+  display: inline;
+}
