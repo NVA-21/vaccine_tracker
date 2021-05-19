@@ -10,6 +10,7 @@ import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
 // import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
+import Button1 from "./Components/Button/Button";
 import Button from "./Components/Button/Button";
 
 function App() {
@@ -235,14 +236,16 @@ function App() {
             />
           </div>
           <div className="btnContainer">
-            <div className="helpBtn"></div>
+            <div className="helpBtn">
+              <Button1 />
+            </div>
             <div
               className="searchBtn"
               onClick={() => {
                 handleSearch();
               }}
             >
-              <Button />
+              {/* <Button /> */}
             </div>
           </div>
         </div>
