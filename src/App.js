@@ -66,8 +66,10 @@ function App() {
         );
 
         if (finalResult.length > 0 && !notificationSent) {
+          // if atleast one center pops up
           handleNotification();
         } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+          // If new center arives or new slot date
           setNotificationSent(false);
           handleNotification();
         }
@@ -75,26 +77,8 @@ function App() {
 
         setData(finalResult);
       }
-
-      // pincodeDataFilter();
-      // let result = responseValue.centers.filter((center) =>
-      //   center.sessions.some((c) => c.available_capacity > 0)
-      // );
-      // console.log(result);
     }
   }, 3000);
-
-  // To Check array equal or not
-  function objectsAreSame(x, y) {
-    var objectsAreSame = true;
-    for (var propertyName in x) {
-      if (x[propertyName] !== y[propertyName]) {
-        objectsAreSame = false;
-        break;
-      }
-    }
-    return objectsAreSame;
-  }
 
   function handleNotification() {
     // Sending notif first time
@@ -103,7 +87,7 @@ function App() {
       setNotificationSent(true);
       sendNotification(
         "Hurry Up New Vaccination Center just available",
-        "Click here to see the center"
+        "Open the tab see the Center"
       );
     }
   }
@@ -114,7 +98,7 @@ function App() {
       body: body,
     });
 
-    notification.onclick = () => window.open("https://www.cowin.gov.in/home");
+    // notification.onclick = () => window.open("http://localhost:3000/");
   }
 
   function handleInput(value) {
@@ -145,7 +129,7 @@ function App() {
       // style={{
       //   background: `url(${PUBLIC_IMAGE_PATH}background.png)`,
       //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "right -100px bottom",
+      //   backgroundPosition: "right 20% bottom",
       // }}
     >
       <MaxWidthWrapper>
