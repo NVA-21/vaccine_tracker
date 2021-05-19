@@ -12,59 +12,33 @@
   color: var(--primary-color);
   font-size: 15px;
   font-weight: 700;
-  margin-bottom: 4px;
   word-break: keep-all;
+  margin-bottom: 4px;
 }
 
 .center-location {
-  color: #283893;
+  color: var(--primary-color);
   font-size: 15px;
   width: 100%;
   font-weight: 400;
-  margin-bottom: 4px;
   word-break: keep-all;
-}
-
-.slotCard .vaccine-category {
-  display: flex;
-  justify-content: space-between;
-  width: calc(50% + 20px);
   margin-bottom: 10px;
-}
-
-.slotCard .vaccine-category p {
-  color: #283893;
-  font-size: 15px;
 }
 
 .slots-table-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .slots-table-set {
-  width: 50%;
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
-}
-
-.slots-table-set-empty {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.slots {
-  background-color: var(--slotsAvailable-color);
-  padding: 2px 10px;
-  border-radius: 7px;
 }
 
 .date {
@@ -76,12 +50,11 @@
   background-color: var(--slotsAvailable-color);
   padding: 3px 10px;
   border-radius: 7px;
+  min-width: 40px;
+  text-align: center;
 }
 
-.first-col {
-  margin-right: 10px;
-}
-
-.second-col {
-  margin-left: 10px;
+.slotCard .vaccine-category {
+  color: var(--primary-color);
+  font-size: 15px;
 }

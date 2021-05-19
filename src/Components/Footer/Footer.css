@@ -1,5 +1,5 @@
 .footerBase {
-  background-color: #cd1f43;
+  background-color: var(--secondary-color);
   color: #fff;
   position: fixed;
   bottom: 0;
