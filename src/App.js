@@ -124,7 +124,12 @@ function App() {
 
       // To start the api call
       setApiFetching(true);
-    } else {
+
+      // just for build purpose delete later
+      setSearchMode(searchMode);
+    }
+    // To cancel the api call
+    else {
       setApiFetching(false);
     }
   }
