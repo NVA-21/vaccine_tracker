@@ -142,25 +142,21 @@
   font-size: 20px;
 }
 
-.registerContainer .arogyaimg {
-  height: auto;
-  width: 150px;
-}
-
-.registerContainer .umangimg {
+.registerContainer-img {
   height: 50px;
   width: auto;
 }
 
-.registerContainer .cowinimg {
-  height: 50px;
-  width: auto;
-}
-
-.slo {
+.slotCard {
   margin-bottom: 10px;
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--slotCards-boxShadow);
+  padding: 15px 20px;
 }
 
-.slo:last-child {
+.slotCard:last-child {
   margin-bottom: 0;
 }

@@ -9,7 +9,7 @@ const SlotCard = (props) => {
   const data = props.data;
   // console.log(props.data);
   return (
-    <div className="slotCard">
+    <>
       <h5 className="center-name">
         {/* DGD KONDLI MAYUR VIHAR PHASE 3 */}
         {data.name}
@@ -32,7 +32,7 @@ const SlotCard = (props) => {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
