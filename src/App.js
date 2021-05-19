@@ -10,6 +10,7 @@ import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
 // import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
+import Button from "./Components/Button/Button";
 
 function App() {
   // Input values
@@ -131,6 +132,8 @@ function App() {
               height={23}
             />
           </div>
+
+          <Button />
 
           {/* <div
             className="searchBtn"
