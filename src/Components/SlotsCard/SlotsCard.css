@@ -12,6 +12,7 @@
   color: var(--primary-color);
   font-size: 15px;
   font-weight: 700;
+  text-transform: uppercase;
   word-break: keep-all;
   margin-bottom: 4px;
 }

@@ -141,7 +141,7 @@ function App() {
       // );
       // console.log(result);
 
-      // handleNotification();
+      handleNotification();
     }
   }, 3000);
 
@@ -202,6 +202,7 @@ function App() {
           <img
             src={PUBLIC_IMAGE_PATH + "logo-title.png"}
             className="brandLogo"
+            alt="COVID VACCINE TRACKER"
           />
 
           <h1 className="mainHead">
