@@ -12,12 +12,12 @@
 }
 
 .leftContainer {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 60%;
 }
 
 .rightContainer {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 40%;
 }
 
@@ -60,6 +60,13 @@
 .inputContainer .searchIcon {
   position: absolute;
   right: 25px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
 }
 
 .slotsContainer {
@@ -138,3 +145,15 @@
   height: 50px;
   width: auto;
 }
+
+/* .Rounded_Rectangle_1_copy_3 {
+  border-radius: 36px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3.878px 6.997px 7.2px 0.8px rgba(4, 4, 4, 0.1);
+  position: absolute;
+  left: 143px;
+  top: 848px;
+  width: 395px;
+  height: 72px;
+  z-index: 67;
+} */

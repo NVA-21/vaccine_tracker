@@ -12,6 +12,7 @@ import Footer from "./Components/Footer/Footer";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
+import { borderRadius, primaryColor } from "./utils/Theme";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -93,7 +94,7 @@ function App() {
   }
 
   function sendNotification(title, body) {
-    const notification = new Notification(title, {
+    new Notification(title, {
       icon: PUBLIC_IMAGE_PATH + "logo.png",
       body: body,
     });
@@ -108,19 +109,24 @@ function App() {
   }
 
   function handleSearch() {
-    if (input.length < 6) {
-      setInputError(true);
-      return false;
+    // If not searching from API
+    if (!apiFetching) {
+      if (input.length < 6) {
+        setInputError(true);
+        return false;
+      }
+
+      // Disabling inputError
+      setInputError(false);
+
+      // Setting input value as Search Query value
+      setSearchQuery(input);
+
+      // To start the api call
+      setApiFetching(true);
+    } else {
+      setApiFetching(false);
     }
-
-    // Disabling inputError
-    setInputError(false);
-
-    // Setting input value as Search Query value
-    setSearchQuery(input);
-
-    // To start the api call
-    setApiFetching(true);
   }
   console.log(data);
   return (
@@ -149,7 +155,10 @@ function App() {
 
             <div
               className="inputContainer"
-              style={{ border: inputError && `1px solid red` }}
+              style={{
+                border: inputError && `1px solid red`,
+                borderRadius: borderRadius,
+              }}
             >
               <input
                 placeholder="Enter your Pincode"
@@ -171,14 +180,24 @@ function App() {
               />
             </div>
             <div className="btnContainer">
-              <div className="helpBtn">{/* <Button /> */}</div>
-              <div
-                className="searchBtn"
-                onClick={() => {
-                  handleSearch();
-                }}
-              >
-                <Button />
+              <div className="helpBtn">
+                <Button
+                  text="Need Help?"
+                  background={"#fff"}
+                  color={primaryColor}
+                  borderRadius={borderRadius}
+                  onClick={() => {}}
+                />
+              </div>
+              <div className="searchBtn">
+                <Button
+                  text="Get Notified"
+                  borderRadius={borderRadius}
+                  animate={true}
+                  onClick={() => {
+                    handleSearch();
+                  }}
+                />
               </div>
             </div>
           </div>
