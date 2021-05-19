@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   fetchApiData,
   NUMBER_REGEX,
@@ -200,6 +200,8 @@ function App() {
       to: "18:00:00",
     },
   ]);
+
+  useEffect(() => {}, []);
 
   useInterval(async () => {
     if (apiFetching) {

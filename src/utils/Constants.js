@@ -26,8 +26,20 @@ export const PUBLIC_IMAGE_PATH = "/assets/images/";
 export const NUMBER_REGEX = /^[0-9]+$/;
 
 export const getDate = () => {
-  // let m = moment().format("DD-MM-YYYY");
-  // console.log(m);
-  // return m;
-  return "19-05-2021";
+  const dateTime = new Date();
+
+  if (dateTime.getHours() >= 15) {
+    dateTime.setHours(dateTime.getHours() + 7);
+  }
+
+  const date =
+    dateTime.getDate() +
+    "-" +
+    (dateTime.getMonth() + 1) +
+    "-" +
+    dateTime.getFullYear();
+
+  // console.log(date);
+  // return "19-05-2021";
+  return date;
 };
