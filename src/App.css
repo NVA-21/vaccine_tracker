@@ -119,3 +119,46 @@
   height: 246px;
   z-index: 74;
 } */
+.link-web {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.link-web .arogya-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 70px;
+}
+
+.link-web h3 {
+  color: #283893;
+  font-weight: 800;
+}
+
+.link-web .arogyaimg {
+  height: auto;
+  width: 150px;
+}
+
+.link-web .umangimg {
+  height: 50px;
+  width: auto;
+}
+
+.link-web .cowinimg {
+  height: 50px;
+  width: auto;
+}
+
+.slo {
+  margin-bottom: 10px;
+}
+
+.slo:last-child {
+  margin-bottom: 0;
+}
