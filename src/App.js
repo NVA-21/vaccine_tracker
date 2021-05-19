@@ -201,7 +201,18 @@ function App() {
     },
   ]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(Notification.permission);
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    }
+
+    if (Notification.permission === "denied") {
+      // alert("Notification permission is denied in your system");
+    }
+
+    Notification.requestPermission();
+  }, []);
 
   useInterval(async () => {
     if (apiFetching) {
