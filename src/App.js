@@ -26,178 +26,178 @@ function App() {
 
   // Storing api data
   const [data, setData] = useState([
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address:
-        "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605943,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Vasundhara Enclave",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 1,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "25-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-        {
-          available_capacity: 3,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 1,
-          date: "26-05-2021",
-          min_age_limit: 45,
-          session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-05:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "17:00:00",
-    },
-    {
-      address: "Pocket A 2, Sector C, Gharoli, Delhi",
-      block_name: "Not Applicable",
-      center_id: 605931,
-      district_name: "East Delhi",
-      fee_type: "Free",
-      from: "09:00:00",
-      lat: 28,
-      long: 77,
-      name: "DGD Kondli Mayur Vihar Phase 3",
-      pincode: 110096,
-      sessions: [
-        {
-          available_capacity: 200,
-          available_capacity_dose1: 0,
-          available_capacity_dose2: 2,
-          date: "20-05-2021",
-          min_age_limit: 45,
-          session_id: "9a0018ab-1dd4-4dc2-add1-f7049b845960",
-          slots: [
-            "09:00AM-11:00AM",
-            "11:00AM-01:00PM",
-            "01:00PM-03:00PM",
-            "03:00PM-06:00PM",
-          ],
-          vaccine: "COVISHIELD",
-        },
-      ],
-      state_name: "Delhi",
-      to: "18:00:00",
-    },
+    // {
+    //   address:
+    //     "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
+    //   block_name: "Not Applicable",
+    //   center_id: 605943,
+    //   district_name: "East Delhi",
+    //   fee_type: "Free",
+    //   from: "09:00:00",
+    //   lat: 28,
+    //   long: 77,
+    //   name: "DGD Vasundhara Enclave",
+    //   pincode: 110096,
+    //   sessions: [
+    //     {
+    //       available_capacity: 1,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "25-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //     {
+    //       available_capacity: 3,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "26-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //   ],
+    //   state_name: "Delhi",
+    //   to: "17:00:00",
+    // },
+    // {
+    //   address:
+    //     "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
+    //   block_name: "Not Applicable",
+    //   center_id: 605943,
+    //   district_name: "East Delhi",
+    //   fee_type: "Free",
+    //   from: "09:00:00",
+    //   lat: 28,
+    //   long: 77,
+    //   name: "DGD Vasundhara Enclave",
+    //   pincode: 110096,
+    //   sessions: [
+    //     {
+    //       available_capacity: 1,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "25-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //     {
+    //       available_capacity: 3,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "26-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //   ],
+    //   state_name: "Delhi",
+    //   to: "17:00:00",
+    // },
+    // {
+    //   address:
+    //     "Shaheed Budh Ram Singh Marg, Abhimanyu Appartment, Vasundhara Enclave, New Delhi, Delhi",
+    //   block_name: "Not Applicable",
+    //   center_id: 605943,
+    //   district_name: "East Delhi",
+    //   fee_type: "Free",
+    //   from: "09:00:00",
+    //   lat: 28,
+    //   long: 77,
+    //   name: "DGD Vasundhara Enclave",
+    //   pincode: 110096,
+    //   sessions: [
+    //     {
+    //       available_capacity: 1,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "25-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //     {
+    //       available_capacity: 3,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 1,
+    //       date: "26-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "cfe1c59e-88c8-4be3-a798-c6140ca28b6c",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-05:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //   ],
+    //   state_name: "Delhi",
+    //   to: "17:00:00",
+    // },
+    // {
+    //   address: "Pocket A 2, Sector C, Gharoli, Delhi",
+    //   block_name: "Not Applicable",
+    //   center_id: 605931,
+    //   district_name: "East Delhi",
+    //   fee_type: "Free",
+    //   from: "09:00:00",
+    //   lat: 28,
+    //   long: 77,
+    //   name: "DGD Kondli Mayur Vihar Phase 3",
+    //   pincode: 110096,
+    //   sessions: [
+    //     {
+    //       available_capacity: 200,
+    //       available_capacity_dose1: 0,
+    //       available_capacity_dose2: 2,
+    //       date: "20-05-2021",
+    //       min_age_limit: 45,
+    //       session_id: "9a0018ab-1dd4-4dc2-add1-f7049b845960",
+    //       slots: [
+    //         "09:00AM-11:00AM",
+    //         "11:00AM-01:00PM",
+    //         "01:00PM-03:00PM",
+    //         "03:00PM-06:00PM",
+    //       ],
+    //       vaccine: "COVISHIELD",
+    //     },
+    //   ],
+    //   state_name: "Delhi",
+    //   to: "18:00:00",
+    // },
   ]);
 
   useInterval(async () => {
@@ -363,13 +363,22 @@ function App() {
               <img
                 src={PUBLIC_IMAGE_PATH + "arogya.png"}
                 className="arogyaimg"
+                alt=""
               />
             </a>
             <a href="https://web.umang.gov.in/landing/" target="blank">
-              <img src={PUBLIC_IMAGE_PATH + "umang.png"} className="umangimg" />
+              <img
+                src={PUBLIC_IMAGE_PATH + "umang.png"}
+                className="umangimg"
+                alt=""
+              />
             </a>
             <a href="https://www.cowin.gov.in/home" target="blank">
-              <img src={PUBLIC_IMAGE_PATH + "cowin.png"} className="cowinimg" />
+              <img
+                src={PUBLIC_IMAGE_PATH + "cowin.png"}
+                className="cowinimg"
+                alt=""
+              />
             </a>
           </div>
         </div>

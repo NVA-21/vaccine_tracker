@@ -64,7 +64,7 @@
 
 .slotsContainer {
   background-color: var(--tertiary-color);
-  height: 80%;
+  height: 85%;
   border-radius: 13px;
   padding: 10px 15px 15px;
   box-shadow: var(--slotCards-boxShadow);
@@ -123,7 +123,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5%;
+  height: 15%;
 }
 
 .link-web .arogya-cont {
