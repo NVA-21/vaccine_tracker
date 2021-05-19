@@ -1,12 +1,12 @@
 import React from "react";
 import "./Button.css";
 
-window.onload = function () {
-  const btn = document.querySelector(".get_notified");
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("loading");
-  });
-};
+// window.onload = function () {
+//   const btn = document.querySelector(".get_notified");
+//   btn.addEventListener("click", () => {
+//     btn.classList.toggle("loading");
+//   });
+// };
 
 const Button = () => {
   return (

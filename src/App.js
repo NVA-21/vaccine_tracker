@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 // import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
+import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 
 function App() {
   // Input values
@@ -291,99 +292,100 @@ function App() {
       //   backgroundPosition: "right -100px bottom",
       // }}
     >
-      <div className="contentContainers">
-        <div className="leftContainer">
-          <img
-            src={PUBLIC_IMAGE_PATH + "logo-title.png"}
-            className="brandLogo"
-            alt="COVID VACCINE TRACKER"
-          />
-
-          <h1 className="mainHead">
-            Get Notified when your <br />
-            area has a slots availability.
-          </h1>
-          {/* <ToggleSlider /> */}
-
-          <div
-            className="inputContainer"
-            style={{ border: inputError && `1px solid red` }}
-          >
-            <input
-              placeholder="Enter your Pincode"
-              type="text"
-              className="input"
-              value={input}
-              onChange={(e) => {
-                handleInput(e.target.value);
-              }}
-              maxLength={6}
-            />
-
+      <MaxWidthWrapper>
+        <div className="contentContainers">
+          <div className="leftContainer">
             <img
-              src={PUBLIC_IMAGE_PATH + "search.svg"}
-              className="searchIcon"
-              alt=""
-              width={22}
-              height={23}
+              src={PUBLIC_IMAGE_PATH + "logo-title.png"}
+              className="brandLogo"
+              alt="COVID VACCINE TRACKER"
             />
-          </div>
-          <div className="btnContainer">
-            <div className="helpBtn">
-              <Button />
-            </div>
+
+            <h1 className="mainHead">
+              Get Notified when your <br />
+              area has a slots availability.
+            </h1>
+            {/* <ToggleSlider /> */}
+
             <div
-              className="searchBtn"
-              onClick={() => {
-                handleSearch();
-              }}
+              className="inputContainer"
+              style={{ border: inputError && `1px solid red` }}
             >
-              {/* <Button /> */}
+              <input
+                placeholder="Enter your Pincode"
+                type="text"
+                className="input"
+                value={input}
+                onChange={(e) => {
+                  handleInput(e.target.value);
+                }}
+                maxLength={6}
+              />
+
+              <img
+                src={PUBLIC_IMAGE_PATH + "search.svg"}
+                className="searchIcon"
+                alt=""
+                width={22}
+                height={23}
+              />
+            </div>
+            <div className="btnContainer">
+              <div className="helpBtn">
+                <Button />
+              </div>
+              <div
+                className="searchBtn"
+                onClick={() => {
+                  handleSearch();
+                }}
+              >
+                {/* <Button /> */}
+              </div>
+            </div>
+          </div>
+
+          <div className="rightContainer">
+            <div className="slotsContainer">
+              <h4>SLOTS AVAILABLE</h4>
+              <div className="slotsContainerScrollbar">
+                {data.map((center, index) => (
+                  <div className="slo" key={index}>
+                    <SlotCard data={center} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="registerContainer">
+              <h3 className="registerContainer-head">Register through</h3>
+              <a
+                href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en_IN&gl=US"
+                target="blank"
+              >
+                <img
+                  src={PUBLIC_IMAGE_PATH + "arogya.png"}
+                  className="arogyaimg"
+                  alt=""
+                />
+              </a>
+              <a href="https://web.umang.gov.in/landing/" target="blank">
+                <img
+                  src={PUBLIC_IMAGE_PATH + "umang.png"}
+                  className="umangimg"
+                  alt=""
+                />
+              </a>
+              <a href="https://www.cowin.gov.in/home" target="blank">
+                <img
+                  src={PUBLIC_IMAGE_PATH + "cowin.png"}
+                  className="cowinimg"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </div>
-
-        <div className="rightContainer">
-          <div className="slotsContainer">
-            <h4>SLOTS AVAILABLE</h4>
-            <div className="slotsContainerScrollbar">
-              {data.map((center, index) => (
-                <div className="slo" key={index}>
-                  <SlotCard data={center} />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="link-web">
-            <h3>Register through</h3>
-            <a
-              href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en_IN&gl=US"
-              target="blank"
-            >
-              <img
-                src={PUBLIC_IMAGE_PATH + "arogya.png"}
-                className="arogyaimg"
-                alt=""
-              />
-            </a>
-            <a href="https://web.umang.gov.in/landing/" target="blank">
-              <img
-                src={PUBLIC_IMAGE_PATH + "umang.png"}
-                className="umangimg"
-                alt=""
-              />
-            </a>
-            <a href="https://www.cowin.gov.in/home" target="blank">
-              <img
-                src={PUBLIC_IMAGE_PATH + "cowin.png"}
-                className="cowinimg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-
+      </MaxWidthWrapper>
       <Footer />
     </div>
   );

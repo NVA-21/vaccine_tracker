@@ -119,14 +119,15 @@
   height: 246px;
   z-index: 74;
 } */
-.link-web {
+.registerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   height: 15%;
 }
 
-.link-web .arogya-cont {
+.registerContainer .arogya-cont {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,22 +136,23 @@
   width: 70px;
 }
 
-.link-web h3 {
+.registerContainer-head {
   color: #283893;
   font-weight: 800;
+  font-size: 20px;
 }
 
-.link-web .arogyaimg {
+.registerContainer .arogyaimg {
   height: auto;
   width: 150px;
 }
 
-.link-web .umangimg {
+.registerContainer .umangimg {
   height: 50px;
   width: auto;
 }
 
-.link-web .cowinimg {
+.registerContainer .cowinimg {
   height: 50px;
   width: auto;
 }
