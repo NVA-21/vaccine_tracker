@@ -10,7 +10,6 @@ import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
 // import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
-import Button1 from "./Components/Button/Button";
 import Button from "./Components/Button/Button";
 
 function App() {
@@ -237,7 +236,7 @@ function App() {
           </div>
           <div className="btnContainer">
             <div className="helpBtn">
-              <Button1 />
+              <Button />
             </div>
             <div
               className="searchBtn"
@@ -265,6 +264,18 @@ function App() {
             <SlotCard /> */}
             {/* <SlotCard /> */}
           </div>
+          <div className="link-web">
+            <h3>Register through</h3>
+            <a href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en_IN&gl=US" target="blank">
+                <img src={PUBLIC_IMAGE_PATH + "arogya.png"} className="arogyaimg" />
+              </a>
+            <a href="https://web.umang.gov.in/landing/" target="blank">
+              <img src={PUBLIC_IMAGE_PATH + "umang.png"} className="umangimg" />
+            </a>
+            <a href="https://www.cowin.gov.in/home" target="blank">
+              <img src={PUBLIC_IMAGE_PATH + "cowin.png"} className="cowinimg" />
+            </a>
+          </div> 
         </div>
       </div>
 
