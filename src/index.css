@@ -17,7 +17,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 body {
@@ -33,4 +33,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media (max-width: 768px) {
+  * {
+    overflow-y: scroll;
+  }
 }

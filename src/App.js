@@ -13,6 +13,7 @@ import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
+import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -157,7 +158,8 @@ function App() {
               Get Notified when your <br />
               area has a slots availability.
             </h1>
-            {/* <ToggleSlider /> */}
+
+            <ToggleSlider />
 
             <div
               className="inputContainer"
