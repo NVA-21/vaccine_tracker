@@ -1,0 +1,25 @@
+.modal-main{
+  max-width: 720px;
+  max-height: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: blanchedalmond; */
+  border-radius: 20px;
+  padding: 0 40px 40px 40px ;
+  box-shadow: var(--input-boxShadow);
+}
+
+.modal-heading{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+::-webkit-scrollbar{
+  display: block;
+  width: 10px;
+}
+
+
+

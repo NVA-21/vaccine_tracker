@@ -8,7 +8,7 @@ import {
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
-// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
+import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";

@@ -35,7 +35,7 @@
 }
 
 .animate::before {
-  content: "Searching...";
+  content: "Searching";
   position: absolute;
   top: 0;
   left: 0;
@@ -47,41 +47,32 @@
   margin-bottom: 5px;
   margin-right: 50px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: flex-start;
   border-right: 2px solid rgba(255, 255, 255, 0.4);
   transition: 0.5s;
 }
 
+.animate::before{
+  display: block;
+  animation: dotty steps(1,end) 1s infinite;
+  content: '';
+  padding-top: 4px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  margin-left: 30px;
+}
+
+@keyframes dotty {
+    0%   { content: 'Searching'; }
+    25%  { content: 'Searching.'; }
+    50%  { content: 'Searching..'; }
+    75%  { content: 'Searching...'; }
+    100% { content: 'Searching'; }
+}
+
 .animate::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-left: 178px;
-  margin-top: 8px;
-  border: 4px solid transparent;
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: button-spin 1s ease infinite;
-  transition: 0.35s;
-}
-
-@keyframes button-spin {
-  from {
-    transform: rotate(0turn);
-  }
-
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-.animate:hover::after {
   content: "X";
   top: 0;
   left: 0;
@@ -94,9 +85,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-left: 189px;
-  margin-top: 20px;
+  margin-top: -3px;
+  margin-bottom: 25px;
   font-size: 25px;
   font-weight: 700;
   color: #fff;
+  transition: 0.5s;
+}
+
+.animate:hover::after{
+  content: "X";
+  font-size: 28px;
 }
