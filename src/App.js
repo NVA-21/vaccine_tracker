@@ -143,6 +143,7 @@ function App() {
       //   backgroundPosition: "right 20% bottom",
       // }}
     >
+      <div className="backgroundCircle"></div>
       <MaxWidthWrapper>
         <div className="contentContainers">
           <div className="leftContainer">
@@ -185,25 +186,25 @@ function App() {
               />
             </div>
             <div className="btnContainer">
-              <div className="helpBtn">
-                <Button
-                  text="Need Help?"
-                  background={"#fff"}
-                  color={primaryColor}
-                  borderRadius={borderRadius}
-                  onClick={() => {}}
-                />
-              </div>
-              <div className="searchBtn">
-                <Button
-                  text="Get Notified"
-                  borderRadius={borderRadius}
-                  animate={true}
-                  onClick={() => {
-                    handleSearch();
-                  }}
-                />
-              </div>
+              {/* <div className="helpBtn"> */}
+              <Button
+                text="Need Help?"
+                background={"#fff"}
+                color={primaryColor}
+                borderRadius={borderRadius}
+                onClick={() => {}}
+              />
+              {/* </div> */}
+              {/* <div className="searchBtn"> */}
+              <Button
+                text="Get Notified"
+                borderRadius={borderRadius}
+                animate={true}
+                onClick={() => {
+                  handleSearch();
+                }}
+              />
+              {/* </div> */}
             </div>
           </div>
 

@@ -157,3 +157,62 @@
   height: 72px;
   z-index: 67;
 } */
+
+@media (max-width: 768px) {
+  .App {
+    height: auto;
+  }
+
+  .contentContainers {
+    flex-direction: column;
+  }
+}
+
+.backgroundCircle {
+  --x: 90%;
+  --y: 15%;
+  --ciircleWidth: 45%;
+}
+.backgroundCircle {
+  --mask: radial-gradient(
+    circle at var(--x, 70%) var(--y, 50%),
+    black var(--ciircleWidth),
+    transparent 0
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(
+45deg
+, #40e0d0, #9932cc, #ff1493, orange); */
+  background-color: #deffff;
+  color: rgb(9, 14, 23);
+  -webkit-mask-image: var(--mask);
+  mask-image: var(--mask);
+  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
+  z-index: -1;
+}
+
+/* .backgroundCircle {
+  --x: 98%;
+  --y: 28%;
+}
+.backgroundCircle {
+  --mask: radial-gradient(
+    circle at var(--x, 70%) var(--y, 50%),
+    black 25%,
+    transparent 0
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #40e0d0, #9932cc, #ff1493, orange);
+  color: rgb(9, 14, 23);
+  -webkit-mask-image: var(--mask);
+  mask-image: var(--mask);
+  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
+} */
