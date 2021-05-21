@@ -8,19 +8,19 @@ const HelpModal = ({open, onclose}) => {
       <div className="modal-main">
         <div className="modal-heading">
           <h1>Need Help?</h1>
-          <button onClick={onclose}>X</button>
+          <button onClick={onclose}></button>
         </div>
         <div className="scroll">
           <div className="why-us">
             <h2>Why us?</h2><br/>
             <p>Tired of staying up all night looking for slots for the vaccine? 
               Don't you worry! Our web app will send you a notification as soon 
-              as there are slots available and you can book it first!<br/><br/> Our web app 
+              as there are slots available and you can book it first!<br/> Our web app 
               doesn't gather any user information by the use of cookies or other 
               third-party software or ads. It only asks for permission to enable 
               notification. If you are facing any issues with notification you can 
               check out the help given below.</p><br/>
-          </div>
+          </div><br />
           <div className="howtoregister">
             <h2>How to Register and Schedule the Vaccine?</h2><br/>
             <b>On Cowin platform:</b><br/><br/>
@@ -34,13 +34,12 @@ const HelpModal = ({open, onclose}) => {
               7. You will receive a confirmation message upon successful registration.<br/>
             </p>
             <br/>
-            <b>On Arogya Setu app:</b><br/><br/>
+            <b>On Aarogya Setu app:</b><br/><br/>
             <p>
               1. Open 'Aarogya Setu' app.<br />
-              2. Click on the CoWin tab on home screen.<br />
-              3. Select 'Vaccination Registration' and enter mobile number.<br />
-              4. You ll receive an OTP on your mobile, enter it on site.<br />
-              5. Once your mobile number is verified, enter your details and click 'Register'.<br />
+              2. Select 'Vaccination Registration' and enter mobile number.<br />
+              3. You ll receive an OTP on your mobile, enter it on site.<br />
+              4. Once your mobile number is verified, enter your details and click 'Register'.<br />
             </p>
           </div>
         </div>

@@ -19,16 +19,21 @@
 
 .modal-heading h1{
   font-size:40px;
+  padding-left: 13px;
+  padding-top: 8px;
   color: var(--secondary-color);
 }
 
 .modal-heading button{
   height: 40px;
   width: 40px;
-  font-size: 40px;
   outline: 0;
   border: 0;
   background-color: #fff;
+  background: url("./cancelbtn.png");
+  background-size: 35px;
+  background-repeat: no-repeat;
+  margin-top: 14px;
   color: var(--secondary-color);
   cursor: pointer;
 }
@@ -48,7 +53,7 @@
 .modal .scroll{
   overflow-y: scroll;
   padding: 15px;
-  box-shadow: inset 2px 2px 2px 2px rgba(0,0,0,0.3);
+  padding-top: 0;
   border-radius: 5px;
 }
 ::-webkit-scrollbar{
