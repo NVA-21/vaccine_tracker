@@ -13,6 +13,7 @@ import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
+import Checkbox from "./Components/Checkboxes/checkbox"
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -184,6 +185,19 @@ function App() {
                 width={22}
                 height={23}
               />
+            </div>
+            <div className="checklists">
+              <div className="checklist1">
+                <Checkbox text='18-44'/>
+                <Checkbox text='45+'/>
+                <Checkbox text='Free'/>
+                <Checkbox text='Paid'/>
+              </div>
+              <div className="checklist2">
+                <Checkbox text='Covaxin' />
+                <Checkbox text='Covishield' />
+                <Checkbox text='Sputnik V' />
+              </div>
             </div>
             <div className="btnContainer">
               {/* <div className="helpBtn"> */}
