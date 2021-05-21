@@ -14,6 +14,8 @@ import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
 import Checkbox from "./Components/Checkboxes/checkbox"
+import HelpModal from "./Components/HelpModal/HelpModal";
+
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -31,6 +33,9 @@ function App() {
 
   // Storing api data
   const [data, setData] = useState([]);
+
+  // Modal opening.
+  const [isOpen, setisOpen] = useState(false)
 
   useEffect(() => {
     if (!("Notification" in window)) {
@@ -206,8 +211,11 @@ function App() {
                 background={"#fff"}
                 color={primaryColor}
                 borderRadius={borderRadius}
-                onClick={() => {}}
+                onClick={() => setisOpen(true)}
               />
+              <HelpModal open={isOpen} onclose={() => setisOpen(false)} />
+
+
               {/* </div> */}
               {/* <div className="searchBtn"> */}
               <Button

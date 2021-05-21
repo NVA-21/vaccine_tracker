@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-// import HelpModal from "./Components/HelpModal/HelpModal";
+import HelpModal from "./Components/HelpModal/HelpModal";
 
 
 ReactDOM.render(
