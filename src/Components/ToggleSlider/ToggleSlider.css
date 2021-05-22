@@ -3,6 +3,8 @@
   width: 70%;
   height: 40px;
   background: #fff;
+  box-shadow: var(--input-boxShadow);
+  border-radius: 40px;
   -webkit-appearance: none;
 }
 
