@@ -13,9 +13,9 @@ import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
-import Checkbox from "./Components/Checkboxes/checkbox"
+import Checkbox from "./Components/Checkboxes/checkbox";
 import HelpModal from "./Components/HelpModal/HelpModal";
-
+import Dropdown from "./Components/Dropdown/Dropdown";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -35,7 +35,7 @@ function App() {
   const [data, setData] = useState([]);
 
   // Modal opening.
-  const [isOpen, setisOpen] = useState(false)
+  const [isOpen, setisOpen] = useState(false);
 
   useEffect(() => {
     if (!("Notification" in window)) {
@@ -61,15 +61,15 @@ function App() {
         );
         // console.log(responseValue);
 
-        const filtered = await responseValue.centers.map((center) => ({
+        const filtered = await responseValue.centers.map(center => ({
           ...center,
           sessions: center.sessions.filter(
-            (session) => session.available_capacity > 0
+            session => session.available_capacity > 0
           ),
         }));
 
         const finalResult = filtered.filter(
-          (center) => center.sessions.length > 0
+          center => center.sessions.length > 0
         );
 
         if (finalResult.length > 0 && !notificationSent) {
@@ -165,7 +165,7 @@ function App() {
             </h1>
             {/* <ToggleSlider /> */}
 
-            <div
+            {/* <div
               className="inputContainer"
               style={{
                 border: inputError && `1px solid red`,
@@ -177,7 +177,7 @@ function App() {
                 type="text"
                 className="input"
                 value={input}
-                onChange={(e) => {
+                onChange={e => {
                   handleInput(e.target.value);
                 }}
                 maxLength={6}
@@ -190,18 +190,23 @@ function App() {
                 width={22}
                 height={23}
               />
+            </div> */}
+            <div className="toggle-pin-dist">
+              <Dropdown text="Select State" />
+              <Dropdown text="Select District" />
             </div>
+
             <div className="checklists">
               <div className="checklist1">
-                <Checkbox text='18-44'/>
-                <Checkbox text='45+'/>
-                <Checkbox text='Free'/>
-                <Checkbox text='Paid'/>
+                <Checkbox text="18-44" />
+                <Checkbox text="45+" />
+                <Checkbox text="Free" />
+                <Checkbox text="Paid" />
               </div>
               <div className="checklist2">
-                <Checkbox text='Covaxin' />
-                <Checkbox text='Covishield' />
-                <Checkbox text='Sputnik V' />
+                <Checkbox text="Covaxin" />
+                <Checkbox text="Covishield" />
+                <Checkbox text="Sputnik V" />
               </div>
             </div>
             <div className="btnContainer">
@@ -214,7 +219,6 @@ function App() {
                 onClick={() => setisOpen(true)}
               />
               <HelpModal open={isOpen} onclose={() => setisOpen(false)} />
-
 
               {/* </div> */}
               {/* <div className="searchBtn"> */}
