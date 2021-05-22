@@ -13,6 +13,7 @@ import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
+import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -143,6 +144,7 @@ function App() {
       //   backgroundPosition: "right 20% bottom",
       // }}
     >
+      <div className="backgroundCircle"></div>
       <MaxWidthWrapper>
         <div className="contentContainers">
           <div className="leftContainer">
@@ -156,7 +158,8 @@ function App() {
               Get Notified when your <br />
               area has a slots availability.
             </h1>
-            {/* <ToggleSlider /> */}
+
+            <ToggleSlider />
 
             <div
               className="inputContainer"
@@ -185,25 +188,25 @@ function App() {
               />
             </div>
             <div className="btnContainer">
-              <div className="helpBtn">
-                <Button
-                  text="Need Help?"
-                  background={"#fff"}
-                  color={primaryColor}
-                  borderRadius={borderRadius}
-                  onClick={() => {}}
-                />
-              </div>
-              <div className="searchBtn">
-                <Button
-                  text="Get Notified"
-                  borderRadius={borderRadius}
-                  animate={true}
-                  onClick={() => {
-                    handleSearch();
-                  }}
-                />
-              </div>
+              {/* <div className="helpBtn"> */}
+              <Button
+                text="Need Help?"
+                background={"#fff"}
+                color={primaryColor}
+                borderRadius={borderRadius}
+                onClick={() => {}}
+              />
+              {/* </div> */}
+              {/* <div className="searchBtn"> */}
+              <Button
+                text="Get Notified"
+                borderRadius={borderRadius}
+                animate={true}
+                onClick={() => {
+                  handleSearch();
+                }}
+              />
+              {/* </div> */}
             </div>
           </div>
 

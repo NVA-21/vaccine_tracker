@@ -28,7 +28,7 @@
 .toggle input:checked[type="checkbox"]::before {
   transform: translateX(100%);
   content: "Search by District";
-  color: #fff;
+  color: black;
   text-align: center;
 }
 
