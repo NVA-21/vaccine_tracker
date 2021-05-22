@@ -14,3 +14,10 @@
   font-size: 20px;
   letter-spacing: 1px;
 }
+
+@media (max-width: 768px) {
+  .footerBase {
+    position: static;
+    font-size: 12px;
+  }
+}

@@ -3,6 +3,30 @@
   width: 100%;
 }
 
+.backgroundCircle {
+  --x: 90%;
+  --y: 15%;
+  --ciircleWidth: 45%;
+}
+.backgroundCircle {
+  --mask: radial-gradient(
+    circle at var(--x, 70%) var(--y, 50%),
+    black var(--ciircleWidth),
+    transparent 0
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #deffff;
+  color: rgb(9, 14, 23);
+  -webkit-mask-image: var(--mask);
+  mask-image: var(--mask);
+  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
+  z-index: -1;
+}
+
 .contentContainers {
   display: flex;
   justify-content: space-between;
@@ -12,12 +36,10 @@
 }
 
 .leftContainer {
-  /* border: 1px solid black; */
   width: 60%;
 }
 
 .rightContainer {
-  /* border: 1px solid blue; */
   width: 40%;
 }
 
@@ -68,6 +90,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
+  height: 100%;
 }
 
 .slotsContainer {
@@ -164,29 +187,23 @@
   z-index: 67;
 } */
 
-.backgroundCircle {
-  --x: 90%;
-  --y: 15%;
-  --ciircleWidth: 45%;
+.checklists {
+  width: 80%;
+  margin-bottom: 20px;
 }
-.backgroundCircle {
-  --mask: radial-gradient(
-    circle at var(--x, 70%) var(--y, 50%),
-    black var(--ciircleWidth),
-    transparent 0
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #deffff;
-  color: rgb(9, 14, 23);
-  -webkit-mask-image: var(--mask);
-  mask-image: var(--mask);
-  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
-  z-index: -1;
+
+.checklists .checklist1 {
+  display: flex;
+  justify-content: space-between;
 }
+
+.checklists .checklist2 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+/* Mobile Responsive  */
 
 @media (max-width: 768px) {
   .App {
@@ -195,50 +212,43 @@
     width: 100%;
   }
 
+  .contentContainers {
+    padding: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
   .leftContainer,
   .rightContainer {
     width: 100%;
+    min-height: 100vh;
+  }
+  .rightContainer {
+    min-height: calc(100vh - var(--footer-height));
   }
 
-  .contentContainers {
-    flex-direction: column;
-    padding: 20px;
+  .mainHead {
+    font-size: 35px;
+  }
+  .mainHead-split {
+    display: none;
+  }
+
+  .inputContainer,
+  .btnContainer {
     width: 100%;
   }
-  .checklists {
-    width: 80%;
-    margin-bottom: 20px;
+
+  .btnContainer {
+    justify-content: space-around;
+    height: auto;
+    /* flex-wrap: nowrap; */
   }
 
-  .checklists .checklist1 {
-    display: flex;
-    justify-content: space-between;
+  .slotsContainer {
+    height: 80%;
   }
-
-  .checklists .checklist2 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 15px;
+  .registerContainer {
+    height: 20%;
   }
 }
-/* .backgroundCircle {
-  --x: 98%;
-  --y: 28%;
-}
-.backgroundCircle {
-  --mask: radial-gradient(
-    circle at var(--x, 70%) var(--y, 50%),
-    black 25%,
-    transparent 0
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #40e0d0, #9932cc, #ff1493, orange);
-  color: rgb(9, 14, 23);
-  -webkit-mask-image: var(--mask);
-  mask-image: var(--mask);
-  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
-} */

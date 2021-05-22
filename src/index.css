@@ -37,6 +37,6 @@ code {
 
 @media (max-width: 768px) {
   * {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }

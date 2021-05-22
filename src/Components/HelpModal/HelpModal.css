@@ -1,4 +1,4 @@
-.modal{
+.modal {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -8,23 +8,23 @@
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-heading{
+.modal-heading {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.modal-heading h1{
-  font-size:40px;
+.modal-heading h1 {
+  font-size: 40px;
   padding-left: 13px;
   padding-top: 8px;
   color: var(--secondary-color);
 }
 
-.modal-heading button{
+.modal-heading button {
   height: 40px;
   width: 40px;
   outline: 0;
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-.modal-main{
+.modal-main {
   max-width: 640px;
   max-height: 500px;
   background-color: #fff;
@@ -46,37 +46,31 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
-  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.5);
-  padding: 15px 15px 30px 15px ;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  padding: 15px 15px 30px 15px;
 }
 
-.modal .scroll{
-  overflow-y: scroll;
+.modal .scroll {
+  /* overflow-y: scroll; */
   padding: 15px;
   padding-top: 0;
   border-radius: 5px;
 }
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: var(--input-boxShadow);
   width: 10px;
-  box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.2) ;
+  box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
   border-radius: 20px;
   height: 30px;
   box-shadow: var(--input-boxShadow);
+} */
 
-}
-
-
-.scroll h2{
+.scroll h2 {
   color: var(--primary-color);
 }
-
-
-
-

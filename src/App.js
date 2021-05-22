@@ -8,14 +8,14 @@ import {
 } from "./utils/Constants";
 import useInterval from "./utils/useInterval";
 import Footer from "./Components/Footer/Footer";
-import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
+// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Button from "./Components/Button/Button";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
 import Checkbox from "./Components/Checkboxes/checkbox";
+// import Dropdown from "./Components/Dropdown/Dropdown";
 import HelpModal from "./Components/HelpModal/HelpModal";
-import Dropdown from "./Components/Dropdown/Dropdown";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -160,11 +160,11 @@ function App() {
             />
 
             <h1 className="mainHead">
-              Get Notified when your <br />
+              Get Notified when your <p className="mainHead-split" />
               area has a slots availability.
             </h1>
 
-            <ToggleSlider />
+            {/* <ToggleSlider /> */}
 
             <div
               className="inputContainer"
@@ -193,7 +193,7 @@ function App() {
               />
             </div>
 
-            <div className="toggle-pin-dist">
+            {/* <div className="toggle-pin-dist">
               <Dropdown text="Select State" />
               <Dropdown text="Select District" />
             </div>
@@ -210,9 +210,9 @@ function App() {
                 <Checkbox text="Covishield" />
                 <Checkbox text="Sputnik V" />
               </div>
-            </div>
+            </div> */}
+
             <div className="btnContainer">
-              {/* <div className="helpBtn"> */}
               <Button
                 text="Need Help?"
                 background={"#fff"}
@@ -222,8 +222,6 @@ function App() {
               />
               <HelpModal open={isOpen} onclose={() => setisOpen(false)} />
 
-              {/* </div> */}
-              {/* <div className="searchBtn"> */}
               <Button
                 text="Get Notified"
                 borderRadius={borderRadius}
@@ -232,7 +230,6 @@ function App() {
                   handleSearch();
                 }}
               />
-              {/* </div> */}
             </div>
           </div>
 
