@@ -6,17 +6,17 @@ import {
   PUBLIC_IMAGE_PATH,
   getDate,
 } from "./utils/Constants";
-import useInterval from "./utils/useInterval";
-import Footer from "./Components/Footer/Footer";
-// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
-import SlotCard from "./Components/SlotsCard/SlotsCard";
-import Button from "./Components/Button/Button";
-import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
-import Checkbox from "./Components/Checkboxes/checkbox";
-// import Dropdown from "./Components/Dropdown/Dropdown";
+import useInterval from "./utils/useInterval";
+import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import Modal from "./Components/Modal/Modal";
+// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
+import Checkbox from "./Components/Checkbox/Checkbox";
+import Dropdown from "./Components/Dropdown/Dropdown";
 import HelpModal from "./Components/Modal/HelpModal";
+import Button from "./Components/Button/Button";
+import SlotCard from "./Components/SlotsCard/SlotsCard";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -144,10 +144,6 @@ function App() {
     }
   }
 
-  function openHelpModal() {
-    console.log("click");
-    return <Modal open={true} />;
-  }
   console.log(data);
   return (
     <div className="App">
@@ -198,7 +194,7 @@ function App() {
             {/* <div className="toggle-pin-dist">
               <Dropdown text="Select State" />
               <Dropdown text="Select District" />
-            </div>
+            </div> */}
 
             <div className="checklists">
               <div className="checklist1">
@@ -212,7 +208,7 @@ function App() {
                 <Checkbox text="Covishield" />
                 <Checkbox text="Sputnik V" />
               </div>
-            </div> */}
+            </div>
 
             <div className="btnContainer">
               <Modal
@@ -232,7 +228,7 @@ function App() {
               <Button
                 text="Get Notified"
                 borderRadius={borderRadius}
-                animate={true}
+                animate={input.length === 6 && true}
                 onClick={() => {
                   handleSearch();
                 }}

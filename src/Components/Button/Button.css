@@ -19,7 +19,12 @@
 }
 
 .default:hover {
-  background-color: var(--primary-light-color);
+  /* background-color: var(--primary-light-color); */
+  background-color: #fff;
+}
+
+.default:hover .button_text {
+  color: var(--primary-color);
 }
 
 .button_text {
@@ -53,10 +58,10 @@
   transition: 0.5s;
 }
 
-.animate::before{
+.animate::before {
   display: block;
-  animation: dotty steps(1,end) 1s infinite;
-  content: '';
+  animation: dotty steps(1, end) 1s infinite;
+  content: "";
   padding-top: 4px;
   display: flex;
   justify-content: left;
@@ -65,11 +70,21 @@
 }
 
 @keyframes dotty {
-    0%   { content: 'Searching'; }
-    25%  { content: 'Searching.'; }
-    50%  { content: 'Searching..'; }
-    75%  { content: 'Searching...'; }
-    100% { content: 'Searching'; }
+  0% {
+    content: "Searching";
+  }
+  25% {
+    content: "Searching.";
+  }
+  50% {
+    content: "Searching..";
+  }
+  75% {
+    content: "Searching...";
+  }
+  100% {
+    content: "Searching";
+  }
 }
 
 .animate::after {
@@ -92,10 +107,10 @@
   font-size: 25px;
   font-weight: 700;
   color: #fff;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
-.animate:hover::after{
+.animate:hover::after {
   content: "X";
   font-size: 28px;
 }
