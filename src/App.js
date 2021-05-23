@@ -15,7 +15,8 @@ import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import { borderRadius, primaryColor } from "./utils/Theme";
 import Checkbox from "./Components/Checkboxes/checkbox";
 // import Dropdown from "./Components/Dropdown/Dropdown";
-import HelpModal from "./Components/HelpModal/HelpModal";
+import Modal from "./Components/Modal/Modal";
+import HelpModal from "./Components/Modal/HelpModal";
 
 function App() {
   const [searchMode, setSearchMode] = useState("pincode");
@@ -35,7 +36,10 @@ function App() {
   const [data, setData] = useState([]);
 
   // Modal opening.
-  const [isOpen, setisOpen] = useState(false);
+  const [showModal, setShowModal] = useState({
+    notifGuid: false,
+    needHelp: false,
+  });
 
   useEffect(() => {
     if (!("Notification" in window)) {
@@ -139,16 +143,14 @@ function App() {
       setApiFetching(false);
     }
   }
+
+  function openHelpModal() {
+    console.log("click");
+    return <Modal open={true} />;
+  }
   console.log(data);
   return (
-    <div
-      className="App"
-      // style={{
-      //   background: `url(${PUBLIC_IMAGE_PATH}background.png)`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "right 20% bottom",
-      // }}
-    >
+    <div className="App">
       <div className="backgroundCircle"></div>
       <MaxWidthWrapper>
         <div className="contentContainers">
@@ -213,14 +215,19 @@ function App() {
             </div> */}
 
             <div className="btnContainer">
+              <Modal
+                show={showModal.needHelp}
+                close={() => setShowModal({ ...showModal, needHelp: false })}
+                title="Need Help?"
+                children={<HelpModal />}
+              />
               <Button
                 text="Need Help?"
                 background={"#fff"}
                 color={primaryColor}
                 borderRadius={borderRadius}
-                onClick={() => setisOpen(true)}
+                onClick={() => setShowModal({ needHelp: true })}
               />
-              <HelpModal open={isOpen} onclose={() => setisOpen(false)} />
 
               <Button
                 text="Get Notified"

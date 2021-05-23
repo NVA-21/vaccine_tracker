@@ -35,6 +35,11 @@ code {
     monospace;
 }
 
+li {
+  display: list-item;
+  list-style-position: inside;
+}
+
 @media (max-width: 768px) {
   * {
     overflow-y: auto;
