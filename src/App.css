@@ -85,6 +85,26 @@
   right: 25px;
 }
 
+.checklistContainer {
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.checklistContainer .checklistTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.checklistContainer .checklistBottom {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .btnContainer {
   display: flex;
   justify-content: space-between;
@@ -186,22 +206,6 @@
   height: 72px;
   z-index: 67;
 } */
-
-.checklists {
-  width: 80%;
-  margin-bottom: 20px;
-}
-
-.checklists .checklist1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.checklists .checklist2 {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 15px;
-}
 
 /* Mobile Responsive  */
 

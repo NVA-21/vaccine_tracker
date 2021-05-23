@@ -196,14 +196,14 @@ function App() {
               <Dropdown text="Select District" />
             </div> */}
 
-            <div className="checklists">
-              <div className="checklist1">
+            <div className="checklistContainer">
+              <div className="checklistTop">
                 <Checkbox text="18-44" />
                 <Checkbox text="45+" />
                 <Checkbox text="Free" />
                 <Checkbox text="Paid" />
               </div>
-              <div className="checklist2">
+              <div className="checklistBottom">
                 <Checkbox text="Covaxin" />
                 <Checkbox text="Covishield" />
                 <Checkbox text="Sputnik V" />

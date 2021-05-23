@@ -1,47 +1,49 @@
-.check-color{
+.checkBoxBase {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.check-color {
   position: relative;
   display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  box-shadow: var(--input-boxShadow);
 }
 
-.check-color input{
+.check-color input {
   opacity: 0;
   visibility: 0;
 }
 
-.check-label{
+.check-label {
   padding: 8px;
   font-weight: 500;
+  font-size: 20px;
   color: var(--primary-color);
 }
 
-.change-color{
+.change-color {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-
   background-color: #fff;
 }
 
-.change-color::before{
+.change-color::before {
   position: absolute;
   content: "";
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 1px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--input-boxShadow);
 }
 
-input:checked + .change-color::before{
+.check-color input:checked + .change-color::before {
   background-color: var(--primary-color);
 }
-
-
-
