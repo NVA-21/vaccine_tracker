@@ -35,6 +35,8 @@ function App() {
   // Storing api data
   const [data, setData] = useState([]);
 
+  const [count, setCount] = useState(0);
+
   // Modal opening.
   const [showModal, setShowModal] = useState({
     notifGuid: false,
@@ -65,28 +67,34 @@ function App() {
         );
         // console.log(responseValue);
 
-        const filtered = await responseValue.centers.map(center => ({
-          ...center,
-          sessions: center.sessions.filter(
-            session => session.available_capacity > 0
-          ),
-        }));
+        try {
+          const filtered = await responseValue.centers.map(center => ({
+            ...center,
+            sessions: center.sessions.filter(
+              session => session.available_capacity > 0
+            ),
+          }));
 
-        const finalResult = filtered.filter(
-          center => center.sessions.length > 0
-        );
+          const finalResult = filtered.filter(
+            center => center.sessions.length > 0
+          );
 
-        if (finalResult.length > 0 && !notificationSent) {
-          // if atleast one center pops up
-          handleNotification();
-        } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
-          // If new center arives or new slot date
-          setNotificationSent(false);
-          handleNotification();
+          if (finalResult.length > 0 && !notificationSent) {
+            // if atleast one center pops up
+            handleNotification();
+          } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+            // If new center arives or new slot date
+            setNotificationSent(false);
+            handleNotification();
+          }
+          console.log(JSON.stringify(finalResult) === JSON.stringify(data));
+
+          setData(finalResult);
+          setCount(count + 1);
+        } catch (e) {
+          console.log(count);
+          console.log(e);
         }
-        console.log(JSON.stringify(finalResult) === JSON.stringify(data));
-
-        setData(finalResult);
       }
     }
   }, 3000);
