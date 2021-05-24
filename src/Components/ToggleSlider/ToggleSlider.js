@@ -1,24 +1,37 @@
 import React from "react";
 import "./ToggleSlider.css";
 
-const ToggleSlider = () => {
+const ToggleSlider = props => {
   return (
-    <div class="toggle">
+    <div className="toggle">
       <input
         type="radio"
-        name="sizeBy"
-        value="weight"
-        id="sizeWeight"
-        checked="checked"
+        name="toggleSlider"
+        value="pincode"
+        id="pincode"
+        defaultChecked
       />
-      <label for="sizeWeight">Search by PIN</label>
-      <input
-        type="radio"
-        name="sizeBy"
-        value="dimensions"
-        id="sizeDimensions"
-      />
-      <label for="sizeDimensions">Search by District</label>
+      <label
+        htmlFor="pincode"
+        onClick={e => {
+          props.setSearchMode(e.target.htmlFor);
+        }}
+        // onClick={() => {
+        //   console.log("pin clicks");
+        // }}
+      >
+        Search by PIN
+      </label>
+
+      <input type="radio" name="toggleSlider" value="district" id="district" />
+      <label
+        htmlFor="district"
+        onClick={e => {
+          props.setSearchMode(e.target.htmlFor);
+        }}
+      >
+        Search by District
+      </label>
     </div>
   );
 };

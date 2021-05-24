@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: 0.2s;
   background-color: var(--primary-color);
+  border-top: solid 1px #ddd;
 }
 
 .animate {

@@ -69,6 +69,7 @@
   box-shadow: var(--input-boxShadow);
   margin-bottom: 25px;
   padding: 0 25px;
+  border-top: solid 1px #ddd;
   background-color: #fff;
 }
 

@@ -17,16 +17,18 @@ import HelpModal from "./Components/Modal/HelpModal";
 import Button from "./Components/Button/Button";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Footer from "./Components/Footer/Footer";
+import * as statesData from "./JsonData/states.json";
 
 function App() {
-  const [searchMode, setSearchMode] = useState("pincode");
-
   // Input values
   const [input, setInput] = useState("");
   const [inputError, setInputError] = useState(false);
 
+  // Toggle between pincode and district search
+  const [searchMode, setSearchMode] = useState("pincode");
   //pincodes value when search btn clicked
   const [searchQuery, setSearchQuery] = useState("");
+
   // Starts to fetch from api only if pincode entered is valid.
   const [apiFetching, setApiFetching] = useState(false);
   // Keeps track whether notification prev sent or not
@@ -95,9 +97,11 @@ function App() {
           console.log(count);
           console.log(e);
         }
+      } else {
+        // https://cdn-api.co-vin.in/api/v2/admin/location/districts/16
       }
     }
-  }, 3000);
+  }, 5000);
 
   function handleNotification() {
     // Sending notif first time
@@ -152,7 +156,7 @@ function App() {
     }
   }
 
-  console.log(data);
+  // console.log(data);
   return (
     <div className="App">
       <div className="backgroundCircle"></div>
@@ -169,39 +173,49 @@ function App() {
               Get notified when your area has available slots.
             </h1>
 
-            <ToggleSlider />
+            <ToggleSlider setSearchMode={value => setSearchMode(value)} />
 
-            <div
-              className="inputContainer"
-              style={{
-                border: inputError && `1px solid red`,
-                borderRadius: borderRadius,
-              }}
-            >
-              <input
-                placeholder="Enter your Pincode"
-                type="text"
-                className="input"
-                value={input}
-                onChange={e => {
-                  handleInput(e.target.value);
+            {searchMode === "pincode" && (
+              // PINCODE SEARCH
+              <div
+                className="inputContainer"
+                style={{
+                  border: inputError && `1px solid red`,
+                  borderRadius: borderRadius,
                 }}
-                maxLength={6}
-              />
+              >
+                <input
+                  placeholder="Enter your Pincode"
+                  type="text"
+                  className="input"
+                  value={input}
+                  onChange={e => {
+                    handleInput(e.target.value);
+                  }}
+                  maxLength={6}
+                />
 
-              <img
-                src={PUBLIC_IMAGE_PATH + "search.svg"}
-                className="searchIcon"
-                alt=""
-                width={22}
-                height={23}
-              />
-            </div>
+                <img
+                  src={PUBLIC_IMAGE_PATH + "search.svg"}
+                  className="searchIcon"
+                  alt=""
+                  width={22}
+                  height={23}
+                />
+              </div>
+            )}
 
-            {/* <div className="toggle-pin-dist">
-              <Dropdown text="Select State" />
-              <Dropdown text="Select District" />
-            </div> */}
+            {searchMode === "district" && (
+              // DISTRICT SEARCH
+              <div className="toggle-pin-dist">
+                <Dropdown
+                  title="Select State"
+                  array={statesData.states}
+                  keyValue={"state_name"}
+                />
+                <Dropdown title="Select District" />
+              </div>
+            )}
 
             <div className="checklistContainer">
               <div className="checklistTop">
