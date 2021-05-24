@@ -166,8 +166,7 @@ function App() {
             />
 
             <h1 className="mainHead">
-              Get Notified when your <p className="mainHead-split" />
-              area has a slots availability.
+              Get notified when your area has available slots.
             </h1>
 
             <ToggleSlider />

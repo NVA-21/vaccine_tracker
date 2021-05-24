@@ -1,12 +1,12 @@
 .toggle {
-  margin: 0 0 1.5rem;
-  margin-top: -2%;
-  box-sizing: border-box;
   font-size: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: stretch;
+  height: 50px;
+  width: 80%;
+  margin-bottom: 25px;
 }
 
 .toggle input {
@@ -28,10 +28,11 @@
   font-weight: 600;
   text-align: center;
   box-shadow: var(--input-boxShadow);
-  transition: border-color 0.15s ease-out, color 0.25s ease-out,
-    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+
+  /* transition: border-color 0.15s ease-out, color 0.25s ease-out,
+    background-color 0.15s ease-out, box-shadow 0.15s ease-out; */
   /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-  flex: 0 0 40%;
+  flex: 0 0 50%;
   display: flex;
   justify-content: center;
   align-items: center;
