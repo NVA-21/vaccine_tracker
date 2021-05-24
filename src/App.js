@@ -10,7 +10,7 @@ import { borderRadius, primaryColor } from "./utils/Theme";
 import useInterval from "./utils/useInterval";
 import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import Modal from "./Components/Modal/Modal";
-// import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
+import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import Checkbox from "./Components/Checkbox/Checkbox";
 import Dropdown from "./Components/Dropdown/Dropdown";
 import HelpModal from "./Components/Modal/HelpModal";
@@ -162,7 +162,7 @@ function App() {
               area has a slots availability.
             </h1>
 
-            {/* <ToggleSlider /> */}
+            <ToggleSlider />
 
             <div
               className="inputContainer"

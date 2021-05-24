@@ -1,40 +1,57 @@
-.toggle input[type="checkbox"] {
-  position: relative;
-  width: 70%;
-  height: 40px;
-  background: #fff;
-  box-shadow: var(--input-boxShadow);
-  border-radius: 40px;
-  -webkit-appearance: none;
+.toggle {
+  margin: 0 0 1.5rem;
+  margin-top: -2%;
+  box-sizing: border-box;
+  font-size: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
-.toggle input[type="checkbox"]::before {
+.toggle input {
+  width: 0;
+  height: 0;
   position: absolute;
-  content: "Search by PIN";
-  color: #fff;
-  display: flex;
+}
+
+.toggle input + label {
+  margin: 0;
+  padding: 0.75rem 2rem;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #ddd;
+  background-color: #fff;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 600;
   text-align: center;
-  font-size: 20px;
-  font-weight: 400;
+  box-shadow: var(--input-boxShadow);
+  transition: border-color 0.15s ease-out, color 0.25s ease-out,
+    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+  flex: 0 0 40%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  left: 0px;
-  top: 0px;
-  width: 50%;
-  height: 40px;
+
+  /* ----- */
+}
+.toggle input + label:first-of-type {
+  border-radius: 25px 0 0 25px;
+  box-shadow: var(--input-boxShadow);
+  border-right: none;
+}
+.toggle input + label:last-of-type {
+  border-radius: 0 25px 25px 0;
+  border-left: none;
+}
+
+.toggle input:checked + label {
   background-color: var(--primary-color);
-  border-radius: 40px;
-  z-index: 20;
-}
-
-.toggle input:checked[type="checkbox"]::before {
-  transform: translateX(100%);
-  content: "Search by District";
-  color: black;
-  text-align: center;
-}
-
-.toggle {
-  position: relative;
-  display: inline;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+  border-color: #4b9dea;
+  z-index: 1;
 }
