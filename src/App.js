@@ -27,7 +27,12 @@ function App() {
 
   // District array
   const [districts, setDistricts] = useState([]);
-  const [selectedDistrict, setSelectedDistrict] = useState(145);
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [selectBoxError, setSelectBoxError] = useState({
+    state: false,
+    district: false,
+  });
+
   // Toggle between pincode and district search
   const [searchMode, setSearchMode] = useState("pincode");
   //pincodes value when search btn clicked
@@ -168,22 +173,33 @@ function App() {
   function handleSearch() {
     // If not searching from API
     if (!apiFetching) {
-      if (input.length < 6) {
-        setInputError(true);
-        return false;
+      if (searchMode === "pincode") {
+        if (input.length < 6) {
+          setInputError(true);
+          return false;
+        }
+
+        // Disabling inputError
+        setInputError(false);
+
+        // Setting input value as Search Query value
+        setSearchQuery(input);
+      } else {
+        if (districts.length < 1) {
+          setSelectBoxError({ ...selectBoxError, state: true });
+        } else if (!selectedDistrict) {
+          setSelectBoxError({ ...selectBoxError, state: false });
+          console.log("Select district first");
+          setSelectBoxError({ ...selectBoxError, state: true });
+          return false;
+        }
       }
-
-      // Disabling inputError
-      setInputError(false);
-
-      // Setting input value as Search Query value
-      setSearchQuery(input);
 
       // To start the api call
       setApiFetching(true);
 
       // just for build purpose delete later
-      setSearchMode(searchMode);
+      // setSearchMode(searchMode);
     }
     // To cancel the api call
     else {
@@ -248,6 +264,7 @@ function App() {
                   array={statesData.states}
                   idValue={"state_id"}
                   labelValue={"state_name"}
+                  error={selectBoxError.state}
                   executeFunction={value => {
                     getDistricts(value);
                   }}
@@ -258,8 +275,9 @@ function App() {
                   array={districts.districts}
                   idValue={"district_id"}
                   labelValue={"district_name"}
+                  error={selectBoxError.district}
                   executeFunction={value => {
-                    console.log(value);
+                    setSelectedDistrict(value);
                   }}
                 />
                 {/* <Dropdown

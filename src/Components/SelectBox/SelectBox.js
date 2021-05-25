@@ -7,7 +7,12 @@ const SelectBox = props => {
   }
 
   return (
-    <div className="selectBoxBase">
+    <div
+      className="selectBoxBase"
+      style={{
+        border: props.error && "1px solid red",
+      }}
+    >
       <select
         name="select"
         id="select"
