@@ -97,6 +97,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 15px;
+  margin-top: 20px;
 }
 
 .checklistContainer .checklistBottom {

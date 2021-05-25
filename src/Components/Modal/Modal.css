@@ -40,10 +40,11 @@
   transition: all 0.5s ease; */
   /* box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5); */
   /* padding: 15px 15px 30px 15px; */
+  border-radius: 20px;
 }
 
 .modal-header {
-  background: #2c2c2c;
+  background: var(--primary-color);
   color: #e9e9e9;
   padding: 10px 15px;
   display: flex;

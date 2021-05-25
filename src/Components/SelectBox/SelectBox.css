@@ -7,8 +7,10 @@
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #2c3e50;
+  background: #fff;
   background-image: none;
+  border-radius: 40px;
+  margin: 3px 5px 3px 5px;
 }
 /* Remove IE arrow */
 #select::-ms-expand {
@@ -21,31 +23,39 @@
   width: 20em;
   height: 3em;
   line-height: 3;
-  background: #2c3e50;
   overflow: hidden;
   border-radius: 0.25em;
 }
 #select {
   flex: 1;
   padding: 0 0.5em;
-  color: #fff;
+  padding-left: 25px;
+  color: #000;
+  font-size: 15px;
+  font-weight: 300;
   cursor: pointer;
+  box-shadow: var(--input-boxShadow);
 }
+
 /* Arrow */
 .selectBoxBase::after {
   content: "\25BC";
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   padding: 0 1em;
-  background: #34495e;
+  height: 15px;
+  width: 5px;
+  background: #fff;
   cursor: pointer;
   pointer-events: none;
+  border-radius: 0 25px 25px 0;
+  margin: 3px 5px 3px 5px;
   -webkit-transition: 0.25s all ease;
   -o-transition: 0.25s all ease;
   transition: 0.25s all ease;
 }
 /* Transition */
 .selectBoxBase:hover::after {
-  color: #f39c12;
+  color: var(--secondary-color);
 }
