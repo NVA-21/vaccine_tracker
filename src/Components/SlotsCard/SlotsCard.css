@@ -59,3 +59,10 @@
   color: var(--primary-color);
   font-size: 15px;
 }
+
+@media (max-width: 768px) {
+  .date,
+  .slotCard .vaccine-category {
+    font-size: 12px;
+  }
+}

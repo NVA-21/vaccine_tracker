@@ -5,7 +5,7 @@ export default function HelpModal() {
   return (
     <>
       <div className="helpModal-head">
-        <h2>Why us?</h2>
+        <h2 className="helpModal-topicHead">Why us?</h2>
         <br />
         <p>
           Tired of staying up all night looking for slots for the vaccine? Don't
@@ -18,10 +18,12 @@ export default function HelpModal() {
         </p>
       </div>
 
-      <br />
+      {/* <br /> */}
 
       <div className="helpModal-head">
-        <h2>How to Register and Schedule the Vaccine?</h2>
+        <h2 className="helpModal-topicHead">
+          How to Register and Schedule the Vaccine?
+        </h2>
         <br />
         <b>On Cowin platform:</b>
         <br />

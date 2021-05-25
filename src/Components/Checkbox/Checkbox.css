@@ -48,3 +48,9 @@
 .check-color input:checked + .change-color::before {
   background-color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+  .check-label {
+    font-size: 14px;
+  }
+}

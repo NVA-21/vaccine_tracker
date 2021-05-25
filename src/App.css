@@ -218,6 +218,11 @@
     width: 100%;
   }
 
+  .brandLogo {
+    width: 120px;
+    height: auto;
+  }
+
   .contentContainers {
     padding: 20px;
     width: 100%;
@@ -234,11 +239,30 @@
   }
 
   .mainHead {
-    font-size: 35px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .searchIcon {
+    width: 15px;
+    height: 15px;
   }
 
   .inputContainer,
   .btnContainer {
+    width: 100%;
+    height: 45px;
+  }
+
+  .inputContainer {
+    margin-bottom: 12px;
+  }
+
+  .inputContainer input {
+    font-size: 14px;
+  }
+
+  .checklistContainer {
     width: 100%;
   }
 
@@ -248,10 +272,17 @@
     /* flex-wrap: nowrap; */
   }
 
+  .btnContainer {
+    flex-direction: column-reverse;
+  }
+
   .slotsContainer {
     height: 80%;
   }
   .registerContainer {
     height: 20%;
+  }
+  .registerContainer-head {
+    width: 100%;
   }
 }
