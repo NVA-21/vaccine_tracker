@@ -12,18 +12,22 @@ import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import Modal from "./Components/Modal/Modal";
 import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import Checkbox from "./Components/Checkbox/Checkbox";
-import Dropdown from "./Components/Dropdown/Dropdown";
+// import Dropdown from "./Components/Dropdown/Dropdown";
 import HelpModal from "./Components/Modal/HelpModal";
 import Button from "./Components/Button/Button";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
 import Footer from "./Components/Footer/Footer";
 import * as statesData from "./JsonData/states.json";
+import SelectBox from "./Components/SelectBox/SelectBox";
 
 function App() {
   // Input values
   const [input, setInput] = useState("");
   const [inputError, setInputError] = useState(false);
 
+  // District array
+  const [districts, setDistricts] = useState([]);
+  const [selectedDistrict, setSelectedDistrict] = useState(145);
   // Toggle between pincode and district search
   const [searchMode, setSearchMode] = useState("pincode");
   //pincodes value when search btn clicked
@@ -59,46 +63,66 @@ function App() {
 
   useInterval(async () => {
     if (apiFetching) {
-      // const date = "17-05-2021";
       const date = getDate();
       // console.log(date);
 
-      if (searchMode === "pincode") {
-        const responseValue = await fetchApiData(
-          `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
-        );
-        // console.log(responseValue);
-
-        try {
-          const filtered = await responseValue.centers.map(center => ({
-            ...center,
-            sessions: center.sessions.filter(
-              session => session.available_capacity > 0
-            ),
-          }));
-
-          const finalResult = filtered.filter(
-            center => center.sessions.length > 0
+      const apiData = async () => {
+        if (searchMode === "pincode") {
+          const responseValue = await fetchApiData(
+            `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
           );
-
-          if (finalResult.length > 0 && !notificationSent) {
-            // if atleast one center pops up
-            handleNotification();
-          } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
-            // If new center arives or new slot date
-            setNotificationSent(false);
-            handleNotification();
-          }
-          console.log(JSON.stringify(finalResult) === JSON.stringify(data));
-
-          setData(finalResult);
-          setCount(count + 1);
-        } catch (e) {
-          console.log(count);
-          console.log(e);
+          console.log(responseValue);
+          return responseValue.centers;
+        } else if (searchMode === "district") {
+          console.log("DISTRICT SEARCHING");
+          const responseValue = await fetchApiData(
+            `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
+          );
+          console.log(responseValue);
+          return responseValue.centers;
         }
-      } else {
-        // https://cdn-api.co-vin.in/api/v2/admin/location/districts/16
+      };
+      var dataa = await apiData();
+      console.log(dataa);
+      try {
+        const filtered = await dataa.map(center => ({
+          ...center,
+          sessions: center.sessions.filter(
+            session => session.available_capacity > 0
+          ),
+        }));
+
+        const finalResult = filtered.filter(
+          center => center.sessions.length > 0
+        );
+        // const filtered = dataa.map(center => ({
+        //   ...center,
+        //   sessions: center.sessions.filter(
+        //     session => session.available_capacity > 0
+        //   ),
+        // }));
+
+        // const finalResult = filtered.filter(
+        //   center => center.sessions.length > 0
+        // );
+
+        console.log(finalResult);
+
+        if (finalResult.length > 0 && !notificationSent) {
+          // if atleast one center pops up
+          handleNotification();
+        } else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+          // If new center arives or new slot date
+          setNotificationSent(false);
+          handleNotification();
+        }
+        console.log(JSON.stringify(finalResult) === JSON.stringify(data));
+
+        setData(finalResult);
+        setCount(count + 1);
+      } catch (e) {
+        console.log(count);
+        console.log(e);
       }
     }
   }, 5000);
@@ -128,6 +152,17 @@ function App() {
     if (NUMBER_REGEX.test(value) || value === "") {
       setInput(value);
     }
+  }
+
+  async function getDistricts(stateID) {
+    setDistricts([]);
+    // https://cdn-api.co-vin.in/api/v2/admin/location/districts/37
+    console.log(stateID);
+    const responseValue = await fetchApiData(
+      "https://cdn-api.co-vin.in/api/v2/admin/location/districts/" + stateID
+    );
+    console.log(responseValue);
+    setDistricts(responseValue);
   }
 
   function handleSearch() {
@@ -208,12 +243,31 @@ function App() {
             {searchMode === "district" && (
               // DISTRICT SEARCH
               <div className="toggle-pin-dist">
-                <Dropdown
+                <SelectBox
+                  title="Select State"
+                  array={statesData.states}
+                  idValue={"state_id"}
+                  labelValue={"state_name"}
+                  executeFunction={value => {
+                    getDistricts(value);
+                  }}
+                />
+
+                <SelectBox
+                  title="Select District"
+                  array={districts.districts}
+                  idValue={"district_id"}
+                  labelValue={"district_name"}
+                  executeFunction={value => {
+                    console.log(value);
+                  }}
+                />
+                {/* <Dropdown
                   title="Select State"
                   array={statesData.states}
                   keyValue={"state_name"}
-                />
-                <Dropdown title="Select District" />
+                /> */}
+                {/* <Dropdown title="Select District" /> */}
               </div>
             )}
 

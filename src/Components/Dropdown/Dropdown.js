@@ -4,7 +4,7 @@ import "./Dropdown.css";
 
 const Dropdown = props => {
   const [active, setActive] = useState(false);
-  // var arr = ["New Delhi", "Goa", "Maharashtra"];
+
   let arr = [];
   if (props.array) {
     arr = props.array;
