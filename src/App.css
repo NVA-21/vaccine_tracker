@@ -273,7 +273,20 @@
   }
 
   .btnContainer {
+    display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .btnContainer Button {
+    margin: 10px;
+  }
+
+  .toggle-pin-dist {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .slotsContainer {
