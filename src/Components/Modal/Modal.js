@@ -21,7 +21,7 @@ export default function Modal(props) {
         <div className="modal-header">
           <p>{props.title}</p>
           <span onClick={props.close} className="modal-close-btn">
-            <img src={PUBLIC_IMAGE_PATH + "cancel button.png"} />
+            <img src={PUBLIC_IMAGE_PATH + "cancel button.png"} alt="X" />
           </span>
         </div>
         <div className="modal-content">
