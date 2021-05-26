@@ -59,3 +59,9 @@
 .selectBoxBase:hover::after {
   color: var(--secondary-color);
 }
+
+@media (max-width: 768px) {
+  #select {
+    font-size: 12spx;
+  }
+}

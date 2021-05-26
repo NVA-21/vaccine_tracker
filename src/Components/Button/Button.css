@@ -115,3 +115,9 @@
   content: "X";
   font-size: 28px;
 }
+
+@media (max-width: 768px) {
+  .animate {
+    margin: 20px;
+  }
+}

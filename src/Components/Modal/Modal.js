@@ -1,3 +1,4 @@
+import { PUBLIC_IMAGE_PATH } from "../../utils/Constants";
 import "./Modal.css";
 
 export default function Modal(props) {
@@ -20,7 +21,7 @@ export default function Modal(props) {
         <div className="modal-header">
           <p>{props.title}</p>
           <span onClick={props.close} className="modal-close-btn">
-            x
+            <img src={PUBLIC_IMAGE_PATH + "cancel button.png"} />
           </span>
         </div>
         <div className="modal-content">

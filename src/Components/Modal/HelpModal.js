@@ -27,7 +27,6 @@ export default function HelpModal() {
         <br />
         <b>On Cowin platform:</b>
         <br />
-        <br />
         <ol>
           <li>Click on 'Register/Sign in yourself'.</li>
           <li>Enter valid mobile number. Click on 'Get OTP.</li>
