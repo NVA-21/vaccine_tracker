@@ -6,7 +6,10 @@ const Checkbox = props => {
     <div className="checkBoxBase">
       <label className="check-color">
         <input type="checkbox" />
-        <span className="change-color" />
+        <span
+          className="change-color"
+          onClick={() => props.executeFunction()}
+        />
       </label>
       <label className="check-label">{props.text}</label>
     </div>

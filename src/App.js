@@ -12,7 +12,6 @@ import MaxWidthWrapper from "./Components/MaxWidthWrapper/MaxWidthWrapper";
 import Modal from "./Components/Modal/Modal";
 import ToggleSlider from "./Components/ToggleSlider/ToggleSlider";
 import Checkbox from "./Components/Checkbox/Checkbox";
-// import Dropdown from "./Components/Dropdown/Dropdown";
 import HelpModal from "./Components/Modal/HelpModal";
 import Button from "./Components/Button/Button";
 import SlotCard from "./Components/SlotsCard/SlotsCard";
@@ -42,6 +41,13 @@ function App() {
   const [apiFetching, setApiFetching] = useState(false);
   // Keeps track whether notification prev sent or not
   const [notificationSent, setNotificationSent] = useState(false);
+
+  // Filtering
+  const [filterModes, setFilterModes] = useState({
+    ageLimit: 18,
+    fee: false,
+    vaccine_type: false,
+  });
 
   // Storing api data
   const [data, setData] = useState([]);
@@ -100,16 +106,6 @@ function App() {
         const finalResult = filtered.filter(
           center => center.sessions.length > 0
         );
-        // const filtered = dataa.map(center => ({
-        //   ...center,
-        //   sessions: center.sessions.filter(
-        //     session => session.available_capacity > 0
-        //   ),
-        // }));
-
-        // const finalResult = filtered.filter(
-        //   center => center.sessions.length > 0
-        // );
 
         console.log(finalResult);
 
@@ -207,7 +203,7 @@ function App() {
     }
   }
 
-  // console.log(data);
+  console.log(filterModes);
   return (
     <div className="App">
       <div className="backgroundCircle"></div>
@@ -291,15 +287,78 @@ function App() {
 
             <div className="checklistContainer">
               <div className="checklistTop">
-                <Checkbox text="18-44" />
-                <Checkbox text="45+" />
-                <Checkbox text="Free" />
-                <Checkbox text="Paid" />
+                <Checkbox
+                  text="18-44"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.ageLimit === 18
+                        ? { ...filterModes, ageLimit: false }
+                        : { ...filterModes, ageLimit: 18 }
+                    );
+                  }}
+                />
+                <Checkbox
+                  text="45+"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.ageLimit === 45
+                        ? { ...filterModes, ageLimit: false }
+                        : { ...filterModes, ageLimit: 45 }
+                    );
+                  }}
+                />
+                <Checkbox
+                  text="Free"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.fee === "Free"
+                        ? { ...filterModes, fee: false }
+                        : { ...filterModes, fee: "Free" }
+                    );
+                  }}
+                />
+                <Checkbox
+                  text="Paid"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.fee === "Paid"
+                        ? { ...filterModes, fee: false }
+                        : { ...filterModes, fee: "Paid" }
+                    );
+                  }}
+                />
               </div>
               <div className="checklistBottom">
-                <Checkbox text="Covaxin" />
-                <Checkbox text="Covishield" />
-                <Checkbox text="Sputnik V" />
+                <Checkbox
+                  text="Covaxin"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.ageLimit === 18
+                        ? { ...filterModes, ageLimit: false }
+                        : { ...filterModes, ageLimit: 18 }
+                    );
+                  }}
+                />
+                <Checkbox
+                  text="Covishield"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.ageLimit === 18
+                        ? { ...filterModes, ageLimit: false }
+                        : { ...filterModes, ageLimit: 18 }
+                    );
+                  }}
+                />
+                <Checkbox
+                  text="Sputnik V"
+                  executeFunction={() => {
+                    setFilterModes(
+                      filterModes.ageLimit === 18
+                        ? { ...filterModes, ageLimit: false }
+                        : { ...filterModes, ageLimit: 18 }
+                    );
+                  }}
+                />
               </div>
             </div>
 
