@@ -45,7 +45,7 @@ function App() {
 	// Filtering
 	const [filterModes, setFilterModes] = useState({
 		ageLimit: [18],
-		fee: ['Paid', 'Free'],
+		fee: ['Free', 'Paid'],
 		vaccine_type: ['COVAXIN', 'COVISHIELD', 'SPUTNIK V']
 	});
 
@@ -248,6 +248,32 @@ function App() {
 		if (mode === 'fee') {
 			handleTwoFilters('fee', value, ['Free', 'Paid']);
 		}
+
+		if (mode === 'vaccine') {
+			console.log([filterModes.vaccine_type, value[1], value[0]]);
+
+			// When both gets removed
+			if (filterModes.vaccine_type.length === 1 && !value[0]) {
+				setFilterModes({
+					...filterModes,
+					vaccine_type: ['COVAXIN', 'COVISHIELD', 'SPUTNIK V']
+				});
+			}
+
+			// When
+			else if (filterModes.vaccine_type.length < 3 && value[0]) {
+				let arr = filterModes.vaccine_type;
+				arr.push(value[1]);
+				setFilterModes({ ...filterModes, vaccine_type: arr });
+			} else if (filterModes.vaccine_type.length <= 3 && !value[0]) {
+				let arr = filterModes.vaccine_type;
+				arr = arr.filter(i => i !== value[1]);
+				setFilterModes({ ...filterModes, vaccine_type: arr });
+			} else {
+				console.log('ELSE');
+				setFilterModes({ ...filterModes, vaccine_type: [value[1]] });
+			}
+		}
 		console.log(filterModes);
 	}
 
@@ -288,7 +314,7 @@ function App() {
 		}
 	}
 
-	console.log(filterModes);
+	console.table(filterModes);
 	return (
 		<div className="App">
 			<div className="backgroundCircle"></div>
@@ -399,17 +425,17 @@ function App() {
 							<div className="checklistBottom">
 								<Checkbox
 									text="Covaxin"
-									value="Covaxin"
+									value="COVAXIN"
 									executeFunction={value => handleFilterModes('vaccine', value)}
 								/>
 								<Checkbox
 									text="Covishield"
-									value="Covishield"
+									value="COVISHIELD"
 									executeFunction={value => handleFilterModes('vaccine', value)}
 								/>
 								<Checkbox
 									text="Sputnik V"
-									value="Sputnik V"
+									value="SPUTNIK V"
 									executeFunction={value => handleFilterModes('vaccine', value)}
 								/>
 							</div>
