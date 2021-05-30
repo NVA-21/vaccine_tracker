@@ -242,10 +242,15 @@
 	.leftContainer,
 	.rightContainer {
 		width: 100%;
-		min-height: 100vh;
+		height: calc(100vh - 20px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 	}
+
 	.rightContainer {
-		min-height: calc(100vh - var(--footer-height));
+		height: calc((100vh - var(--footer-height)) - 50px);
 	}
 
 	.mainHead {
@@ -290,8 +295,8 @@
 		margin-top: 40px;
 	}
 
-	.btnContainer Button {
-		/* margin: 10px; */
+	.btnContainer .btnFrame {
+		margin-bottom: 15px;
 	}
 
 	.toggle-pin-dist {
