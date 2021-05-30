@@ -328,7 +328,13 @@ function App() {
 					const responseValue = await fetchApiData(
 						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
 					);
-					// console.log(responseValue);
+					// console.log(responseValue.message);
+					if (responseValue === 'Invalid Pincode') {
+						console.log('Insert apt pincode');
+						setApiFetching(false);
+						setInputError(true);
+						return [];
+					}
 					return responseValue.centers;
 				} else if (searchMode === 'district') {
 					console.log('DISTRICT SEARCHING');
@@ -341,7 +347,7 @@ function App() {
 			};
 			var totalData = await apiData();
 			// console.log(totalData);
-			const filterFn = await filterData(totalData);
+			await filterData(totalData);
 			setData(totalData);
 
 			// try {
@@ -517,10 +523,10 @@ function App() {
 		// If not searching from API
 		if (!apiFetching) {
 			if (searchMode === 'pincode') {
-				if (input.length < 6) {
-					setInputError(true);
-					return false;
-				}
+				// if (input.length < 6) {
+				// 	setInputError(true);
+				// 	return false;
+				// }
 
 				// Disabling inputError
 				setInputError(false);
