@@ -1,9 +1,10 @@
 import React from 'react';
+import { secondaryColor } from '../../utils/Theme';
 import './SlotsCard.css';
 
 const SlotCard = props => {
 	const data = props.data;
-	console.log(props.data);
+	// console.log(props.data);
 	return (
 		<>
 			<h5 className="center-name">
@@ -25,7 +26,7 @@ const SlotCard = props => {
 					{data.fee_type === 'Paid' ? (
 						<>
 							Paid{' '}
-							<span style={{ color: 'red' }}>
+							<span style={{ color: secondaryColor, fontSize: '12px' }}>
 								(₹{data.vaccine_fees[0].fee})
 							</span>
 						</>

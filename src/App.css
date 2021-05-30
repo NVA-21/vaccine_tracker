@@ -68,14 +68,14 @@
 	display: flex;
 	align-items: center;
 	box-shadow: var(--input-boxShadow);
-	margin-bottom: 25px;
+	margin-bottom: var(--input-marginBottom);
 	padding: 0 25px;
-	border-top: solid 1px #ddd;
+	border-top: var(--border-top);
 	background-color: #fff;
 }
 
 .inputContainer input {
-	font-size: 20px;
+	font-size: var(--input-fontSize);
 	border: none;
 	outline: none;
 	height: 100%;
@@ -194,10 +194,11 @@
 	width: auto;
 }
 
-.toggle-pin-dist {
+.selectBoxContainer {
 	display: flex;
 	width: 80%;
 	justify-content: space-between;
+	margin-bottom: var(--input-marginBottom);
 }
 
 .btnContainer > span {
@@ -274,7 +275,7 @@
 	}
 
 	.inputContainer input {
-		font-size: 14px;
+		font-size: var(--input-fontSize-responsive);
 	}
 
 	.checklistContainer {
@@ -299,7 +300,7 @@
 		margin-bottom: 15px;
 	}
 
-	.toggle-pin-dist {
+	.selectBoxContainer {
 		width: 100%;
 		justify-content: space-between;
 	}

@@ -1,23 +1,23 @@
 .footerBase {
-  background-color: var(--secondary-color);
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: var(--footer-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-style: normal;
-  font-weight: 100;
-  font-size: 20px;
-  letter-spacing: 1px;
+	background-color: var(--secondary-color);
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: var(--footer-height);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: 100;
+	font-size: var(--input-fontSize);
+	letter-spacing: 1px;
 }
 
 @media (max-width: 768px) {
-  .footerBase {
-    position: static;
-    font-size: 12px;
-  }
+	.footerBase {
+		position: static;
+		font-size: 12px;
+	}
 }

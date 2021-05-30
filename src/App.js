@@ -240,8 +240,6 @@ function App() {
 	]);
 	const [filteredData, setFilteredData] = useState([]);
 
-	const [count, setCount] = useState(0);
-
 	// Modal opening.
 	const [showModal, setShowModal] = useState({
 		notifGuid: false,
@@ -265,9 +263,9 @@ function App() {
 		filterData(data);
 	}, [filterModes]);
 
-	async function filterData(data) {
+	async function filterData(totalData) {
 		try {
-			const filtered = await data.map(center => ({
+			const filtered = await totalData.map(center => ({
 				...center,
 				sessions: center.sessions.filter(
 					session =>
@@ -277,28 +275,43 @@ function App() {
 				)
 			}));
 
-			const finalResult = filtered.filter(
+			const finalFilteredData = filtered.filter(
 				center =>
 					center.sessions.length > 0 &&
 					filterModes.fee.includes(center.fee_type)
 			);
 
-			console.log(finalResult);
+			// console.log(finalFilteredData);
 
-			if (finalResult.length > 0 && !notificationSent) {
-				// if atleast one center pops up
-				handleNotification();
-			} else if (JSON.stringify(finalResult) !== JSON.stringify(filteredData)) {
-				// If new center arives or new slot date
-				setNotificationSent(false);
+			// Notification Logic
+
+			// Negative conditions
+			if (
+				JSON.stringify(totalData).length <= JSON.stringify(data).length ||
+				JSON.stringify(totalData) === JSON.stringify(data) ||
+				JSON.stringify(finalFilteredData).length <=
+					JSON.stringify(filteredData).length ||
+				JSON.stringify(finalFilteredData) === JSON.stringify(filteredData) ||
+				!JSON.stringify(totalData).length
+			) {
+				// Do nothing
+			} else {
 				handleNotification();
 			}
-			console.log(JSON.stringify(finalResult) === JSON.stringify(filteredData));
 
-			setFilteredData(finalResult);
-			setCount(count + 1);
+			console.log('Continuing');
+			// if (finalFilteredData.length > 0 && !notificationSent) {
+			// 	// if atleast one center pops up
+			// 	handleNotification();
+			// } else if (JSON.stringify(finalFilteredData) !== JSON.stringify(filteredData)) {
+			// 	// If new center arives or new slot date
+			// 	setNotificationSent(false);
+			// 	handleNotification();
+			// }
+			// console.log(JSON.stringify(finalFilteredData) === JSON.stringify(filteredData));
+
+			setFilteredData(finalFilteredData);
 		} catch (e) {
-			console.log(count);
 			console.log(e);
 		}
 	}
@@ -314,21 +327,40 @@ function App() {
 					const responseValue = await fetchApiData(
 						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
 					);
-					console.log(responseValue);
+					// console.log(responseValue);
 					return responseValue.centers;
 				} else if (searchMode === 'district') {
 					console.log('DISTRICT SEARCHING');
 					const responseValue = await fetchApiData(
 						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
 					);
-					console.log(responseValue);
+					// console.log(responseValue);
 					return responseValue.centers;
 				}
 			};
 			var totalData = await apiData();
-			console.log(totalData);
-			filterData(totalData);
+			// console.log(totalData);
+			const filterFn = await filterData(totalData);
 			setData(totalData);
+
+			// try {
+			// 	if (totalData.length > 0 && data.length === 0 && !notificationSent) {
+			// 		// if atleast one center pops up
+			// 		handleNotification();
+			// 	} else if (JSON.stringify(totalData) !== JSON.stringify(data)) {
+			// 		if (JSON.stringify(totalData).length < JSON.stringify(data).length) {
+			// 			return false;
+			// 		}
+			// 		// If new center arives or new slot date
+			// 		setNotificationSent(false);
+			// 		handleNotification();
+			// 	}
+			// 	console.log(JSON.stringify(totalData) === JSON.stringify(data));
+			// 	console.log(JSON.stringify(totalData).length);
+			// 	console.log(JSON.stringify(data).length);
+			// } catch (e) {
+			// 	console.log(e);
+			// }
 		}
 	}, 5000);
 
@@ -517,7 +549,7 @@ function App() {
 		}
 	}
 
-	console.log(filteredData);
+	// console.log(filteredData);
 	// console.table(filterModes);
 	return (
 		<div className="App">
@@ -569,7 +601,7 @@ function App() {
 
 						{searchMode === 'district' && (
 							// DISTRICT SEARCH
-							<div className="toggle-pin-dist">
+							<div className="selectBoxContainer">
 								<SelectBox
 									title="Select State"
 									array={statesData.states}
@@ -674,7 +706,10 @@ function App() {
 								<Button
 									text="Get Notified"
 									borderRadius={borderRadius}
-									animate={input.length === 6 && true}
+									animate={
+										(input.length === 6 && true) ||
+										(selectedDistrict.length && true)
+									}
 									onClick={() => {
 										handleSearch();
 									}}

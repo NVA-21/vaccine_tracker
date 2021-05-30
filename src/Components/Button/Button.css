@@ -10,6 +10,7 @@
 	background-color: var(--primary-color);
 	border-radius: inherit;
 	overflow: hidden;
+	border-top: var(--border-top);
 }
 
 .animate {
@@ -26,7 +27,7 @@
 }
 
 .button_text {
-	font-size: 20px;
+	font-size: var(--input-fontSize);
 	font-weight: 500;
 	color: #fff;
 	transition: all 0.2s;
@@ -44,7 +45,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	font-size: 20px;
+	font-size: var(--input-fontSize);
 	color: #fff;
 	margin-top: 5px;
 	margin-bottom: 5px;
