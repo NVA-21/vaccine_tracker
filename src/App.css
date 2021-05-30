@@ -112,7 +112,7 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	width: 80%;
-	padding-bottom: 25px;
+	overflow: visible;
 	/* height: 100%; */
 }
 
@@ -120,7 +120,7 @@
 	background-color: var(--tertiary-color);
 	height: 85%;
 	border-radius: 13px;
-	padding: 10px 15px 15px;
+	padding: 10px 10px 15px 15px;
 	box-shadow: var(--slotCards-boxShadow);
 	overflow: hidden;
 }
@@ -136,14 +136,15 @@
 	display: block;
 	overflow-y: auto;
 	height: calc(100% - 35px);
+	padding-right: 5px;
 }
 
 /* Scrollbar CSS  */
 .slotsContainerScrollbar::-webkit-scrollbar {
 	background: #fff;
 	border-radius: 8px;
-	margin-left: 20px;
 	box-shadow: var(--input-boxShadow);
+	width: 10px;
 }
 .slotsContainerScrollbar::-webkit-scrollbar-thumb {
 	background: var(--secondary-color);

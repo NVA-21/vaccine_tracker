@@ -63,13 +63,13 @@ function App() {
 			long: 77,
 			from: '09:00:00',
 			to: '17:00:00',
-			fee_type: 'Paid',
+			fee_type: 'Free',
 			sessions: [
 				{
 					session_id: '780a4c7f-e7a3-4acd-8bb6-56bb1335c3df',
 					date: '30-05-2021',
 					available_capacity: 99,
-					min_age_limit: 18,
+					min_age_limit: 45,
 					vaccine: 'COVISHIELD',
 					slots: [
 						'09:00AM-11:00AM',
@@ -77,7 +77,7 @@ function App() {
 						'01:00PM-03:00PM',
 						'03:00PM-05:00PM'
 					],
-					available_capacity_dose1: 0,
+					available_capacity_dose1: 10,
 					available_capacity_dose2: 99
 				}
 			],
@@ -106,7 +106,7 @@ function App() {
 					session_id: 'cfd34e8e-b8f3-4df4-a9d2-b920746de710',
 					date: '30-05-2021',
 					available_capacity: 99,
-					min_age_limit: 18,
+					min_age_limit: 45,
 					vaccine: 'COVISHIELD',
 					slots: [
 						'09:00AM-11:00AM',
@@ -265,35 +265,6 @@ function App() {
 		filterData(data);
 	}, [filterModes]);
 
-	useInterval(async () => {
-		console.log('HEY');
-		if (apiFetching) {
-			const date = getDate();
-			// console.log(date);
-
-			const apiData = async () => {
-				if (searchMode === 'pincode') {
-					const responseValue = await fetchApiData(
-						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
-					);
-					console.log(responseValue);
-					return responseValue.centers;
-				} else if (searchMode === 'district') {
-					console.log('DISTRICT SEARCHING');
-					const responseValue = await fetchApiData(
-						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
-					);
-					console.log(responseValue);
-					return responseValue.centers;
-				}
-			};
-			var totalData = await apiData();
-			console.log(totalData);
-			filterData(totalData);
-			setData(totalData);
-		}
-	}, 5000);
-
 	async function filterData(data) {
 		try {
 			const filtered = await data.map(center => ({
@@ -331,6 +302,35 @@ function App() {
 			console.log(e);
 		}
 	}
+
+	useInterval(async () => {
+		console.log('HEY');
+		if (apiFetching) {
+			const date = getDate();
+			// console.log(date);
+
+			const apiData = async () => {
+				if (searchMode === 'pincode') {
+					const responseValue = await fetchApiData(
+						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
+					);
+					console.log(responseValue);
+					return responseValue.centers;
+				} else if (searchMode === 'district') {
+					console.log('DISTRICT SEARCHING');
+					const responseValue = await fetchApiData(
+						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
+					);
+					console.log(responseValue);
+					return responseValue.centers;
+				}
+			};
+			var totalData = await apiData();
+			console.log(totalData);
+			filterData(totalData);
+			setData(totalData);
+		}
+	}, 5000);
 
 	function handleNotification() {
 		// Sending notif first time

@@ -19,22 +19,59 @@ const SlotCard = props => {
 			<div className="center-vaccineDetails">
 				<div>{data.sessions[0].vaccine}</div>
 
-				<div>{data.sessions[0].min_age_limit}</div>
+				<div>{data.sessions[0].min_age_limit < 45 ? '18-44' : '45+'}</div>
 
-				<div>{data.fee_type}</div>
+				<div>
+					{data.fee_type === 'Paid' ? (
+						<>
+							Paid{' '}
+							<span style={{ color: 'red' }}>
+								(₹{data.vaccine_fees[0].fee})
+							</span>
+						</>
+					) : (
+						'Free'
+					)}
+				</div>
 			</div>
 
 			{data.sessions.map((session, index) => (
-				<div className="slots-table-container" key={index}>
-					<div className="slots-table-set">
-						<h6 className="date">{session.date}</h6>
-						<h6 className="slots">{session.available_capacity}</h6>
+				<div className="center-vaccineDetails" key={index}>
+					{/* <div className="slots-table-set"> */}
+					<div className="date">{session.date}</div>
+					<div
+						className="slots"
+						style={{
+							background:
+								session.available_capacity_dose1 > 0 &&
+								session.available_capacity_dose1 < 11
+									? 'yellow'
+									: !session.available_capacity_dose1 && 'red',
+							color: !session.available_capacity_dose1 && '#fff'
+						}}
+					>
+						<span>Dose 1</span>
+						<span className="slots-value">
+							{session.available_capacity_dose1}
+						</span>
 					</div>
-
-					<div className="slots-table-set">
-						<p className="vaccine-category">{session.vaccine}</p>
-						<p className="vaccine-category">Age {session.min_age_limit}</p>
+					<div
+						className="slots"
+						style={{
+							background:
+								session.available_capacity_dose2 > 0 &&
+								session.available_capacity_dose2 < 11
+									? 'yellow'
+									: !session.available_capacity_dose2 && 'red',
+							color: !session.available_capacity_dose2 && '#fff'
+						}}
+					>
+						<span>Dose 2</span>
+						<span className="slots-value">
+							{session.available_capacity_dose2}
+						</span>
 					</div>
+					{/* </div> */}
 				</div>
 			))}
 		</>

@@ -8,8 +8,10 @@
 
 	--footer-height: 7vh;
 	--input-borderRadius: 40px;
-	--input-fontSize: 25px;
+	--input-fontSize: 20px;
+	--input-height: 50px;
 
+	--border-top: 1px solid #ddd;
 	--input-boxShadow: 3.878px 6.997px 7.2px 0.8px rgb(4 4 4 / 10%);
 	--slotCards-boxShadow: 2.424px 4.373px 4.5px 0.5px rgba(4, 4, 4, 0.1);
 }
