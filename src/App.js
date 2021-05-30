@@ -18,6 +18,7 @@ import SlotCard from './Components/SlotsCard/SlotsCard';
 import Footer from './Components/Footer/Footer';
 import * as statesData from './JsonData/states.json';
 import SelectBox from './Components/SelectBox/SelectBox';
+import Toast from './Components/Toast/Toast';
 
 function App() {
 	// Input values
@@ -336,6 +337,7 @@ function App() {
 			<div className="backgroundCircle"></div>
 			<MaxWidthWrapper>
 				<div className="contentContainers">
+					<Toast />
 					<div className="leftContainer">
 						<img
 							src={PUBLIC_IMAGE_PATH + 'logo-title.png'}
