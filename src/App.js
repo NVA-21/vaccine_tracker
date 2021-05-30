@@ -42,7 +42,7 @@ function App() {
 	const [apiFetching, setApiFetching] = useState(false);
 	// Keeps track whether notification prev sent or not
 	const [notificationSent, setNotificationSent] = useState(false);
-
+	const [showToast, setShowToast] = useState('');
 	// Filtering
 	const [filterModes, setFilterModes] = useState({
 		ageLimit: [18],
@@ -242,10 +242,7 @@ function App() {
 	const [filteredData, setFilteredData] = useState([]);
 
 	// Modal opening.
-	const [showModal, setShowModal] = useState({
-		notifGuid: false,
-		needHelp: false
-	});
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		if (!('Notification' in window)) {
@@ -332,6 +329,7 @@ function App() {
 					if (responseValue === 'Invalid Pincode') {
 						console.log('Insert apt pincode');
 						setApiFetching(false);
+						setShowToast('toast');
 						setInputError(true);
 						return [];
 					}
@@ -566,7 +564,6 @@ function App() {
 			<div className="backgroundCircle"></div>
 			<MaxWidthWrapper>
 				<div className="contentContainers">
-					<Toast />
 					<div className="leftContainer">
 						<img
 							src={PUBLIC_IMAGE_PATH + 'logo-title.png'}
@@ -709,7 +706,7 @@ function App() {
 									background={'#fff'}
 									color={primaryColor}
 									borderRadius={borderRadius}
-									onClick={() => setShowModal({ needHelp: true })}
+									onClick={() => setShowModal(true)}
 								/>
 							</span>
 
@@ -728,8 +725,8 @@ function App() {
 							</span>
 
 							<Modal
-								show={showModal.needHelp}
-								close={() => setShowModal({ ...showModal, needHelp: false })}
+								show={showModal}
+								close={() => setShowModal(false)}
 								title="Need Help?"
 								children={<HelpModal />}
 							/>
@@ -776,6 +773,13 @@ function App() {
 						</div>
 					</div>
 				</div>
+				{showToast && (
+					<Toast
+						heading="Please Turn on Notifications!"
+						content="To know how to enable it click 'Need Help'"
+						resetToast={() => setShowToast('')}
+					/>
+				)}
 			</MaxWidthWrapper>
 			<Footer />
 		</div>
