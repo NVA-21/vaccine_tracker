@@ -1,202 +1,211 @@
 .App {
-  height: 100vh;
-  width: 100%;
+	min-height: 100vh;
+	width: 100%;
 }
 
 .backgroundCircle {
-  --x: 90%;
-  --y: 15%;
-  --ciircleWidth: 45%;
+	--x: 90%;
+	--y: 15%;
+	--ciircleWidth: 45%;
 }
 .backgroundCircle {
-  --mask: radial-gradient(
-    circle at var(--x, 70%) var(--y, 50%),
-    black var(--ciircleWidth),
-    transparent 0
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #deffff;
-  color: rgb(9, 14, 23);
-  -webkit-mask-image: var(--mask);
-  mask-image: var(--mask);
-  transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
-  z-index: -1;
+	--mask: radial-gradient(
+		circle at var(--x, 70%) var(--y, 50%),
+		black var(--ciircleWidth),
+		transparent 0
+	);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #deffff;
+	color: rgb(9, 14, 23);
+	-webkit-mask-image: var(--mask);
+	mask-image: var(--mask);
+	transition: --x 300ms 20ms ease-out, --y 300ms 20ms ease-out;
+	z-index: -1;
 }
 
 .contentContainers {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: calc(100% - var(--footer-height));
-  padding: 40px 80px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: calc(100% - var(--footer-height));
+	padding: 40px 80px;
 }
 
 .leftContainer {
-  width: 60%;
+	width: 60%;
 }
 
 .rightContainer {
-  width: 40%;
+	width: 40%;
+	height: calc((100vh - 7vh) - 80px);
 }
 
 .brandLogo {
-  width: 200px;
-  height: 73px;
-  margin-bottom: 35px;
+	width: 200px;
+	height: 73px;
+	margin-bottom: 30px;
 }
 
 .mainHead {
-  font-size: 52px;
-  color: var(--secondary-color);
-  font-weight: bold;
-  font-weight: 800;
-  width: 100%;
-  word-break: keep-all;
-  margin-bottom: 40px;
+	font-size: 52px;
+	color: var(--secondary-color);
+	font-weight: bold;
+	font-weight: 800;
+	width: 100%;
+	word-break: keep-all;
+	margin-bottom: 30px;
 }
 
 .inputContainer {
-  position: relative;
-  width: 80%;
-  height: 50px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  box-shadow: var(--input-boxShadow);
-  margin-bottom: 25px;
-  padding: 0 25px;
-  border-top: solid 1px #ddd;
-  background-color: #fff;
+	position: relative;
+	width: 80%;
+	height: 50px;
+	border-radius: 40px;
+	display: flex;
+	align-items: center;
+	box-shadow: var(--input-boxShadow);
+	margin-bottom: 25px;
+	padding: 0 25px;
+	border-top: solid 1px #ddd;
+	background-color: #fff;
 }
 
 .inputContainer input {
-  font-size: 20px;
-  border: none;
-  outline: none;
-  height: 100%;
-  width: 100%;
+	font-size: 20px;
+	border: none;
+	outline: none;
+	height: 100%;
+	width: 100%;
 }
 
 .inputContainer .searchIcon {
-  position: absolute;
-  right: 25px;
+	position: absolute;
+	right: 25px;
 }
 
 .checklistContainer {
-  width: 80%;
-  margin-bottom: 25px;
+	width: 80%;
+	margin-bottom: 30px;
 }
 
 .checklistContainer .checklistTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-  margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 12px;
 }
 
 .checklistContainer .checklistBottom {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .btnContainer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 80%;
-  height: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 80%;
+	padding-bottom: 25px;
+	/* height: 100%; */
 }
 
 .slotsContainer {
-  background-color: var(--tertiary-color);
-  height: 85%;
-  border-radius: 13px;
-  padding: 10px 15px 15px;
-  box-shadow: var(--slotCards-boxShadow);
+	background-color: var(--tertiary-color);
+	height: 85%;
+	border-radius: 13px;
+	padding: 10px 15px 15px;
+	box-shadow: var(--slotCards-boxShadow);
+	overflow: hidden;
 }
 
 .slotsContainer h4 {
-  color: var(--secondary-color);
-  font-size: 23px;
-  font-weight: 700;
-  margin-bottom: 10px;
+	color: var(--secondary-color);
+	font-size: 23px;
+	font-weight: 700;
+	margin-bottom: 10px;
 }
 
 .slotsContainerScrollbar {
-  display: block;
-  overflow-y: auto;
-  height: calc(100% - 35px);
+	display: block;
+	overflow-y: auto;
+	height: calc(100% - 35px);
 }
 
 /* Scrollbar CSS  */
 .slotsContainerScrollbar::-webkit-scrollbar {
-  background: #fff;
-  border-radius: 8px;
-  margin-left: 20px;
-  box-shadow: var(--input-boxShadow);
+	background: #fff;
+	border-radius: 8px;
+	margin-left: 20px;
+	box-shadow: var(--input-boxShadow);
 }
 .slotsContainerScrollbar::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
-  border-radius: 8px;
-  box-shadow: var(--input-boxShadow);
+	background: var(--secondary-color);
+	border-radius: 8px;
+	box-shadow: var(--input-boxShadow);
 }
 
 .slotCard {
-  margin-bottom: 10px;
-  background-color: #fff;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: var(--slotCards-boxShadow);
-  padding: 15px 20px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: var(--slotCards-boxShadow);
+	padding: 15px 20px;
 }
 
 .slotCard:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .registerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 15%;
 }
 
 .registerContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	text-align: center;
 }
 
 .registerContainer-head {
-  color: #283893;
-  font-weight: 800;
-  font-size: 20px;
-  word-break: keep-all;
-  width: min-content;
+	color: #283893;
+	font-weight: 800;
+	font-size: 20px;
+	word-break: keep-all;
+	width: min-content;
 }
 
 .registerContainer-img {
-  height: 35px;
-  width: auto;
+	height: 35px;
+	width: auto;
 }
 
 .toggle-pin-dist {
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
+	display: flex;
+	width: 80%;
+	justify-content: space-between;
 }
 
+.btnContainer > span {
+	/* filter: drop-shadow(3px 3px 3px #0404041a); */
+	box-shadow: var(--input-boxShadow);
+	border-radius: 40px;
+	/* background-color: red; */
+	/* display: none; */
+}
 /* .Rounded_Rectangle_1_copy_3 {
   border-radius: 36px;
   background-color: rgb(255, 255, 255);
@@ -212,90 +221,90 @@
 /* Mobile Responsive  */
 
 @media (max-width: 768px) {
-  .App {
-    height: auto;
-    text-align: center;
-    width: 100%;
-  }
+	.App {
+		height: auto;
+		text-align: center;
+		width: 100%;
+	}
 
-  .brandLogo {
-    width: 120px;
-    height: auto;
-  }
+	.brandLogo {
+		width: 120px;
+		height: auto;
+	}
 
-  .contentContainers {
-    padding: 20px;
-    width: 100%;
-    flex-wrap: wrap;
-  }
+	.contentContainers {
+		padding: 20px;
+		width: 100%;
+		flex-wrap: wrap;
+	}
 
-  .leftContainer,
-  .rightContainer {
-    width: 100%;
-    min-height: 100vh;
-  }
-  .rightContainer {
-    min-height: calc(100vh - var(--footer-height));
-  }
+	.leftContainer,
+	.rightContainer {
+		width: 100%;
+		min-height: 100vh;
+	}
+	.rightContainer {
+		min-height: calc(100vh - var(--footer-height));
+	}
 
-  .mainHead {
-    font-size: 30px;
-    text-align: center;
-  }
+	.mainHead {
+		font-size: 30px;
+		text-align: center;
+	}
 
-  .searchIcon {
-    width: 15px;
-    height: 15px;
-  }
+	.searchIcon {
+		width: 15px;
+		height: 15px;
+	}
 
-  .inputContainer,
-  .btnContainer {
-    width: 100%;
-    height: 45px;
-  }
+	.inputContainer,
+	.btnContainer {
+		width: 100%;
+		height: 45px;
+	}
 
-  .inputContainer {
-    margin-bottom: 12px;
-  }
+	.inputContainer {
+		margin-bottom: 12px;
+	}
 
-  .inputContainer input {
-    font-size: 14px;
-  }
+	.inputContainer input {
+		font-size: 14px;
+	}
 
-  .checklistContainer {
-    width: 100%;
-  }
+	.checklistContainer {
+		width: 100%;
+	}
 
-  .btnContainer {
-    justify-content: space-around;
-    height: auto;
-    /* flex-wrap: nowrap; */
-  }
+	.btnContainer {
+		justify-content: space-around;
+		height: auto;
+		/* flex-wrap: nowrap; */
+	}
 
-  .btnContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-  }
+	.btnContainer {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		margin-top: 40px;
+	}
 
-  .btnContainer Button {
-    margin: 10px;
-  }
+	.btnContainer Button {
+		/* margin: 10px; */
+	}
 
-  .toggle-pin-dist {
-    width: 100%;
-    justify-content: space-between;
-  }
+	.toggle-pin-dist {
+		width: 100%;
+		justify-content: space-between;
+	}
 
-  .slotsContainer {
-    height: 80%;
-  }
-  .registerContainer {
-    height: 20%;
-  }
-  .registerContainer-head {
-    width: 100%;
-  }
+	.slotsContainer {
+		height: 80%;
+	}
+	.registerContainer {
+		height: 20%;
+	}
+	.registerContainer-head {
+		width: 100%;
+	}
 }

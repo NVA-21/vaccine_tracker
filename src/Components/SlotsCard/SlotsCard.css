@@ -1,5 +1,5 @@
 .slotCard {
-  /* background-color: #fff;
+	/* background-color: #fff;
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -8,61 +8,71 @@
 }
 
 .center-name {
-  color: var(--primary-color);
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  word-break: keep-all;
-  margin-bottom: 4px;
+	color: var(--primary-color);
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+	word-break: keep-all;
+	margin-bottom: 4px;
 }
 
 .center-location {
-  color: var(--primary-color);
-  font-size: 15px;
-  width: 100%;
-  font-weight: 400;
-  text-transform: capitalize;
-  word-break: keep-all;
-  margin-bottom: 10px;
+	color: var(--primary-color);
+	font-size: 15px;
+	width: 100%;
+	font-weight: 400;
+	text-transform: capitalize;
+	word-break: keep-all;
+	margin-bottom: 10px;
+}
+
+.center-vaccineDetails {
+	display: flex;
+}
+
+.center-vaccineDetails > div {
+	flex-grow: 1;
+	color: var(--primary-color);
+	font-size: 15px;
 }
 
 .slots-table-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
 }
 
 .slots-table-set {
-  width: 45%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5px;
+	width: 45%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 5px;
 }
 
 .date {
-  color: var(--secondary-color);
-  font-size: 15px;
+	color: var(--secondary-color);
+	font-size: 15px;
 }
 
 .slots {
-  background-color: var(--slotsAvailable-color);
-  padding: 3px 10px;
-  border-radius: 7px;
-  min-width: 40px;
-  text-align: center;
+	background-color: var(--slotsAvailable-color);
+	padding: 3px 10px;
+	border-radius: 7px;
+	min-width: 40px;
+	text-align: center;
 }
 
 .slotCard .vaccine-category {
-  color: var(--primary-color);
-  font-size: 15px;
+	color: var(--primary-color);
+	font-size: 15px;
 }
 
 @media (max-width: 768px) {
-  .date,
-  .slotCard .vaccine-category {
-    font-size: 12px;
-  }
+	.date,
+	.slotCard .vaccine-category {
+		font-size: 12px;
+	}
 }

@@ -50,7 +50,194 @@ function App() {
 	});
 
 	// Storing api data
-	const [data, setData] = useState([]);
+	const [data, setData] = useState([
+		{
+			center_id: 718003,
+			name: 'Dharamshila Narayan Hospital-1',
+			address: 'Dharmshila Narayan HospitalVasundhra Enclave Delhi',
+			state_name: 'Delhi',
+			district_name: 'East Delhi',
+			block_name: 'Not Applicable',
+			pincode: 110096,
+			lat: 28,
+			long: 77,
+			from: '09:00:00',
+			to: '17:00:00',
+			fee_type: 'Paid',
+			sessions: [
+				{
+					session_id: '780a4c7f-e7a3-4acd-8bb6-56bb1335c3df',
+					date: '30-05-2021',
+					available_capacity: 99,
+					min_age_limit: 18,
+					vaccine: 'COVISHIELD',
+					slots: [
+						'09:00AM-11:00AM',
+						'11:00AM-01:00PM',
+						'01:00PM-03:00PM',
+						'03:00PM-05:00PM'
+					],
+					available_capacity_dose1: 0,
+					available_capacity_dose2: 99
+				}
+			],
+			vaccine_fees: [
+				{
+					vaccine: 'COVISHIELD',
+					fee: '750'
+				}
+			]
+		},
+		{
+			center_id: 718017,
+			name: 'Dharamshila Narayan Hospital-2',
+			address: 'Dharamshila Narayan Hospital Vasundhra Enclave Delhi',
+			state_name: 'Delhi',
+			district_name: 'East Delhi',
+			block_name: 'Not Applicable',
+			pincode: 110096,
+			lat: 28,
+			long: 77,
+			from: '09:00:00',
+			to: '17:00:00',
+			fee_type: 'Paid',
+			sessions: [
+				{
+					session_id: 'cfd34e8e-b8f3-4df4-a9d2-b920746de710',
+					date: '30-05-2021',
+					available_capacity: 99,
+					min_age_limit: 18,
+					vaccine: 'COVISHIELD',
+					slots: [
+						'09:00AM-11:00AM',
+						'11:00AM-01:00PM',
+						'01:00PM-03:00PM',
+						'03:00PM-05:00PM'
+					],
+					available_capacity_dose1: 0,
+					available_capacity_dose2: 99
+				}
+			],
+			vaccine_fees: [
+				{
+					vaccine: 'COVISHIELD',
+					fee: '750'
+				}
+			]
+		},
+
+		{
+			center_id: 718017,
+			name: 'Dharamshila Narayan Hospital-2',
+			address: 'Dharamshila Narayan Hospital Vasundhra Enclave Delhi',
+			state_name: 'Delhi',
+			district_name: 'East Delhi',
+			block_name: 'Not Applicable',
+			pincode: 110096,
+			lat: 28,
+			long: 77,
+			from: '09:00:00',
+			to: '17:00:00',
+			fee_type: 'Paid',
+			sessions: [
+				{
+					session_id: 'cfd34e8e-b8f3-4df4-a9d2-b920746de710',
+					date: '30-05-2021',
+					available_capacity: 99,
+					min_age_limit: 18,
+					vaccine: 'COVISHIELD',
+					slots: [
+						'09:00AM-11:00AM',
+						'11:00AM-01:00PM',
+						'01:00PM-03:00PM',
+						'03:00PM-05:00PM'
+					],
+					available_capacity_dose1: 0,
+					available_capacity_dose2: 99
+				}
+			],
+			vaccine_fees: [
+				{
+					vaccine: 'COVISHIELD',
+					fee: '750'
+				}
+			]
+		},
+		{
+			center_id: 718017,
+			name: 'Dharamshila Narayan Hospital-2',
+			address: 'Dharamshila Narayan Hospital Vasundhra Enclave Delhi',
+			state_name: 'Delhi',
+			district_name: 'East Delhi',
+			block_name: 'Not Applicable',
+			pincode: 110096,
+			lat: 28,
+			long: 77,
+			from: '09:00:00',
+			to: '17:00:00',
+			fee_type: 'Paid',
+			sessions: [
+				{
+					session_id: 'cfd34e8e-b8f3-4df4-a9d2-b920746de710',
+					date: '30-05-2021',
+					available_capacity: 99,
+					min_age_limit: 18,
+					vaccine: 'COVISHIELD',
+					slots: [
+						'09:00AM-11:00AM',
+						'11:00AM-01:00PM',
+						'01:00PM-03:00PM',
+						'03:00PM-05:00PM'
+					],
+					available_capacity_dose1: 0,
+					available_capacity_dose2: 99
+				}
+			],
+			vaccine_fees: [
+				{
+					vaccine: 'COVISHIELD',
+					fee: '750'
+				}
+			]
+		},
+		{
+			center_id: 718017,
+			name: 'Dharamshila Narayan Hospital-2',
+			address: 'Dharamshila Narayan Hospital Vasundhra Enclave Delhi',
+			state_name: 'Delhi',
+			district_name: 'East Delhi',
+			block_name: 'Not Applicable',
+			pincode: 110096,
+			lat: 28,
+			long: 77,
+			from: '09:00:00',
+			to: '17:00:00',
+			fee_type: 'Paid',
+			sessions: [
+				{
+					session_id: 'cfd34e8e-b8f3-4df4-a9d2-b920746de710',
+					date: '30-05-2021',
+					available_capacity: 99,
+					min_age_limit: 18,
+					vaccine: 'COVISHIELD',
+					slots: [
+						'09:00AM-11:00AM',
+						'11:00AM-01:00PM',
+						'01:00PM-03:00PM',
+						'03:00PM-05:00PM'
+					],
+					available_capacity_dose1: 0,
+					available_capacity_dose2: 99
+				}
+			],
+			vaccine_fees: [
+				{
+					vaccine: 'COVISHIELD',
+					fee: '750'
+				}
+			]
+		}
+	]);
 	const [filteredData, setFilteredData] = useState([]);
 
 	const [count, setCount] = useState(0);
@@ -130,12 +317,12 @@ function App() {
 			if (finalResult.length > 0 && !notificationSent) {
 				// if atleast one center pops up
 				handleNotification();
-			} else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+			} else if (JSON.stringify(finalResult) !== JSON.stringify(filteredData)) {
 				// If new center arives or new slot date
 				setNotificationSent(false);
 				handleNotification();
 			}
-			console.log(JSON.stringify(finalResult) === JSON.stringify(data));
+			console.log(JSON.stringify(finalResult) === JSON.stringify(filteredData));
 
 			setFilteredData(finalResult);
 			setCount(count + 1);
@@ -330,6 +517,7 @@ function App() {
 		}
 	}
 
+	console.log(filteredData);
 	// console.table(filterModes);
 	return (
 		<div className="App">
@@ -472,34 +660,39 @@ function App() {
 						</div>
 
 						<div className="btnContainer">
+							<span className="btnFrame">
+								<Button
+									text="Need Help?"
+									background={'#fff'}
+									color={primaryColor}
+									borderRadius={borderRadius}
+									onClick={() => setShowModal({ needHelp: true })}
+								/>
+							</span>
+
+							<span className="btnFrame">
+								<Button
+									text="Get Notified"
+									borderRadius={borderRadius}
+									animate={input.length === 6 && true}
+									onClick={() => {
+										handleSearch();
+									}}
+								/>
+							</span>
+
 							<Modal
 								show={showModal.needHelp}
 								close={() => setShowModal({ ...showModal, needHelp: false })}
 								title="Need Help?"
 								children={<HelpModal />}
 							/>
-							<Button
-								text="Need Help?"
-								background={'#fff'}
-								color={primaryColor}
-								borderRadius={borderRadius}
-								onClick={() => setShowModal({ needHelp: true })}
-							/>
-
-							<Button
-								text="Get Notified"
-								borderRadius={borderRadius}
-								animate={input.length === 6 && true}
-								onClick={() => {
-									handleSearch();
-								}}
-							/>
 						</div>
 					</div>
 
 					<div className="rightContainer">
 						<div className="slotsContainer">
-							<h4>SLOTS AVAILABLE</h4>
+							<h4>SLOTS AVAILABE</h4>
 							<div className="slotsContainerScrollbar">
 								{filteredData.map((center, index) => (
 									<div className="slotCard" key={index}>

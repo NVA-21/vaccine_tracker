@@ -1,123 +1,138 @@
 .default,
 .animate {
-  position: relative;
-  width: 215px;
-  height: 40px;
-  outline: 0;
-  /* box-shadow: var(--input-boxShadow); */
-  /* box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.38); */
-  /* box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25); */
-  box-shadow: var(--slotCards-boxShadow);
-  border: 0px;
-  cursor: pointer;
-  transition: 0.2s;
-  background-color: var(--primary-color);
-  border-top: solid 1px #ddd;
+	position: relative;
+	width: 215px;
+	height: 40px;
+	outline: 0;
+	/* box-shadow: var(--input-boxShadow); */
+	/* box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.38); */
+	/* box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.25); */
+	/* box-shadow: var(--slotCards-boxShadow); */
+	border: 0px;
+	cursor: pointer;
+	transition: 0.2s;
+	background-color: var(--primary-color);
+	border-top: solid 1px #ddd;
+
+	outline: 0;
+	/* box-shadow: var(--input-boxShadow); */
+	/* box-shadow: 3px 4px 5px 0px rgb(0 0 0 / 38%); */
+	/* box-shadow: 0 0 0.25em 0.25em rgb(0 0 0 / 25%); */
+	/* box-shadow: var(--input-boxShadow); */
+	/* border-top: 1px solid #ddd; */
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	cursor: pointer;
+	transition: 0.2s;
+	background-color: var(--primary-color);
+	border-top: solid 1px #ddd;
+	border-radius: inherit;
 }
 
 .animate {
-  background-color: var(--secondary-color);
+	background-color: var(--secondary-color);
 }
 
 .default:hover {
-  /* background-color: var(--primary-light-color); */
-  background-color: #fff;
+	/* background-color: var(--primary-light-color); */
+	background-color: #fff;
 }
 
 .default:hover .button_text {
-  color: var(--primary-color);
+	color: var(--primary-color);
 }
 
 .button_text {
-  font-size: 20px;
-  font-weight: 500;
-  color: #fff;
-  transition: all 0.2s;
+	font-size: 20px;
+	font-weight: 500;
+	color: #fff;
+	transition: all 0.2s;
 }
 
 .animate .button_text {
-  visibility: hidden;
-  opacity: 0;
+	visibility: hidden;
+	opacity: 0;
 }
 
 .animate::before {
-  content: "Searching";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  font-size: 20px;
-  color: #fff;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 50px;
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  border-right: 2px solid rgba(255, 255, 255, 0.4);
-  transition: 0.5s;
+	content: 'Searching';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 20px;
+	color: #fff;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 50px;
+	display: flex;
+	justify-content: left;
+	align-items: flex-start;
+	border-right: 2px solid rgba(255, 255, 255, 0.4);
+	transition: 0.5s;
 }
 
 .animate::before {
-  display: block;
-  animation: dotty steps(1, end) 1s infinite;
-  content: "";
-  padding-top: 4px;
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  margin-left: 30px;
+	display: block;
+	animation: dotty steps(1, end) 1s infinite;
+	content: '';
+	padding-top: 4px;
+	display: flex;
+	justify-content: left;
+	align-items: flex-start;
+	margin-left: 30px;
 }
 
 @keyframes dotty {
-  0% {
-    content: "Searching";
-  }
-  25% {
-    content: "Searching.";
-  }
-  50% {
-    content: "Searching..";
-  }
-  75% {
-    content: "Searching...";
-  }
-  100% {
-    content: "Searching";
-  }
+	0% {
+		content: 'Searching';
+	}
+	25% {
+		content: 'Searching.';
+	}
+	50% {
+		content: 'Searching..';
+	}
+	75% {
+		content: 'Searching...';
+	}
+	100% {
+		content: 'Searching';
+	}
 }
 
 .animate::after {
-  content: "X";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 0px;
-  height: 0px;
-  border: none;
-  animation: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-left: 189px;
-  margin-top: -3px;
-  margin-bottom: 25px;
-  font-size: 25px;
-  font-weight: 700;
-  color: #fff;
-  transition: 0.1s;
+	content: 'X';
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 0px;
+	height: 0px;
+	border: none;
+	animation: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-left: 189px;
+	margin-top: -3px;
+	margin-bottom: 25px;
+	font-size: 25px;
+	font-weight: 700;
+	color: #fff;
+	transition: 0.1s;
 }
 
 .animate:hover::after {
-  content: "X";
-  font-size: 28px;
+	content: 'X';
+	font-size: 28px;
 }
 
 @media (max-width: 768px) {
-  .animate {
-    margin: 20px;
-  }
+	.animate {
+		margin: 20px;
+	}
 }
