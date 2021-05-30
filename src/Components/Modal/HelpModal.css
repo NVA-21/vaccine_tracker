@@ -11,6 +11,22 @@
   color: var(--primary-color);
 }
 
+.helpModal-head .notif-help {
+  height: 330px;
+  width: 710px;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: var(--input-boxShadow);
+}
+
+.helpModal-head .api-link {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
 @media (max-width: 768px) {
   .helpModal-topicHead {
     font-size: 20px;
@@ -24,5 +40,14 @@
 
   .helpModal-head ol {
     text-align: left;
+  }
+
+  .helpModal-head .notif-help {
+    height: 330px;
+    width: 270px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: var(--input-boxShadow);
   }
 }
