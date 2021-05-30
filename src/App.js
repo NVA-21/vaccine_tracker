@@ -51,6 +51,7 @@ function App() {
 
 	// Storing api data
 	const [data, setData] = useState([]);
+	const [filteredData, setFilteredData] = useState([]);
 
 	const [count, setCount] = useState(0);
 
@@ -72,7 +73,13 @@ function App() {
 		Notification.requestPermission();
 	}, []);
 
+	// When new filter parameter is set
+	useEffect(() => {
+		filterData(data);
+	}, [filterModes]);
+
 	useInterval(async () => {
+		console.log('HEY');
 		if (apiFetching) {
 			const date = getDate();
 			// console.log(date);
@@ -93,40 +100,50 @@ function App() {
 					return responseValue.centers;
 				}
 			};
-			var dataa = await apiData();
-			console.log(dataa);
-			try {
-				const filtered = await dataa.map(center => ({
-					...center,
-					sessions: center.sessions.filter(
-						session => session.available_capacity > 0
-					)
-				}));
-
-				const finalResult = filtered.filter(
-					center => center.sessions.length > 0
-				);
-
-				console.log(finalResult);
-
-				if (finalResult.length > 0 && !notificationSent) {
-					// if atleast one center pops up
-					handleNotification();
-				} else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
-					// If new center arives or new slot date
-					setNotificationSent(false);
-					handleNotification();
-				}
-				console.log(JSON.stringify(finalResult) === JSON.stringify(data));
-
-				setData(finalResult);
-				setCount(count + 1);
-			} catch (e) {
-				console.log(count);
-				console.log(e);
-			}
+			var totalData = await apiData();
+			console.log(totalData);
+			filterData(totalData);
+			setData(totalData);
 		}
 	}, 5000);
+
+	async function filterData(data) {
+		try {
+			const filtered = await data.map(center => ({
+				...center,
+				sessions: center.sessions.filter(
+					session =>
+						session.available_capacity > 0 &&
+						filterModes.vaccine_type.includes(session.vaccine) &&
+						filterModes.ageLimit.includes(session.min_age_limit)
+				)
+			}));
+
+			const finalResult = filtered.filter(
+				center =>
+					center.sessions.length > 0 &&
+					filterModes.fee.includes(center.fee_type)
+			);
+
+			console.log(finalResult);
+
+			if (finalResult.length > 0 && !notificationSent) {
+				// if atleast one center pops up
+				handleNotification();
+			} else if (JSON.stringify(finalResult) !== JSON.stringify(data)) {
+				// If new center arives or new slot date
+				setNotificationSent(false);
+				handleNotification();
+			}
+			console.log(JSON.stringify(finalResult) === JSON.stringify(data));
+
+			setFilteredData(finalResult);
+			setCount(count + 1);
+		} catch (e) {
+			console.log(count);
+			console.log(e);
+		}
+	}
 
 	function handleNotification() {
 		// Sending notif first time
@@ -166,7 +183,7 @@ function App() {
 		setDistricts(responseValue);
 	}
 
-	function handleFilterModes(mode, value) {
+	function handleCheckboxFilterModes(mode, value) {
 		const handleTwoFilters = (obj, value, defaultValue) => {
 			console.log(value);
 			console.log([filterModes[obj], value[1], value[0]]);
@@ -250,7 +267,7 @@ function App() {
 		}
 
 		if (mode === 'vaccine') {
-			console.log([filterModes.vaccine_type, value[1], value[0]]);
+			// console.log([filterModes.vaccine_type, value[1], value[0]]);
 
 			// When both gets removed
 			if (filterModes.vaccine_type.length === 1 && !value[0]) {
@@ -270,11 +287,10 @@ function App() {
 				arr = arr.filter(i => i !== value[1]);
 				setFilterModes({ ...filterModes, vaccine_type: arr });
 			} else {
-				console.log('ELSE');
+				// console.log('ELSE');
 				setFilterModes({ ...filterModes, vaccine_type: [value[1]] });
 			}
 		}
-		console.log(filterModes);
 	}
 
 	function handleSearch() {
@@ -314,7 +330,7 @@ function App() {
 		}
 	}
 
-	console.table(filterModes);
+	// console.table(filterModes);
 	return (
 		<div className="App">
 			<div className="backgroundCircle"></div>
@@ -402,23 +418,31 @@ function App() {
 									text="18-44"
 									checked={true}
 									value={18}
-									executeFunction={value => handleFilterModes('age', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('age', value)
+									}
 								/>
 								<Checkbox
 									text="45+"
 									value={45}
-									executeFunction={value => handleFilterModes('age', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('age', value)
+									}
 								/>
 
 								<Checkbox
 									text="Free"
 									value={'Free'}
-									executeFunction={value => handleFilterModes('fee', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('fee', value)
+									}
 								/>
 								<Checkbox
 									text="Paid"
 									value="Paid"
-									executeFunction={value => handleFilterModes('fee', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('fee', value)
+									}
 								/>
 							</div>
 
@@ -426,17 +450,23 @@ function App() {
 								<Checkbox
 									text="Covaxin"
 									value="COVAXIN"
-									executeFunction={value => handleFilterModes('vaccine', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('vaccine', value)
+									}
 								/>
 								<Checkbox
 									text="Covishield"
 									value="COVISHIELD"
-									executeFunction={value => handleFilterModes('vaccine', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('vaccine', value)
+									}
 								/>
 								<Checkbox
 									text="Sputnik V"
 									value="SPUTNIK V"
-									executeFunction={value => handleFilterModes('vaccine', value)}
+									executeFunction={value =>
+										handleCheckboxFilterModes('vaccine', value)
+									}
 								/>
 							</div>
 						</div>
@@ -471,7 +501,7 @@ function App() {
 						<div className="slotsContainer">
 							<h4>SLOTS AVAILABLE</h4>
 							<div className="slotsContainerScrollbar">
-								{data.map((center, index) => (
+								{filteredData.map((center, index) => (
 									<div className="slotCard" key={index}>
 										<SlotCard data={center} />
 									</div>
