@@ -2,7 +2,7 @@
 .animate {
 	position: relative;
 	width: 215px;
-	height: 40px;
+	height: var(--input-height);
 	border: none;
 	outline: none;
 	cursor: pointer;

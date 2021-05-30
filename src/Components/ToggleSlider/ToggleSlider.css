@@ -4,8 +4,8 @@
 	flex-flow: row nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
-	height: 50px;
-	width: 80%;
+	height: var(--input-height);
+	width: var(--input-width);
 	margin-bottom: var(--input-marginBottom);
 	box-shadow: var(--input-boxShadow);
 	border-radius: 40px;

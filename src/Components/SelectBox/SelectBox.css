@@ -19,12 +19,15 @@
 /* Custom Select */
 .selectBoxBase {
 	position: relative;
+	background: #fff;
 	display: flex;
 	width: 100%;
-	height: var(--input-height);
 	line-height: 3;
-	border-radius: var(--input-borderRadius);
 	overflow: hidden;
+	height: var(--input-height);
+	border-radius: var(--input-borderRadius);
+	box-shadow: var(--input-boxShadow);
+	border-top: var(--border-top);
 }
 #select {
 	width: 100%;
@@ -34,6 +37,23 @@
 	font-size: var(--input-fontSize);
 	font-weight: 300;
 	cursor: pointer;
+	/* box-shadow: var(--input-boxShadow); */
+}
+
+#select option {
+	font-size: 15px;
+}
+
+#select::-webkit-scrollbar {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: var(--input-boxShadow);
+	width: 10px;
+}
+
+#select::-webkit-scrollbar-thumb {
+	background: var(--secondary-color);
+	border-radius: 8px;
 	box-shadow: var(--input-boxShadow);
 }
 
@@ -57,7 +77,7 @@
 }
 /* Transition */
 .selectBoxBase:hover::after {
-	color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

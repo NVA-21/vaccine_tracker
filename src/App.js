@@ -529,12 +529,15 @@ function App() {
 				setSearchQuery(input);
 			} else {
 				if (districts.length < 1) {
-					setSelectBoxError({ ...selectBoxError, state: true });
+					setSelectBoxError({ ...selectBoxError, state: true, district: true });
+					return false;
 				} else if (!selectedDistrict) {
 					setSelectBoxError({ ...selectBoxError, state: false });
-					console.log('Select district first');
-					setSelectBoxError({ ...selectBoxError, state: true });
+					// console.log('Select district first');
+					// setSelectBoxError({ ...selectBoxError, state: true });
 					return false;
+				} else {
+					setSelectBoxError({ ...selectBoxError, district: false });
 				}
 			}
 

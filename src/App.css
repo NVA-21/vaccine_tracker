@@ -47,7 +47,7 @@
 .brandLogo {
 	width: 200px;
 	height: 73px;
-	margin-bottom: 30px;
+	margin-bottom: 25px;
 }
 
 .mainHead {
@@ -62,8 +62,8 @@
 
 .inputContainer {
 	position: relative;
-	width: 80%;
-	height: 50px;
+	width: var(--input-width);
+	height: var(--input-height);
 	border-radius: 40px;
 	display: flex;
 	align-items: center;
@@ -88,7 +88,7 @@
 }
 
 .checklistContainer {
-	width: 80%;
+	width: var(--input-width);
 	margin-bottom: 30px;
 }
 
@@ -111,7 +111,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	width: 80%;
+	width: var(--input-width);
 	overflow: visible;
 	/* height: 100%; */
 }
@@ -195,10 +195,12 @@
 }
 
 .selectBoxContainer {
-	display: flex;
-	width: 80%;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 15px;
+	width: var(--input-width);
 	margin-bottom: var(--input-marginBottom);
+	overflow: visible;
 }
 
 .btnContainer > span {
