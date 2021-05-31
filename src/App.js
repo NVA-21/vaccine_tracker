@@ -267,7 +267,7 @@ function App() {
 	}, 5000);
 
 	function handleDistrictChange(value) {
-		if (apiFetching) {
+		if (apiFetching && searchMode === 'district') {
 			setShowToast({
 				status: true,
 				message: {
