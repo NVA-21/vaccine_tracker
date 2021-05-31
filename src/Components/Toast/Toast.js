@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import './Toast.css';
 
-const Toast = props => {
+const Toast = ({ resetToast, heading, content }) => {
 	useEffect(() => {
 		setTimeout(function () {
-			props.resetToast();
+			// props.resetToast();
+			resetToast();
 			console.log('resetRequested');
 		}, 3000);
-	}, []);
+	}, [resetToast]);
 
 	return (
 		<div id="toast" className={'show'}>
-			{/* <h4>Please Turn on Notifications!</h4>
-			<p>To know how to enable it click 'Need Help'</p> */}
-			<p className="toast-head">{props.heading}</p>
-			<p className="toast-content">{props.content}</p>
+			<p className="toast-head">{heading}</p>
+			<p className="toast-content">{content}</p>
 		</div>
 	);
 };
