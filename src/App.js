@@ -144,8 +144,8 @@ function App() {
 			// console.log(JSON.stringify(finalFilteredData) === JSON.stringify(filteredData));
 
 			setFilteredData(finalFilteredData);
-		} catch (e) {
-			// console.log(e);
+		} catch (err) {
+			console.log(err);
 		}
 	}
 
@@ -265,6 +265,19 @@ function App() {
 			// }
 		}
 	}, 5000);
+
+	function handleDistrictChange(value) {
+		if (apiFetching) {
+			setShowToast({
+				status: true,
+				message: {
+					head: 'District updated!',
+					content: 'New District data will be scanned now.'
+				}
+			});
+		}
+		setSelectedDistrict(value);
+	}
 
 	function handleNotification() {
 		// Sending notif first time
@@ -500,7 +513,8 @@ function App() {
 									labelValue={'district_name'}
 									error={selectBoxError.district}
 									executeFunction={value => {
-										setSelectedDistrict(value);
+										// setSelectedDistrict(value);
+										handleDistrictChange(value);
 									}}
 								/>
 								{/* <Dropdown
