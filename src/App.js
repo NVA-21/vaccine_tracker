@@ -62,11 +62,6 @@ function App() {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
-		setSearchMode(toggleValue);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [apiFetching]);
-
-	useEffect(() => {
 		if (!('Notification' in window)) {
 			alert('This browser does not support desktop notification');
 		}
@@ -84,6 +79,14 @@ function App() {
 
 		Notification.requestPermission();
 	}, []);
+
+	// To prevent api switching when toggle slider switches
+	useEffect(() => {
+		setSearchMode(toggleValue);
+
+		// Next line is required to disable a warning
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [apiFetching]);
 
 	// When new filter parameter is set
 	useEffect(() => {
@@ -143,6 +146,15 @@ function App() {
 			setFilteredData(finalFilteredData);
 		} catch (e) {
 			console.log(e);
+		}
+	}
+
+	function handleToggle(toggleMode) {
+		if (apiFetching) {
+			setToggleValue(toggleMode);
+		} else {
+			setToggleValue(toggleMode);
+			setSearchMode(toggleMode);
 		}
 	}
 
@@ -427,7 +439,15 @@ function App() {
 							Get notified when your area has available slots.
 						</h1>
 
-						<ToggleSlider setSearchMode={value => setToggleValue(value)} />
+						<ToggleSlider
+							setSearchMode={value =>
+								// 	{
+								// 	apiFetching ? setToggleValue(value) : setToggleValue(value),
+								// 		setSearchMode(value);
+								// }
+								handleToggle(value)
+							}
+						/>
 
 						{toggleValue === 'pincode' && (
 							// PINCODE SEARCH

@@ -18,12 +18,16 @@ const SlotCard = props => {
 			</p>
 
 			<div className="center-vaccineDetails">
-				<div>{data.sessions[0].vaccine}</div>
-
-				<div>{data.sessions[0].min_age_limit < 45 ? '18-44' : '45+'}</div>
+				<div>{data.sessions[0].vaccine && data.sessions[0].vaccine}</div>
 
 				<div>
-					{data.fee_type === 'Paid' ? (
+					{data.sessions[0].min_age_limit && data.sessions[0].min_age_limit < 45
+						? '18-44'
+						: '45+'}
+				</div>
+
+				<div>
+					{data.fee_type && data.fee_type === 'Paid' ? (
 						<>
 							Paid{' '}
 							<span style={{ color: secondaryColor, fontSize: '12px' }}>
