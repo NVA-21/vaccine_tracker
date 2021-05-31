@@ -1,135 +1,135 @@
 .default,
 .animate {
-	position: relative;
-	width: 100%;
-	height: var(--input-height);
-	border: none;
-	outline: none;
-	cursor: pointer;
-	transition: 0.2s;
-	background-color: var(--primary-color);
-	border-radius: inherit;
-	overflow: hidden;
-	border-top: var(--border-top);
+  position: relative;
+  width: 100%;
+  height: var(--input-height);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: var(--primary-color);
+  border-radius: inherit;
+  overflow: hidden;
+  border-top: var(--border-top);
 }
 
 .animate {
-	background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .default:hover {
-	/* background-color: var(--primary-light-color); */
-	background-color: #fff;
+  /* background-color: var(--primary-light-color); */
+  background-color: #fff;
 }
 
 .default:hover .button_text {
-	color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .button_text {
-	font-size: var(--input-fontSize);
-	font-weight: 500;
-	color: #fff;
-	transition: all 0.2s;
+  font-size: var(--input-fontSize);
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.2s;
 }
 
 .animate .button_text {
-	visibility: hidden;
-	opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .animate::before {
-	content: 'Searching';
-	position: absolute;
-	top: 0;
-	left: 15%;
-	right: 0;
-	bottom: 0;
-	font-size: var(--input-fontSize);
-	color: #fff;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-right: 50px;
-	border-right: 2px solid rgba(255, 255, 255, 0.4);
-	transition: 0.5s;
+  content: "Searching";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 0;
+  bottom: 0;
+  font-size: var(--input-fontSize);
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 50px;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  transition: 0.5s;
 }
 
 .animate::before {
-	/* display: block; */
-	animation: dotty steps(1, end) 1s infinite;
-	content: '';
-	/* padding-top: 4px; */
+  /* display: block; */
+  animation: dotty steps(1, end) 1s infinite;
+  content: "";
+  /* padding-top: 4px; */
 
-	/* margin-left: 30px; */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  /* margin-left: 30px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @keyframes dotty {
-	0% {
-		content: 'Searching';
-	}
-	25% {
-		content: 'Searching.';
-	}
-	50% {
-		content: 'Searching..';
-	}
-	75% {
-		content: 'Searching...';
-	}
-	100% {
-		content: 'Searching';
-	}
+  0% {
+    content: "Searching";
+  }
+  25% {
+    content: "Searching.";
+  }
+  50% {
+    content: "Searching..";
+  }
+  75% {
+    content: "Searching...";
+  }
+  100% {
+    content: "Searching";
+  }
 }
 
 .animate::after {
-	content: 'X';
-	flex-direction: row-reverse;
-	/* justify-content: unset; */
-	/* padding-right: 27px; */
-	content: 'X';
-	top: 0;
-	left: -10%;
-	/* right: -3%; */
-	bottom: 0;
-	/* width: 0px; */
-	height: 100%;
-	border: none;
-	animation: none;
-	display: flex;
-	align-items: center;
-	/* text-align: center; */
-	/* margin-left: 189px; */
-	/* margin-top: -3px; */
-	/* margin-bottom: 25px; */
-	font-size: 25px;
-	font-weight: 700;
-	position: absolute;
-	color: #fff;
-	height: 100%;
-	width: 100%;
-	/* width: 92%; */
-	transition: 0.1s;
+  content: "X";
+  flex-direction: row-reverse;
+  /* justify-content: unset; */
+  /* padding-right: 27px; */
+  content: "X";
+  top: 0;
+  left: -7%;
+  /* right: -3%; */
+  bottom: 0;
+  /* width: 0px; */
+  height: 100%;
+  border: none;
+  animation: none;
+  display: flex;
+  align-items: center;
+  /* text-align: center; */
+  /* margin-left: 189px; */
+  /* margin-top: -3px; */
+  /* margin-bottom: 25px; */
+  font-size: 25px;
+  font-weight: 700;
+  position: absolute;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  /* width: 92%; */
+  transition: 0.1s;
 }
 
 .animate:hover::after {
-	content: 'X';
-	font-size: 28px;
+  content: "X";
+  font-size: 28px;
 }
 
 @media (max-width: 768px) {
-	.button_text {
-		font-size: var(--input-fontSize-responsive);
-	}
+  .button_text {
+    font-size: var(--input-fontSize-responsive);
+  }
 
-	.animate .default {
-		height: var(--input-height-responsive);
-	}
+  .animate .default {
+    height: var(--input-height-responsive);
+  }
 
-	.animate::before,
-	.animate::after {
-		font-size: var(--input-fontSize-responsive);
-	}
+  .animate::before,
+  .animate::after {
+    font-size: var(--input-fontSize-responsive);
+  }
 }
