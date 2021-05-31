@@ -146,18 +146,26 @@ function App() {
 
 		const apiData = async () => {
 			if (searchMode === 'pincode') {
+				// To fix Promises issue faced when instant api call used
+				let pincode;
+				if (searchQuery === '') {
+					pincode = input;
+				} else {
+					pincode = searchQuery;
+				}
+
 				const responseValue = await fetchApiData(
-					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
+					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${date}`
 				);
 				// console.log(responseValue.message);
-				if (responseValue.message === 'Invalid Pincode') {
+				if (responseValue.message) {
 					console.log('Insert apt pincode');
 					setApiFetching(false);
 					setShowToast({
 						status: true,
 						message: {
-							head: 'Invalid Pincode',
-							content: 'Please try another pincode'
+							head: responseValue.message,
+							content: 'Please try another'
 						}
 					});
 					setInputError(true);
@@ -169,7 +177,7 @@ function App() {
 				const responseValue = await fetchApiData(
 					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
 				);
-				// console.log(responseValue);
+
 				return responseValue.centers;
 			}
 		};
@@ -179,7 +187,7 @@ function App() {
 		setData(totalData);
 	}
 
-	useInterval(async () => {
+	useInterval(() => {
 		if (apiFetching) {
 			fetchingApiData();
 			// const date = getDate();
@@ -355,7 +363,7 @@ function App() {
 		// console.log('done');
 	}
 
-	function handleSearch() {
+	async function handleSearch() {
 		// If not searching from API
 		if (!apiFetching) {
 			if (searchMode === 'pincode') {
@@ -553,9 +561,9 @@ function App() {
 									text="Get Notified"
 									borderRadius={borderRadius}
 									animate={
-										// (input.length === 6 && true) ||
-										// (selectedDistrict.length && true)
-										apiFetching && true
+										(input.length === 6 && true) ||
+										(selectedDistrict.length && true)
+										// apiFetching ? true : false
 									}
 									onClick={() => {
 										handleSearch();
