@@ -23,7 +23,7 @@
 
 /* Scrollbar CSS  */
 ::-webkit-scrollbar {
-	background: #fff;
+	background-color: #deffff;
 	/* border-radius: 8px; */
 	box-shadow: var(--input-boxShadow);
 	width: 10px;

@@ -42,7 +42,7 @@
 	content: 'Searching';
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 15%;
 	right: 0;
 	bottom: 0;
 	font-size: var(--input-fontSize);
@@ -50,22 +50,20 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-right: 50px;
-	display: flex;
-	justify-content: left;
-	align-items: flex-start;
 	border-right: 2px solid rgba(255, 255, 255, 0.4);
 	transition: 0.5s;
 }
 
 .animate::before {
-	display: block;
+	/* display: block; */
 	animation: dotty steps(1, end) 1s infinite;
 	content: '';
-	padding-top: 4px;
+	/* padding-top: 4px; */
+
+	/* margin-left: 30px; */
 	display: flex;
-	justify-content: left;
-	align-items: flex-start;
-	margin-left: 30px;
+	justify-content: space-between;
+	align-items: center;
 }
 
 @keyframes dotty {
