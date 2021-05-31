@@ -16,7 +16,7 @@
 	);
 	position: absolute;
 	top: 0;
-	left: 15%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: #deffff;
@@ -108,11 +108,16 @@
 }
 
 .btnContainer {
-	display: flex;
+	/* display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-wrap: wrap; */
 	width: var(--input-width);
 	overflow: visible;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 15px;
+	align-items: center;
+	margin-bottom: 5px;
 	/* height: 100%; */
 }
 

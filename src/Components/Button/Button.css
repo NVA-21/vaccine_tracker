@@ -1,7 +1,7 @@
 .default,
 .animate {
 	position: relative;
-	width: 215px;
+	width: 100%;
 	height: var(--input-height);
 	border: none;
 	outline: none;
@@ -86,24 +86,31 @@
 
 .animate::after {
 	content: 'X';
+	flex-direction: row-reverse;
+	/* justify-content: unset; */
+	/* padding-right: 27px; */
+	content: 'X';
 	top: 0;
-	left: 0;
-	right: 0;
+	left: -10%;
+	/* right: -3%; */
 	bottom: 0;
-	width: 0px;
-	height: 0px;
+	/* width: 0px; */
+	height: 100%;
 	border: none;
 	animation: none;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	text-align: center;
-	margin-left: 189px;
-	margin-top: -3px;
-	margin-bottom: 25px;
+	/* text-align: center; */
+	/* margin-left: 189px; */
+	/* margin-top: -3px; */
+	/* margin-bottom: 25px; */
 	font-size: 25px;
 	font-weight: 700;
+	position: absolute;
 	color: #fff;
+	height: 100%;
+	width: 100%;
+	/* width: 92%; */
 	transition: 0.1s;
 }
 
