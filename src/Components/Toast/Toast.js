@@ -5,7 +5,7 @@ const Toast = props => {
 	useEffect(() => {
 		setTimeout(function () {
 			props.resetToast();
-			console.log('resetRequested');
+			// console.log('resetRequested');
 		}, 3000);
 	}, []);
 
