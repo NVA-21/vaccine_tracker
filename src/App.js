@@ -42,7 +42,10 @@ function App() {
 	const [apiFetching, setApiFetching] = useState(false);
 	// Keeps track whether notification prev sent or not
 	const [notificationSent, setNotificationSent] = useState(false);
-	const [showToast, setShowToast] = useState('');
+	const [showToast, setShowToast] = useState({
+		status: false,
+		message: { head: '', content: '' }
+	});
 	// Filtering
 	const [filterModes, setFilterModes] = useState({
 		ageLimit: [18],
@@ -326,10 +329,16 @@ function App() {
 						`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
 					);
 					// console.log(responseValue.message);
-					if (responseValue === 'Invalid Pincode') {
+					if (responseValue.message === 'Invalid Pincode') {
 						console.log('Insert apt pincode');
 						setApiFetching(false);
-						setShowToast('toast');
+						setShowToast({
+							status: true,
+							message: {
+								head: 'Invalid Pincode',
+								content: 'Please try another pincode'
+							}
+						});
 						setInputError(true);
 						return [];
 					}

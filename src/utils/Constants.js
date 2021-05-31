@@ -12,10 +12,10 @@ export const fetchApiData = async url => {
 		// console.log(requestUrl);
 		// console.log(responseJSON);
 		return responseJSON;
-	} catch (e) {
+	} catch (err) {
 		// console.log(e);
 		// console.log(e.message);
-		return e.message;
+		return err;
 	}
 };
 
