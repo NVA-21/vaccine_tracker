@@ -40,45 +40,46 @@ const SlotCard = props => {
 				</div>
 			</div>
 
-			{data.sessions.map((session, index) => (
-				<div className="center-vaccineDetails" key={index}>
-					{/* <div className="slots-table-set"> */}
-					<div className="date">{session.date}</div>
-					<div
-						className="slots"
-						style={{
-							background:
-								session.available_capacity_dose1 > 0 &&
-								session.available_capacity_dose1 < 11
-									? 'yellow'
-									: !session.available_capacity_dose1 && 'red',
-							color: !session.available_capacity_dose1 && '#fff'
-						}}
-					>
-						<span>Dose 1</span>
-						<span className="slots-value">
-							{session.available_capacity_dose1}
-						</span>
+			{data.sessions &&
+				data.sessions.map((session, index) => (
+					<div className="center-vaccineDetails" key={index}>
+						{/* <div className="slots-table-set"> */}
+						<div className="date">{session.date}</div>
+						<div
+							className="slots"
+							style={{
+								background:
+									session.available_capacity_dose1 > 0 &&
+									session.available_capacity_dose1 < 11
+										? 'yellow'
+										: !session.available_capacity_dose1 && 'red',
+								color: !session.available_capacity_dose1 && '#fff'
+							}}
+						>
+							<span>Dose 1</span>
+							<span className="slots-value">
+								{session.available_capacity_dose1}
+							</span>
+						</div>
+						<div
+							className="slots"
+							style={{
+								background:
+									session.available_capacity_dose2 > 0 &&
+									session.available_capacity_dose2 < 11
+										? 'yellow'
+										: !session.available_capacity_dose2 && 'red',
+								color: !session.available_capacity_dose2 && '#fff'
+							}}
+						>
+							<span>Dose 2</span>
+							<span className="slots-value">
+								{session.available_capacity_dose2}
+							</span>
+						</div>
+						{/* </div> */}
 					</div>
-					<div
-						className="slots"
-						style={{
-							background:
-								session.available_capacity_dose2 > 0 &&
-								session.available_capacity_dose2 < 11
-									? 'yellow'
-									: !session.available_capacity_dose2 && 'red',
-							color: !session.available_capacity_dose2 && '#fff'
-						}}
-					>
-						<span>Dose 2</span>
-						<span className="slots-value">
-							{session.available_capacity_dose2}
-						</span>
-					</div>
-					{/* </div> */}
-				</div>
-			))}
+				))}
 		</>
 	);
 };
