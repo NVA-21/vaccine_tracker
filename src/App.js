@@ -34,6 +34,7 @@ function App() {
 	});
 
 	// Toggle between pincode and district search
+	const [toggleValue, setToggleValue] = useState('pincode');
 	const [searchMode, setSearchMode] = useState('pincode');
 	//pincodes value when search btn clicked
 	const [searchQuery, setSearchQuery] = useState('');
@@ -59,6 +60,11 @@ function App() {
 
 	// Modal opening.
 	const [showModal, setShowModal] = useState(false);
+
+	useEffect(() => {
+		setSearchMode(toggleValue);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [apiFetching]);
 
 	useEffect(() => {
 		if (!('Notification' in window)) {
@@ -421,9 +427,9 @@ function App() {
 							Get notified when your area has available slots.
 						</h1>
 
-						<ToggleSlider setSearchMode={value => setSearchMode(value)} />
+						<ToggleSlider setSearchMode={value => setToggleValue(value)} />
 
-						{searchMode === 'pincode' && (
+						{toggleValue === 'pincode' && (
 							// PINCODE SEARCH
 							<div
 								className="inputContainer"
@@ -453,7 +459,7 @@ function App() {
 							</div>
 						)}
 
-						{searchMode === 'district' && (
+						{toggleValue === 'district' && (
 							// DISTRICT SEARCH
 							<div className="selectBoxContainer">
 								<SelectBox
