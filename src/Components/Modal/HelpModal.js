@@ -1,4 +1,5 @@
 import React from "react";
+import { PUBLIC_IMAGE_PATH } from "../../utils/Constants";
 import "./HelpModal.css";
 
 export default function HelpModal() {
@@ -7,7 +8,14 @@ export default function HelpModal() {
       <div className="helpModal-head">
         <h2 className="helpModal-topicHead">How to enable notification?</h2>
         <br />
-        <div className="notif-help">Hey</div>
+        <div className="notif-help">
+          <img src={PUBLIC_IMAGE_PATH + "notifgif.gif"} alt="help gif" />
+          <br />
+          <h5>
+            1. Open the View Site Information &nbsp; &nbsp; 2. Click on the
+            Notfications Dropdown &nbsp; &nbsp; 3. Click on Allow and Close.
+          </h5>
+        </div>
       </div>
 
       <div className="helpModal-head">

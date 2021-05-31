@@ -14,10 +14,22 @@
 .helpModal-head .notif-help {
   height: 330px;
   width: 710px;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 30px;
   padding: 20px;
-  box-shadow: var(--input-boxShadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.helpModal-head .notif-help img {
+  height: 250px;
+  width: auto;
+}
+
+.helpModal-head .notif-help h5 {
+  color: var(--primary-color);
 }
 
 .helpModal-head .api-link {
