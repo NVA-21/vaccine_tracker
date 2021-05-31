@@ -1,12 +1,12 @@
 export const fetchApiData = async url => {
 	try {
-		console.log('API HIT');
+		// console.log('API HIT');
 		const requestUrl = url;
 		const response = await fetch(requestUrl);
 		const responseJSON = await response.json();
 
 		if (responseJSON.error) {
-			console.log(responseJSON.error);
+			// console.log(responseJSON.error);
 			throw new Error(responseJSON.error);
 		}
 		// console.log(requestUrl);

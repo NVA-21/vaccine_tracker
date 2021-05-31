@@ -132,7 +132,7 @@ function App() {
 				handleNotification();
 			}
 
-			console.log('Continuing');
+			// console.log('Continuing');
 			// if (finalFilteredData.length > 0 && !notificationSent) {
 			// 	// if atleast one center pops up
 			// 	handleNotification();
@@ -145,7 +145,7 @@ function App() {
 
 			setFilteredData(finalFilteredData);
 		} catch (e) {
-			console.log(e);
+			// console.log(e);
 		}
 	}
 
@@ -177,7 +177,7 @@ function App() {
 				);
 				// console.log(responseValue.message);
 				if (responseValue.message) {
-					console.log('Insert apt pincode');
+					// console.log('Insert apt pincode');
 					setApiFetching(false);
 					setShowToast({
 						status: true,
@@ -191,7 +191,7 @@ function App() {
 				}
 				return responseValue.centers;
 			} else if (searchMode === 'district') {
-				console.log('DISTRICT SEARCHING');
+				// console.log('DISTRICT SEARCHING');
 				const responseValue = await fetchApiData(
 					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
 				);
@@ -269,7 +269,7 @@ function App() {
 	function handleNotification() {
 		// Sending notif first time
 		if (!notificationSent) {
-			console.log('Notif SEND BOII');
+			// console.log('Notif SEND BOII');
 			setNotificationSent(true);
 			sendNotification(
 				'Hurry Up New Vaccination Center just available',
@@ -296,18 +296,18 @@ function App() {
 	async function getDistricts(stateID) {
 		setDistricts([]);
 		// https://cdn-api.co-vin.in/api/v2/admin/location/districts/37
-		console.log(stateID);
+		// console.log(stateID);
 		const responseValue = await fetchApiData(
 			'https://cdn-api.co-vin.in/api/v2/admin/location/districts/' + stateID
 		);
-		console.log(responseValue);
+		// console.log(responseValue);
 		setDistricts(responseValue);
 	}
 
 	function handleCheckboxFilterModes(mode, value) {
 		const handleTwoFilters = (obj, value, defaultValue) => {
-			console.log(value);
-			console.log([filterModes[obj], value[1], value[0]]);
+			// console.log(value);
+			// console.log([filterModes[obj], value[1], value[0]]);
 
 			// When both gets removed
 			if (filterModes[obj].length === 1 && !value[0]) {
@@ -316,10 +316,10 @@ function App() {
 
 			// When one enabled and new has to enable
 			else if (filterModes[obj].length === 1) {
-				console.log('HEY');
+				// console.log('HEY');
 				let arr = filterModes[obj];
 				arr.push(value[1]);
-				console.log(arr);
+				// console.log(arr);
 				setFilterModes({
 					...filterModes,
 					[obj]: arr
@@ -328,10 +328,10 @@ function App() {
 
 			// To remove one when both enabled already
 			else if (filterModes[obj].length === 2 && !value[0]) {
-				console.log('BYE');
+				// console.log('BYE');
 				let arr = filterModes[obj];
 				arr = arr.filter(i => i !== value[1]);
-				console.log(arr);
+				// console.log(arr);
 				setFilterModes({
 					...filterModes,
 					[obj]: arr
@@ -339,7 +339,7 @@ function App() {
 			}
 			// When everything is removed and automatically both values are added then adding one sets value to that value
 			else {
-				console.log('ELSE');
+				// console.log('ELSE');
 				setFilterModes({ ...filterModes, [obj]: [value[1]] });
 			}
 		};
