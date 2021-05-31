@@ -254,6 +254,13 @@ function App() {
 
 		if (Notification.permission === 'denied') {
 			// alert("Notification permission is denied in your system");
+			setShowToast({
+				status: true,
+				message: {
+					head: 'Please Turn on Notifications!',
+					content: "To know how to enable it click 'Need Help'."
+				}
+			});
 		}
 
 		Notification.requestPermission();
@@ -530,10 +537,10 @@ function App() {
 		// If not searching from API
 		if (!apiFetching) {
 			if (searchMode === 'pincode') {
-				// if (input.length < 6) {
-				// 	setInputError(true);
-				// 	return false;
-				// }
+				if (input.length < 6) {
+					setInputError(true);
+					return false;
+				}
 
 				// Disabling inputError
 				setInputError(false);
@@ -782,11 +789,18 @@ function App() {
 						</div>
 					</div>
 				</div>
-				{showToast && (
+				{showToast.status && (
 					<Toast
-						heading="Please Turn on Notifications!"
-						content="To know how to enable it click 'Need Help'"
-						resetToast={() => setShowToast('')}
+						// heading="Please Turn on Notifications!"
+						// content={"To know how to enable it click 'Need Help'"}
+						heading={showToast.message.head}
+						content={showToast.message.content}
+						resetToast={() =>
+							setShowToast({
+								status: false,
+								message: { head: '', content: '' }
+							})
+						}
 					/>
 				)}
 			</MaxWidthWrapper>

@@ -120,4 +120,16 @@
 }
 
 @media (max-width: 768px) {
+	.button_text {
+		font-size: var(--input-fontSize-responsive);
+	}
+
+	.animate .default {
+		height: var(--input-height-responsive);
+	}
+
+	.animate::before,
+	.animate::after {
+		font-size: var(--input-fontSize-responsive);
+	}
 }

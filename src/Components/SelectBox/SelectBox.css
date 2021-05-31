@@ -81,6 +81,9 @@
 }
 
 @media (max-width: 768px) {
+	.selectBoxBase {
+		height: var(--input-height-responsive);
+	}
 	#select {
 		font-size: var(--input-fontSize-responsive);
 	}
