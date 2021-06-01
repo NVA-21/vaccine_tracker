@@ -638,7 +638,7 @@ function App() {
 									>
 										<span>
 											No slots available according to your filters <br /> We
-											will notify you as soon as a vaccant slot appears!
+											will notify you as soon as a vacant slot appears!
 										</span>
 										<div
 											// style={{ display: !apiFetching && 'none' }}
