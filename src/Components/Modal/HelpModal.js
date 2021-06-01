@@ -219,7 +219,7 @@ export default function HelpModal() {
 						>
 							<img
 								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
-								alt="Linkedin"
+								alt="Mail: vishakg98@gmail.com"
 								width={30}
 								heigh={'auto'}
 							/>
@@ -264,7 +264,7 @@ export default function HelpModal() {
 						>
 							<img
 								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
-								alt="Linkedin"
+								alt="Mail: vishakg98@gmail.com"
 								width={30}
 								heigh={'auto'}
 							/>
@@ -281,7 +281,7 @@ export default function HelpModal() {
 						>
 							<img
 								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
-								alt="Linkedin"
+								alt="Mail: vishakg98@gmail.com"
 								width={30}
 								heigh={'auto'}
 							/>
