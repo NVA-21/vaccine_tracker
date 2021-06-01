@@ -101,28 +101,6 @@ export default function HelpModal() {
 			</div>
 
 			{/* <br /> */}
-
-			<div className="helpModal-head">
-				<h2 className="helpModal-topicHead">Who are we?</h2>
-				<br />
-				<p>
-					We are a group of three friends who always wanted to do innovative
-					projects together. Hence we took up this project as a side hobby to
-					contribute to society in these testing times!
-					<br /> Since this is our first project, there may be some bugs or
-					problems with the site that we may have missed. We urge you to join
-					this telegram group and alert us if you find any bugs or problems with
-					this site.
-				</p>
-				<br />
-				<a
-					href="https://t.me/NVA_CovidVaccineTracker"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Click here to go to the Telegram Channel!
-				</a>
-			</div>
 			<div className="helpModal-head">
 				<h2 className="helpModal-topicHead">How does this site work?</h2>
 				<br />
@@ -135,12 +113,206 @@ export default function HelpModal() {
 				<div className="api-link">
 					API link: &nbsp;
 					<a
+						className="helpModal-Links"
 						href="https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2"
 						target="_blank"
 						rel="noreferrer"
 					>
 						https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2
 					</a>
+				</div>
+			</div>
+
+			<div className="helpModal-head">
+				<h2 className="helpModal-topicHead">Who are we?</h2>
+				<br />
+				<p>
+					We are a group of three friends (
+					<a
+						className="developerNames"
+						href="https://www.linkedin.com/in/g-vishakh/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						G. Vishakh
+					</a>
+					,{' '}
+					<a
+						className="developerNames"
+						href="https://www.linkedin.com/in/arunsamuel08/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Arun Saji Samuel
+					</a>
+					,{' '}
+					<a
+						className="developerNames"
+						href="https://www.linkedin.com/in/nikhil-singh-payaal-a41809169/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Nikhil Singh Payaal
+					</a>
+					) who always wanted to do innovative projects together. Hence we took
+					up this project as a side hobby to contribute to society in these
+					testing times!
+					<br /> Since this is our first project, there may be some bugs or
+					problems with the site that we may have missed. We urge you to join
+					this telegram group and alert us if you find any bugs or problems with
+					this site.
+				</p>
+				<br />
+				<a
+					className="helpModal-Links"
+					href="https://t.me/NVA_CovidVaccineTracker"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Click here to go to the Telegram Channel!
+				</a>
+			</div>
+
+			<div className="helpModal-head">
+				<h2 className="helpModal-topicHead">Feel free to Contact Us</h2>
+				<br />
+				<p>
+					Any doubts or queries, or want our help/contributions in your
+					current/future projects, Feel free to contact us!
+				</p>
+				<br />
+
+				<div className="profileCards">
+					<div className="profileCard">
+						<h2 className="profileName">G. Vishakh</h2>
+						<h4 className="profileDesignation">Full Stack Developer</h4>
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'github.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'linkedin.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="mailto:vishakhg98@gmail.com"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+					</div>
+
+					<div className="profileCard">
+						<h2 className="profileNames">Arun Saji Samuel</h2>
+						<h4 className="profileDesignation">
+							Front End Dev, DS enthusiast, Undergrad Pharmacist!
+						</h4>
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'github.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'linkedin.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="mailto:vishakhg98@gmail.com"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+					</div>
+
+					<div className="profileCard">
+						<h2 className="profileNames">Nikhil Singh Payaal</h2>
+						<h4 className="profileDesignation">UI/UX Designer</h4>
+						<a
+							href="mailto:vishakhg98@gmail.com"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'gmail.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'linkedin.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+
+						<a
+							href="https://t.me/NVA_CovidVaccineTracker"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={PUBLIC_IMAGE_PATH + 'behance.svg'}
+								alt="Linkedin"
+								width={30}
+								heigh={'auto'}
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 		</>
