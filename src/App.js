@@ -19,6 +19,7 @@ import Footer from './Components/Footer/Footer';
 import * as statesData from './JsonData/states.json';
 import SelectBox from './Components/SelectBox/SelectBox';
 import Toast from './Components/Toast/Toast';
+import Loader from './Components/Loader/Loader';
 
 function App() {
 	// Input values
@@ -631,9 +632,21 @@ function App() {
 										</div>
 									))
 								) : (
-									<span style={{ display: !apiFetching && 'none' }}>
-										'WE WILL NOTIFY YOU'
-									</span>
+									<div
+										className="slotsNotFoundContainer"
+										style={{ display: !apiFetching && 'none' }}
+									>
+										<span>
+											No slots available according to your filters <br /> We
+											will notify you as soon as a vaccant slot appears!
+										</span>
+										<div
+											// style={{ display: !apiFetching && 'none' }}
+											className="loader-cont"
+										>
+											<Loader />
+										</div>
+									</div>
 								)}
 							</div>
 						</div>

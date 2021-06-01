@@ -13,7 +13,7 @@
 
 .helpModal-head .notif-help {
 	height: 330px;
-	width: 710px;
+	width: 100%;
 	border: 1px solid var(--primary-color);
 	border-radius: 30px;
 	padding: 20px;
@@ -30,6 +30,7 @@
 
 .helpModal-head .notif-help h5 {
 	color: var(--primary-color);
+	overflow: hidden;
 }
 
 .helpModal-head .api-link {
@@ -66,11 +67,16 @@
 	}
 
 	.helpModal-head .notif-help {
-		height: 330px;
-		width: 270px;
+		height: auto;
+		/* width: 270px; */
+		width: 100%;
 		border: 2px solid var(--primary-color);
 		border-radius: 30px;
 		padding: 20px;
 		box-shadow: var(--input-boxShadow);
+	}
+
+	.profileCards {
+		grid-template-columns: 1fr;
 	}
 }

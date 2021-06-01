@@ -1,5 +1,6 @@
 import React from 'react';
 import { PUBLIC_IMAGE_PATH } from '../../utils/Constants';
+import ProfileCard from '../ProfileCard/ProfileCard';
 import './HelpModal.css';
 
 export default function HelpModal() {
@@ -183,7 +184,33 @@ export default function HelpModal() {
 				<br />
 
 				<div className="profileCards">
-					<div className="profileCard">
+					<ProfileCard
+						profileImage="nikhil1.png"
+						name="Nikhil Singh Payaal"
+						designation="UI/UX Designer"
+						behance="https://www.behance.net/nspdesigns"
+						linkedin="https://www.linkedin.com/in/nikhil-singh-payaal-a41809169/"
+						mail="mailto:npayaal007@gmail.com"
+					/>
+
+					<ProfileCard
+						profileImage="vishakh.png"
+						name="G. Vishakh"
+						designation="Fullstack Developer"
+						github="https://github.com/vishakhg98/"
+						linkedin="https://www.linkedin.com/in/g-vishakh/"
+						mail="mailto:vishakhg98@gmail.com"
+					/>
+
+					<ProfileCard
+						profileImage="arun.png"
+						name="Arun Saji Samuel"
+						designation="Front End Developer"
+						github="https://github.com/arunsamuel08"
+						linkedin="https://www.linkedin.com/in/arunsamuel08/"
+						mail="mailto:arun.samuel08@gmail.com"
+					/>
+					{/* <div className="profileCard">
 						<h2 className="profileName">G. Vishakh</h2>
 						<h4 className="profileDesignation">Full Stack Developer</h4>
 						<a
@@ -312,7 +339,7 @@ export default function HelpModal() {
 								heigh={'auto'}
 							/>
 						</a>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>

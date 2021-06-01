@@ -11,6 +11,7 @@
 	border-radius: 40px;
 	background-color: #fff;
 	border-top: var(--border-top);
+	cursor: pointer;
 }
 
 .toggle input {
@@ -37,7 +38,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
+	cursor: pointer;
 	/* ----- */
 }
 .toggle input + label:first-of-type {

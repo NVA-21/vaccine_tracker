@@ -19,11 +19,11 @@
 
 .default:hover {
 	/* background-color: var(--primary-light-color); */
-	background-color: #fff;
+	/* background-color: #fff; */
 }
 
 .default:hover .button_text {
-	color: var(--primary-color);
+	/* color: var(--primary-color); */
 }
 
 .button_text {
