@@ -624,11 +624,17 @@ function App() {
 						<div className="slotsContainer">
 							<h4>SLOTS AVAILABLE</h4>
 							<div className="slotsContainerScrollbar">
-								{filteredData.map((center, index) => (
-									<div className="slotCard" key={index}>
-										<SlotCard data={center} />
-									</div>
-								))}
+								{filteredData.length > 0 ? (
+									filteredData.map((center, index) => (
+										<div className="slotCard" key={index}>
+											<SlotCard data={center} />
+										</div>
+									))
+								) : (
+									<span style={{ display: !apiFetching && 'none' }}>
+										'WE WILL NOTIFY YOU'
+									</span>
+								)}
 							</div>
 						</div>
 						<div className="registerContainer">
