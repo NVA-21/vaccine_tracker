@@ -10,7 +10,7 @@
 }
 
 .modal-wrapper {
-  background: #fff;
+  background: var(--primary-color);
   width: 80%;
   max-width: 800px;
   max-height: calc(80% - var(--footer-height));

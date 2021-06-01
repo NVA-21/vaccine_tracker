@@ -39,17 +39,6 @@
 	margin-top: 15px;
 }
 
-.developerNames {
-	color: var(--primary-color);
-	cursor: pointer;
-}
-
-.profileCards {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
-}
-
 @media (max-width: 768px) {
 	.helpModal-topicHead {
 		font-size: 20px;
