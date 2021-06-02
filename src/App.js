@@ -450,7 +450,7 @@ function App() {
 						/>
 
 						<h1 className="mainHead">
-							Get notified when your area has available slots.
+							Get notified when your area has available slots
 						</h1>
 
 						<ToggleSlider

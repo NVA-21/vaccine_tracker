@@ -24,6 +24,15 @@
 @media (max-width: 768px) {
 	.footerBase {
 		position: static;
+		min-height: 3vh;
+		height: auto;
+	}
+	.footerBase > h4 {
 		font-size: 12px;
+	}
+
+	.footerBase img {
+		width: 12px;
+		height: 12px;
 	}
 }
