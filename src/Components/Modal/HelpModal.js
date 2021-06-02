@@ -185,7 +185,7 @@ export default function HelpModal() {
 
 				<div className="profileCards">
 					<ProfileCard
-						profileImage="nikhil1.png"
+						profileImage="nikhil.png"
 						name="Nikhil Singh Payaal"
 						designation="UI/UX Designer"
 						behance="https://www.behance.net/nspdesigns"
