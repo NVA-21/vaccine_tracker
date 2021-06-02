@@ -15,6 +15,12 @@
 	letter-spacing: 1px;
 }
 
+.footerBase > h4 {
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+}
+
 @media (max-width: 768px) {
 	.footerBase {
 		position: static;

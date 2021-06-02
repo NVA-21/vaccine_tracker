@@ -10,7 +10,8 @@
 	background-color: var(--primary-color);
 	border-radius: inherit;
 	overflow: hidden;
-	border-top: var(--border-top);
+	/* border-top: var(--border-top); */
+	border: 2px solid var(--primary-color);
 }
 
 .animate {

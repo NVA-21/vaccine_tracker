@@ -20,14 +20,25 @@ const ProfileCard = props => {
 					</div>
 				</div>
 				<div className="social-profiles">
-					<a href={props.github} target="_blank" rel="noreferrer">
-						<img
-							src={PUBLIC_IMAGE_PATH + 'github.svg'}
-							alt="Linkedin"
-							width={30}
-							height={'auto'}
-						/>
-					</a>
+					{props.github ? (
+						<a href={props.github} target="_blank" rel="noreferrer">
+							<img
+								src={PUBLIC_IMAGE_PATH + 'github.svg'}
+								alt="Linkedin"
+								width={30}
+								height={'auto'}
+							/>
+						</a>
+					) : (
+						<a href={props.behance} target="_blank" rel="noreferrer">
+							<img
+								src={PUBLIC_IMAGE_PATH + 'behance.svg'}
+								alt="Behance"
+								width={30}
+								height={'auto'}
+							/>
+						</a>
+					)}
 
 					<a href={props.linkedin} target="_blank" rel="noreferrer">
 						<img

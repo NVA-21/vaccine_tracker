@@ -175,11 +175,11 @@ export default function HelpModal() {
 			</div>
 
 			<div className="helpModal-head">
-				<h2 className="helpModal-topicHead">Feel free to Contact Us</h2>
+				<h2 className="helpModal-topicHead">Contact Us</h2>
 				<br />
 				<p>
-					Any doubts or queries, or want our help/contributions in your
-					current/future projects, Feel free to contact us!
+					In case of any doubts, queries, or want our help/contributions in your
+					current/future projects, feel free to contact us.
 				</p>
 				<br />
 

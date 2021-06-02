@@ -41,7 +41,7 @@
 
 .rightContainer {
 	width: 40%;
-	height: calc((100vh - 7vh) - 80px);
+	height: calc((100vh - var(--footer-height)) - 80px);
 }
 
 .brandLogo {
