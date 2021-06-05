@@ -22,6 +22,7 @@ import Toast from './Components/Toast/Toast';
 import Loader from './Components/Loader/Loader';
 
 function App() {
+	const [isMobile, setIsMobile] = useState(false);
 	// Input values
 	const [input, setInput] = useState('');
 	const [inputError, setInputError] = useState(false);
@@ -62,6 +63,13 @@ function App() {
 	// Modal opening.
 	const [showModal, setShowModal] = useState(false);
 
+	// useEffect(() => {
+	// 	window.addEventListener(
+	// 		'resize',
+	// 		() => console.log('THIS CALLED')
+	// 		// setWidth(window.innerWidth)
+	// 	);
+	// }, []);
 	useEffect(() => {
 		if (!('Notification' in window)) {
 			alert('This browser does not support desktop notification');
@@ -79,6 +87,15 @@ function App() {
 		}
 
 		Notification.requestPermission();
+
+		// To scroll to Available Slots Container in mobile view
+		if (window.innerWidth <= 768) setIsMobile(true);
+
+		// To add above feature in resizing too
+		window.addEventListener('resize', () =>
+			window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false)
+		);
+		console.log('THAT CALLED');
 	}, []);
 
 	// To prevent api switching when toggle slider switches
@@ -428,6 +445,9 @@ function App() {
 
 			// Calling api first time to avoid 3s wait
 			fetchingApiData();
+
+			// Scrolling down to Available Slots Container if mobile view
+			if (isMobile) document.getElementById('rightContainer').scrollIntoView();
 		}
 		// To cancel the api call
 		else {
@@ -435,8 +455,6 @@ function App() {
 		}
 	}
 
-	// console.log(filteredData);
-	// console.table(filterModes);
 	return (
 		<div className="App">
 			<div className="backgroundCircle"></div>
@@ -621,7 +639,7 @@ function App() {
 						</div>
 					</div>
 
-					<div className="rightContainer">
+					<div className="rightContainer" id="rightContainer">
 						<div className="slotsContainer">
 							<h4>SLOTS AVAILABLE</h4>
 							<div className="slotsContainerScrollbar">
