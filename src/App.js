@@ -201,7 +201,7 @@ function App() {
 			}
 		};
 		const totalData = await apiData();
-		console.log(totalData);
+		// console.log(totalData);
 		await filterData(totalData);
 		setData(totalData);
 	}

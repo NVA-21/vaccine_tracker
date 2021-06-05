@@ -13,8 +13,13 @@ export default function HelpModal() {
 					<img src={PUBLIC_IMAGE_PATH + 'notifgif.gif'} alt="help gif" />
 					<br />
 					<h5>
-						1. Open the View Site Information &nbsp; &nbsp; 2. Click on the
-						Notfications Dropdown &nbsp; &nbsp; 3. Click on Allow and Close.
+						<ol className="notif-helpList">
+							<li>Open the View Site Information</li>
+							<li>Click on the Notfications Dropdown</li>
+							<li>Click on Allow and Close.</li>
+						</ol>
+						{/* 1. Open the View Site Information &nbsp; &nbsp; 2. Click on the
+						Notfications Dropdown &nbsp; &nbsp; 3. Click on Allow and Close. */}
 					</h5>
 				</div>
 			</div>
@@ -26,7 +31,7 @@ export default function HelpModal() {
 				<br />
 				<b>On Cowin platform:</b>
 				<br />
-				<ol>
+				<ol className="helpModal-list">
 					<li>Click on 'Register/Sign in yourself'.</li>
 					<li>Enter valid mobile number. Click on 'Get OTP'.</li>
 
@@ -49,7 +54,7 @@ export default function HelpModal() {
 				<br />
 				<b>On Aarogya Setu app:</b>
 
-				<ol>
+				<ol className="helpModal-list">
 					<li>Open 'Aarogya Setu' app.</li>
 					<li>Select 'Vaccination Registration' and enter mobile number.</li>
 					<li>You'll receive an OTP on your mobile. Enter it on site.</li>
@@ -61,7 +66,7 @@ export default function HelpModal() {
 				<br />
 				<b>How to Schedule the vaccine:</b>
 
-				<ol>
+				<ol className="helpModal-list">
 					<li>
 						Click on ‘Schedule Appointment’ on the platform that you are on and
 						you will get an option to ‘book appointment for vaccination.’

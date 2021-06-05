@@ -9,6 +9,7 @@
 	justify-content: center;
 	font-size: 16px;
 	color: var(--primary-color);
+	word-break: break-word;
 }
 
 .helpModal-head .notif-help {
@@ -31,6 +32,16 @@
 .helpModal-head .notif-help h5 {
 	color: var(--primary-color);
 	overflow: hidden;
+	width: 100%;
+}
+
+.notif-helpList {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 13px;
+	width: 100%;
 }
 
 .helpModal-head .api-link {
@@ -58,7 +69,11 @@
 		font-size: 20px;
 		text-align: center;
 	}
+	.notif-helpList {
+		flex-direction: column;
+	}
 
+	.helpModal-list,
 	.helpModal-head p {
 		font-size: 14px;
 		text-align: justify;
