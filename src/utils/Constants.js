@@ -1,32 +1,23 @@
+export const PUBLIC_IMAGE_PATH = '/assets/images/';
+
+export const NUMBER_REGEX = /^[0-9]+$/;
+
 export const fetchApiData = async url => {
 	try {
-		// console.log('API HIT');
 		const requestUrl = url;
 		const response = await fetch(requestUrl);
 		const responseJSON = await response.json();
 
 		if (responseJSON.error) {
-			// console.log(responseJSON.error);
 			throw new Error(responseJSON.error);
 		}
-		// console.log(requestUrl);
-		// console.log(responseJSON);
 		return responseJSON;
 	} catch (err) {
-		// console.log(e);
-		// console.log(e.message);
 		return err;
 	}
 };
 
-// {
-//   "errorCode": "APPOIN0018",
-//   "error": "Invalid Pincode"
-// }
-
-export const PUBLIC_IMAGE_PATH = '/assets/images/';
-export const NUMBER_REGEX = /^[0-9]+$/;
-
+// Returns Today's date and next days date after 3pm
 export const getDate = () => {
 	const dateTime = new Date();
 
@@ -41,7 +32,5 @@ export const getDate = () => {
 		'-' +
 		dateTime.getFullYear();
 
-	// console.log(date);
-	// return "19-05-2021";
 	return date;
 };

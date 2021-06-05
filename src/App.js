@@ -6,9 +6,10 @@ import {
 	PUBLIC_IMAGE_PATH,
 	getDate
 } from './utils/Constants';
+import * as statesData from './JsonData/states.json';
 import { borderRadius, primaryColor } from './utils/Theme';
 import useInterval from './utils/useInterval';
-import MaxWidthWrapper from './Components/MaxWidthWrapper/MaxWidthWrapper';
+import MaxWidthWrapper from './utils/MaxWidthWrapper';
 import Modal from './Components/Modal/Modal';
 import ToggleSlider from './Components/ToggleSlider/ToggleSlider';
 import Checkbox from './Components/Checkbox/Checkbox';
@@ -16,7 +17,6 @@ import HelpModal from './Components/Modal/HelpModal';
 import Button from './Components/Button/Button';
 import SlotCard from './Components/SlotsCard/SlotsCard';
 import Footer from './Components/Footer/Footer';
-import * as statesData from './JsonData/states.json';
 import SelectBox from './Components/SelectBox/SelectBox';
 import Toast from './Components/Toast/Toast';
 import Loader from './Components/Loader/Loader';
