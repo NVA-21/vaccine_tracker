@@ -11,7 +11,6 @@
 	border-radius: inherit;
 	overflow: hidden;
 	border-top: var(--border-top);
-	/* border: 2px solid var(--primary-color); */
 }
 
 .animate {
@@ -19,12 +18,9 @@
 }
 
 .default:hover {
-	/* background-color: var(--primary-light-color); */
-	/* background-color: #fff; */
 }
 
 .default:hover .button_text {
-	/* color: var(--primary-color); */
 }
 
 .button_text {
@@ -37,20 +33,6 @@
 .animate .button_text {
 	visibility: hidden;
 	opacity: 0;
-}
-
-.animate::before {
-	/* content: 'Searching';
-	position: absolute;
-	top: 0;
-	left: 15%;
-	right: 0;
-	bottom: 0;
-	font-size: var(--input-fontSize);
-	color: #fff;
-
-	border-right: 2px solid rgba(255, 255, 255, 0.4);
-	transition: 0.5s; */
 }
 
 .animate::before {
@@ -82,7 +64,6 @@
 	align-items: center;
 	justify-content: center;
 	font-size: calc(var(--input-fontSize) + 5px);
-	/* font-size: 25px; */
 	font-weight: 700;
 	width: 20%;
 	transition: 0.1s;

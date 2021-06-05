@@ -13,10 +13,7 @@ const Checkbox = props => {
 						props.executeFunction([e.target.checked, e.target.value])
 					}
 				/>
-				<span
-					className="change-color"
-					// onClick={() => props.executeFunction()}
-				/>
+				<span className="change-color" />
 			</label>
 			<label className="check-label">{props.text}</label>
 		</div>

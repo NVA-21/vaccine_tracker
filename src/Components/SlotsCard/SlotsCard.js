@@ -4,16 +4,11 @@ import './SlotsCard.css';
 
 const SlotCard = props => {
 	const data = props.data;
-	// console.log(props.data);
+
 	return (
 		<>
-			<h5 className="center-name">
-				{/* DGD KONDLI MAYUR VIHAR PHASE 3 */}
-				{data.name}
-			</h5>
+			<h5 className="center-name">{data.name}</h5>
 			<p className="center-location">
-				{/* Pocket A 2 Sector C Gharoli Delhi, East Delhi, Delhi, 110096 */}
-				{/* {data.address}, */}
 				{data.district_name} - {data.pincode}
 			</p>
 
@@ -43,7 +38,6 @@ const SlotCard = props => {
 			{data.sessions &&
 				data.sessions.map((session, index) => (
 					<div className="center-vaccineDetails" key={index}>
-						{/* <div className="slots-table-set"> */}
 						<div className="date">{session.date}</div>
 						<div
 							className="slots"
@@ -77,7 +71,6 @@ const SlotCard = props => {
 								{session.available_capacity_dose2}
 							</span>
 						</div>
-						{/* </div> */}
 					</div>
 				))}
 		</>

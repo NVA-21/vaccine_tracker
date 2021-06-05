@@ -85,7 +85,6 @@
 
 	.helpModal-head .notif-help {
 		height: auto;
-		/* width: 270px; */
 		width: 100%;
 		border: 2px solid var(--primary-color);
 		border-radius: 30px;

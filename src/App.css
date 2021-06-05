@@ -87,6 +87,15 @@
 	right: 25px;
 }
 
+.selectBoxContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 15px;
+	width: var(--input-width);
+	margin-bottom: var(--input-marginBottom);
+	overflow: visible;
+}
+
 .checklistContainer {
 	width: var(--input-width);
 	margin-bottom: 30px;
@@ -108,9 +117,6 @@
 }
 
 .btnContainer {
-	/* display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap; */
 	width: var(--input-width);
 	overflow: visible;
 	display: grid;
@@ -118,7 +124,11 @@
 	grid-column-gap: 15px;
 	align-items: center;
 	margin-bottom: 5px;
-	/* height: 100%; */
+}
+
+.btnContainer > span {
+	box-shadow: var(--input-boxShadow);
+	border-radius: 40px;
 }
 
 .slotsContainer {
@@ -195,16 +205,10 @@
 
 .registerContainer {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
 	height: 15%;
-}
-
-.registerContainer {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
 	text-align: center;
 }
 
@@ -221,34 +225,6 @@
 	width: auto;
 }
 
-.selectBoxContainer {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-column-gap: 15px;
-	width: var(--input-width);
-	margin-bottom: var(--input-marginBottom);
-	overflow: visible;
-}
-
-.btnContainer > span {
-	/* filter: drop-shadow(3px 3px 3px #0404041a); */
-	box-shadow: var(--input-boxShadow);
-	border-radius: 40px;
-	/* background-color: red; */
-	/* display: none; */
-}
-/* .Rounded_Rectangle_1_copy_3 {
-  border-radius: 36px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 3.878px 6.997px 7.2px 0.8px rgba(4, 4, 4, 0.1);
-  position: absolute;
-  left: 143px;
-  top: 848px;
-  width: 395px;
-  height: 72px;
-  z-index: 67;
-} */
-
 /* Mobile Responsive  */
 
 @media (max-width: 768px) {
@@ -256,11 +232,6 @@
 		height: auto;
 		text-align: center;
 		width: 100%;
-	}
-
-	.brandLogo {
-		height: 80px;
-		width: auto;
 	}
 
 	.contentContainers {
@@ -281,6 +252,11 @@
 
 	.rightContainer {
 		height: calc((100vh - var(--footer-height)) - 50px);
+	}
+
+	.brandLogo {
+		height: 80px;
+		width: auto;
 	}
 
 	.mainHead {
@@ -309,6 +285,12 @@
 		font-size: var(--input-fontSize-responsive);
 	}
 
+	.selectBoxContainer {
+		width: 100%;
+		justify-content: space-between;
+		margin-bottom: 12px;
+	}
+
 	.checklistContainer {
 		width: 100%;
 	}
@@ -316,26 +298,11 @@
 	.btnContainer {
 		justify-content: space-around;
 		height: auto;
-		/* flex-wrap: nowrap; */
-	}
-
-	.btnContainer {
-		/* display: flex;
-		flex-direction: column-reverse;
-		justify-content: center;
-		align-items: center;
-		margin-top: 40px; */
 		width: 95%;
 	}
 
 	.btnContainer .btnFrame {
 		margin-bottom: 15px;
-	}
-
-	.selectBoxContainer {
-		width: 100%;
-		justify-content: space-between;
-		margin-bottom: 12px;
 	}
 
 	.slotsContainer {

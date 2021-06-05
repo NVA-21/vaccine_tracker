@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import './Toast.css';
 
 const Toast = ({ resetToast, heading, content }) => {
+	// Disabling toast after 3second
 	useEffect(() => {
 		setTimeout(function () {
-			// props.resetToast();
 			resetToast();
-			console.log('resetRequested');
 		}, 3000);
 	}, [resetToast]);
 

@@ -23,9 +23,19 @@ import Loader from './Components/Loader/Loader';
 
 function App() {
 	const [isMobile, setIsMobile] = useState(false);
+
+	// Toggle between pincode and district search
+	const [toggleValue, setToggleValue] = useState('pincode');
+	const [searchMode, setSearchMode] = useState('pincode');
+
+	// Starts to fetch from api only if pincode entered is valid || district is selected.
+	const [apiFetching, setApiFetching] = useState(false);
+
 	// Input values
 	const [input, setInput] = useState('');
 	const [inputError, setInputError] = useState(false);
+	//pincodes value when search btn clicked
+	const [searchQuery, setSearchQuery] = useState('');
 
 	// District array
 	const [districts, setDistricts] = useState([]);
@@ -35,48 +45,35 @@ function App() {
 		district: false
 	});
 
-	// Toggle between pincode and district search
-	const [toggleValue, setToggleValue] = useState('pincode');
-	const [searchMode, setSearchMode] = useState('pincode');
-	//pincodes value when search btn clicked
-	const [searchQuery, setSearchQuery] = useState('');
-
-	// Starts to fetch from api only if pincode entered is valid.
-	const [apiFetching, setApiFetching] = useState(false);
-	// Keeps track whether notification prev sent or not
-	const [notificationSent, setNotificationSent] = useState(false);
 	const [showToast, setShowToast] = useState({
 		status: false,
 		message: { head: '', content: '' }
 	});
-	// Filtering
+
+	// Filter Checbox Modes Selected
 	const [filterModes, setFilterModes] = useState({
+		// Default 18years only selected
 		ageLimit: [18],
 		fee: ['Free', 'Paid'],
 		vaccine_type: ['COVAXIN', 'COVISHIELD', 'SPUTNIK V']
 	});
 
-	// Storing api data
+	// Storing api Unfiltered data: to quickly show filtered data than wait for next api call
 	const [data, setData] = useState([]);
+	// Storing Filtered Data
 	const [filteredData, setFilteredData] = useState([]);
 
 	// Modal opening.
 	const [showModal, setShowModal] = useState(false);
 
-	// useEffect(() => {
-	// 	window.addEventListener(
-	// 		'resize',
-	// 		() => console.log('THIS CALLED')
-	// 		// setWidth(window.innerWidth)
-	// 	);
-	// }, []);
 	useEffect(() => {
+		// Check for Notification Permission granted or not at Page Load
 		if (!('Notification' in window)) {
 			alert('This browser does not support desktop notification');
 		}
 
 		if (Notification.permission === 'denied') {
-			// alert("Notification permission is denied in your system");
+			// Toast for 3s when notif permission denied
 			setShowToast({
 				status: true,
 				message: {
@@ -85,7 +82,7 @@ function App() {
 				}
 			});
 		}
-
+		// Requesting permission if notif permission is set as default
 		Notification.requestPermission();
 
 		// To scroll to Available Slots Container in mobile view
@@ -95,7 +92,6 @@ function App() {
 		window.addEventListener('resize', () =>
 			window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false)
 		);
-		console.log('THAT CALLED');
 	}, []);
 
 	// To prevent api switching when toggle slider switches
@@ -106,7 +102,7 @@ function App() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [apiFetching]);
 
-	// When new filter parameter is set
+	// Calls When new filter parameter is set
 	useEffect(() => {
 		filterData(data);
 
@@ -114,6 +110,59 @@ function App() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filterModes]);
 
+	// Repeating Api call at 5s to get uptodate data If apiFetching mode is ON.
+	useInterval(() => {
+		if (apiFetching) {
+			fetchingApiData();
+		}
+	}, 5000);
+
+	// Fetching Data From api Setu public api
+	async function fetchingApiData() {
+		const date = getDate();
+
+		const apiData = async () => {
+			if (searchMode === 'pincode') {
+				// To fix Promises issue faced when instant api call used
+				let pincode;
+				if (searchQuery === '') {
+					pincode = input;
+				} else {
+					pincode = searchQuery;
+				}
+
+				const responseValue = await fetchApiData(
+					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${date}`
+				);
+
+				if (responseValue.message) {
+					setApiFetching(false);
+					setShowToast({
+						status: true,
+						message: {
+							head: responseValue.message,
+							content: 'Please try another'
+						}
+					});
+					setInputError(true);
+					return [];
+				}
+				return responseValue.centers;
+			} else if (searchMode === 'district') {
+				const responseValue = await fetchApiData(
+					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
+				);
+
+				return responseValue.centers;
+			}
+		};
+		const totalData = await apiData();
+		// Filtering Total Data according to checbkox conditions
+		await filterData(totalData);
+		setData(totalData);
+	}
+
+	// Filters Data according to checbox filter conditions and calls notification function
 	async function filterData(totalData) {
 		try {
 			const filtered = await totalData.map(center => ({
@@ -132,11 +181,11 @@ function App() {
 					filterModes.fee.includes(center.fee_type)
 			);
 
-			// console.log(finalFilteredData);
-
 			// Notification Logic
+			// Negative conditions : 1) If Old filtered data size >= New filter Data dont send. 2) If Old Total Unfiltered Data >=  New Total Unfiltered Data 3) If Both filtered and unfiltered data NEW and OLD are same
+			// Total Unfiltered data is checked so that notification bombard doesn't happen when filter conditions are changed.
+			// Don't send Notification
 
-			// Negative conditions
 			if (
 				JSON.stringify(totalData).length <= JSON.stringify(data).length ||
 				JSON.stringify(totalData) === JSON.stringify(data) ||
@@ -150,23 +199,35 @@ function App() {
 				handleNotification();
 			}
 
-			// console.log('Continuing');
-			// if (finalFilteredData.length > 0 && !notificationSent) {
-			// 	// if atleast one center pops up
-			// 	handleNotification();
-			// } else if (JSON.stringify(finalFilteredData) !== JSON.stringify(filteredData)) {
-			// 	// If new center arives or new slot date
-			// 	setNotificationSent(false);
-			// 	handleNotification();
-			// }
-			// console.log(JSON.stringify(finalFilteredData) === JSON.stringify(filteredData));
-
 			setFilteredData(finalFilteredData);
 		} catch (err) {
 			console.log(err);
 		}
 	}
 
+	function handleNotification() {
+		let title;
+		if (searchMode === 'pincode') {
+			title = `Vaccination centers available at pincode: ${input}`;
+		} else {
+			let districtSelectedLabel = districts.districts.find(
+				district => district.district_id === parseInt(selectedDistrict)
+			).district_name;
+
+			title = `Vaccination centers available at district: ${districtSelectedLabel}`;
+		}
+
+		// Sending notification
+		const notification = new Notification(title, {
+			icon: PUBLIC_IMAGE_PATH + 'logo.png',
+			body: 'Click here to see the centers'
+		});
+
+		// To open same tab in which site is running
+		notification.onclick = () => window.focus();
+	}
+
+	// If api is working on pincode then district call doesnt happen unless user cancel pincode search and search on district.
 	function handleToggle(toggleMode) {
 		if (apiFetching) {
 			setToggleValue(toggleMode);
@@ -176,114 +237,23 @@ function App() {
 		}
 	}
 
-	async function fetchingApiData() {
-		const date = getDate();
-		// console.log(date);
-
-		const apiData = async () => {
-			if (searchMode === 'pincode') {
-				// To fix Promises issue faced when instant api call used
-				let pincode;
-				if (searchQuery === '') {
-					pincode = input;
-				} else {
-					pincode = searchQuery;
-				}
-
-				const responseValue = await fetchApiData(
-					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pincode}&date=${date}`
-				);
-				// console.log(responseValue.message);
-				if (responseValue.message) {
-					// console.log('Insert apt pincode');
-					setApiFetching(false);
-					setShowToast({
-						status: true,
-						message: {
-							head: responseValue.message,
-							content: 'Please try another'
-						}
-					});
-					setInputError(true);
-					return [];
-				}
-				return responseValue.centers;
-			} else if (searchMode === 'district') {
-				// console.log('DISTRICT SEARCHING');
-				const responseValue = await fetchApiData(
-					`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
-				);
-
-				return responseValue.centers;
-			}
-		};
-		const totalData = await apiData();
-		// console.log(totalData);
-		await filterData(totalData);
-		setData(totalData);
+	// Only allows numbers in pincode input
+	function handleInput(value) {
+		if (NUMBER_REGEX.test(value) || value === '') {
+			setInput(value);
+		}
 	}
 
-	useInterval(() => {
-		if (apiFetching) {
-			fetchingApiData();
-			// const date = getDate();
-			// // console.log(date);
+	// get Districts of that state when a state is selected
+	async function getDistricts(stateID) {
+		setDistricts([]);
+		const responseValue = await fetchApiData(
+			'https://cdn-api.co-vin.in/api/v2/admin/location/districts/' + stateID
+		);
+		setDistricts(responseValue);
+	}
 
-			// const apiData = async () => {
-			// 	if (searchMode === 'pincode') {
-			// 		const responseValue = await fetchApiData(
-			// 			`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${searchQuery}&date=${date}`
-			// 		);
-			// 		// console.log(responseValue.message);
-			// 		if (responseValue.message === 'Invalid Pincode') {
-			// 			console.log('Insert apt pincode');
-			// 			setApiFetching(false);
-			// 			setShowToast({
-			// 				status: true,
-			// 				message: {
-			// 					head: 'Invalid Pincode',
-			// 					content: 'Please try another pincode'
-			// 				}
-			// 			});
-			// 			setInputError(true);
-			// 			return [];
-			// 		}
-			// 		return responseValue.centers;
-			// 	} else if (searchMode === 'district') {
-			// 		console.log('DISTRICT SEARCHING');
-			// 		const responseValue = await fetchApiData(
-			// 			`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${selectedDistrict}&date=${date}`
-			// 		);
-			// 		// console.log(responseValue);
-			// 		return responseValue.centers;
-			// 	}
-			// };
-			// var totalData = await apiData();
-			// // console.log(totalData);
-			// await filterData(totalData);
-			// setData(totalData);
-
-			// try {
-			// 	if (totalData.length > 0 && data.length === 0 && !notificationSent) {
-			// 		// if atleast one center pops up
-			// 		handleNotification();
-			// 	} else if (JSON.stringify(totalData) !== JSON.stringify(data)) {
-			// 		if (JSON.stringify(totalData).length < JSON.stringify(data).length) {
-			// 			return false;
-			// 		}
-			// 		// If new center arives or new slot date
-			// 		setNotificationSent(false);
-			// 		handleNotification();
-			// 	}
-			// 	console.log(JSON.stringify(totalData) === JSON.stringify(data));
-			// 	console.log(JSON.stringify(totalData).length);
-			// 	console.log(JSON.stringify(data).length);
-			// } catch (e) {
-			// 	console.log(e);
-			// }
-		}
-	}, 5000);
-
+	// When user changes district while district search is running toast is given for 3s
 	function handleDistrictChange(value) {
 		if (apiFetching && searchMode === 'district') {
 			setShowToast({
@@ -297,49 +267,10 @@ function App() {
 		setSelectedDistrict(value);
 	}
 
-	function handleNotification() {
-		// Sending notif first time
-		if (!notificationSent) {
-			// console.log('Notif SEND BOII');
-			setNotificationSent(true);
-			sendNotification(
-				'Hurry Up New Vaccination Center just available',
-				'Open the tab see the Center'
-			);
-		}
-	}
-
-	function sendNotification(title, body) {
-		new Notification(title, {
-			icon: PUBLIC_IMAGE_PATH + 'logo.png',
-			body: body
-		});
-
-		// notification.onclick = () => window.open("http://localhost:3000/");
-	}
-
-	function handleInput(value) {
-		if (NUMBER_REGEX.test(value) || value === '') {
-			setInput(value);
-		}
-	}
-
-	async function getDistricts(stateID) {
-		setDistricts([]);
-		// https://cdn-api.co-vin.in/api/v2/admin/location/districts/37
-		// console.log(stateID);
-		const responseValue = await fetchApiData(
-			'https://cdn-api.co-vin.in/api/v2/admin/location/districts/' + stateID
-		);
-		// console.log(responseValue);
-		setDistricts(responseValue);
-	}
-
+	// Checkbox Filter Logic
+	// (If all selected of a type (Age, Fee, Vaccine_Type) or none selected) = All selected
 	function handleCheckboxFilterModes(mode, value) {
 		const handleTwoFilters = (obj, value, defaultValue) => {
-			// console.log(value);
-			// console.log([filterModes[obj], value[1], value[0]]);
-
 			// When both gets removed
 			if (filterModes[obj].length === 1 && !value[0]) {
 				setFilterModes({ ...filterModes, [obj]: defaultValue });
@@ -347,10 +278,9 @@ function App() {
 
 			// When one enabled and new has to enable
 			else if (filterModes[obj].length === 1) {
-				// console.log('HEY');
 				let arr = filterModes[obj];
 				arr.push(value[1]);
-				// console.log(arr);
+
 				setFilterModes({
 					...filterModes,
 					[obj]: arr
@@ -359,10 +289,9 @@ function App() {
 
 			// To remove one when both enabled already
 			else if (filterModes[obj].length === 2 && !value[0]) {
-				// console.log('BYE');
 				let arr = filterModes[obj];
 				arr = arr.filter(i => i !== value[1]);
-				// console.log(arr);
+
 				setFilterModes({
 					...filterModes,
 					[obj]: arr
@@ -370,7 +299,6 @@ function App() {
 			}
 			// When everything is removed and automatically both values are added then adding one sets value to that value
 			else {
-				// console.log('ELSE');
 				setFilterModes({ ...filterModes, [obj]: [value[1]] });
 			}
 		};
@@ -390,10 +318,7 @@ function App() {
 					...filterModes,
 					vaccine_type: ['COVAXIN', 'COVISHIELD', 'SPUTNIK V']
 				});
-			}
-
-			// When
-			else if (filterModes.vaccine_type.length < 3 && value[0]) {
+			} else if (filterModes.vaccine_type.length < 3 && value[0]) {
 				let arr = filterModes.vaccine_type;
 				arr.push(value[1]);
 				setFilterModes({ ...filterModes, vaccine_type: arr });
@@ -406,12 +331,9 @@ function App() {
 				setFilterModes({ ...filterModes, vaccine_type: [value[1]] });
 			}
 		}
-		// console.log('Filter');
-		// let totalData = data;
-		// filterData(totalData);
-		// console.log('done');
 	}
 
+	// Cancels search if already searching else starts searching
 	async function handleSearch() {
 		// If not searching from API
 		if (!apiFetching) {
@@ -432,8 +354,7 @@ function App() {
 					return false;
 				} else if (!selectedDistrict) {
 					setSelectBoxError({ ...selectBoxError, state: false });
-					// console.log('Select district first');
-					// setSelectBoxError({ ...selectBoxError, state: true });
+
 					return false;
 				} else {
 					setSelectBoxError({ ...selectBoxError, district: false });
@@ -471,15 +392,7 @@ function App() {
 							Get notified when your area has available slots
 						</h1>
 
-						<ToggleSlider
-							setSearchMode={value =>
-								// 	{
-								// 	apiFetching ? setToggleValue(value) : setToggleValue(value),
-								// 		setSearchMode(value);
-								// }
-								handleToggle(value)
-							}
-						/>
+						<ToggleSlider setSearchMode={value => handleToggle(value)} />
 
 						{toggleValue === 'pincode' && (
 							// PINCODE SEARCH
@@ -532,16 +445,9 @@ function App() {
 									labelValue={'district_name'}
 									error={selectBoxError.district}
 									executeFunction={value => {
-										// setSelectedDistrict(value);
 										handleDistrictChange(value);
 									}}
 								/>
-								{/* <Dropdown
-                  title="Select State"
-                  array={statesData.states}
-                  keyValue={"state_name"}
-                /> */}
-								{/* <Dropdown title="Select District" /> */}
 							</div>
 						)}
 
@@ -622,7 +528,6 @@ function App() {
 									animate={
 										(input.length === 6 && true) ||
 										(selectedDistrict.length && true)
-										// apiFetching ? true : false
 									}
 									onClick={() => {
 										handleSearch();
@@ -658,10 +563,7 @@ function App() {
 											No slots available according to your filters <br /> We
 											will notify you as soon as a vacant slot appears!
 										</span>
-										<div
-											// style={{ display: !apiFetching && 'none' }}
-											className="loader-cont"
-										>
+										<div className="loader-cont">
 											<Loader />
 										</div>
 									</div>
@@ -697,10 +599,9 @@ function App() {
 						</div>
 					</div>
 				</div>
+
 				{showToast.status && (
 					<Toast
-						// heading="Please Turn on Notifications!"
-						// content={"To know how to enable it click 'Need Help'"}
 						heading={showToast.message.head}
 						content={showToast.message.content}
 						resetToast={() =>
@@ -712,6 +613,7 @@ function App() {
 					/>
 				)}
 			</MaxWidthWrapper>
+
 			<Footer />
 		</div>
 	);

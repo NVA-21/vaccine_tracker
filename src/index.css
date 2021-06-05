@@ -23,25 +23,13 @@
 	--slotCards-boxShadow: 2.424px 4.373px 4.5px 0.5px rgba(4, 4, 4, 0.1);
 }
 
-/* Scrollbar CSS  */
-::-webkit-scrollbar {
-	background-color: #deffff;
-	/* border-radius: 8px; */
-	box-shadow: var(--input-boxShadow);
-	width: 10px;
-}
-::-webkit-scrollbar-thumb {
-	background: var(--secondary-color);
-	border-radius: 8px;
-	box-shadow: var(--input-boxShadow);
-}
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
+	outline: none;
 }
 
 body {
@@ -64,8 +52,25 @@ li {
 	list-style-position: inside;
 }
 
+/* Scrollbar CSS  */
+::-webkit-scrollbar {
+	background-color: #deffff;
+	/* border-radius: 8px; */
+	box-shadow: var(--input-boxShadow);
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--secondary-color);
+	border-radius: 8px;
+	box-shadow: var(--input-boxShadow);
+}
+
 @media (max-width: 768px) {
 	* {
 		overflow-y: auto;
+	}
+
+	::-webkit-scrollbar {
+		width: 3px;
 	}
 }

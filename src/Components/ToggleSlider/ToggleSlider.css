@@ -30,7 +30,6 @@
 	position: relative;
 	display: inline-block;
 	background-color: #fff;
-	/* line-height: 140%; */
 	font-weight: 600;
 	text-align: center;
 
@@ -43,7 +42,6 @@
 }
 .toggle input + label:first-of-type {
 	border-radius: 25px 0 0 25px;
-	/* box-shadow: var(--input-boxShadow); */
 	border-right: none;
 }
 .toggle input + label:last-of-type {
