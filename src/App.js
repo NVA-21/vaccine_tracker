@@ -69,22 +69,28 @@ function App() {
 	useEffect(() => {
 		// Check for Notification Permission granted or not at Page Load
 		if (!('Notification' in window)) {
-			alert('This browser does not support desktop notification');
+			alert(
+				'This browser does not support Push Notification; Desktop browsers are preferred to avoid such issues.'
+			);
 		}
 
-		if (Notification.permission === 'denied') {
-			// Toast for 3s when notif permission denied
-			setShowToast({
-				status: true,
-				message: {
-					head: 'Please Turn on Notifications!',
-					content: "To know how to enable it click 'Need Help'."
-				}
-			});
+		// Try catch to avoid running into issue with safari and other Notification-Api non supported browsers.
+		try {
+			if (Notification.permission === 'denied') {
+				// Toast for 3s when notif permission denied
+				setShowToast({
+					status: true,
+					message: {
+						head: 'Please Turn on Notifications!',
+						content: "To know how to enable it click 'Need Help'."
+					}
+				});
+			}
+			// Requesting permission if notif permission is set as default
+			Notification.requestPermission();
+		} catch (err) {
+			console.log(err);
 		}
-		// Requesting permission if notif permission is set as default
-		Notification.requestPermission();
-
 		// To scroll to Available Slots Container in mobile view
 		if (window.innerWidth <= 768) setIsMobile(true);
 
