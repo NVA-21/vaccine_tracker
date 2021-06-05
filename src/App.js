@@ -334,7 +334,6 @@ function App() {
 				arr = arr.filter(i => i !== value[1]);
 				setFilterModes({ ...filterModes, vaccine_type: arr });
 			} else {
-				// console.log('ELSE');
 				setFilterModes({ ...filterModes, vaccine_type: [value[1]] });
 			}
 		}
