@@ -5,9 +5,10 @@
 	border-radius: 15px;
 	align-items: center;
 	backdrop-filter: blur(10px);
-	border: 1px solid var(--primary-color);
+	/* border: 1px solid var(--primary-color); */
 	/* box-shadow: var(--input-boxShadow); */
 	padding: 0 5px;
+	box-shadow: 0px 0px 5px #e0e0e0;
 }
 
 .profileCard .main-card {

@@ -13,22 +13,24 @@
 	font-weight: 100;
 	font-size: var(--input-fontSize);
 	letter-spacing: 1px;
+	overflow: hidden;
 }
 
 .footerBase > h4 {
 	font-weight: 400;
 	display: flex;
 	align-items: center;
+	font-size: 22px;
 }
 
 @media (max-width: 768px) {
 	.footerBase {
 		position: static;
-		min-height: 3vh;
+		min-height: 4vh;
 		height: auto;
 	}
 	.footerBase > h4 {
-		font-size: 12px;
+		font-size: 11px;
 	}
 
 	.footerBase img {
