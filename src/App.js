@@ -91,6 +91,7 @@ function App() {
 		} catch (err) {
 			console.log(err);
 		}
+
 		// To scroll to Available Slots Container in mobile view
 		if (window.innerWidth <= 768) setIsMobile(true);
 
