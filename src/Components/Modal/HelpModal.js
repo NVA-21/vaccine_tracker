@@ -125,6 +125,18 @@ export default function HelpModal() {
 						https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2
 					</a>
 				</div>
+
+				<div className="api-link">
+					Source Code: &nbsp;
+					<a
+						className="helpModal-Links"
+						href="https://github.com/NVA-21/vaccine_tracker"
+						target="_blank"
+						rel="noreferrer"
+					>
+						https://github.com/NVA-21/vaccine_tracker
+					</a>
+				</div>
 			</div>
 
 			<div className="helpModal-head">
