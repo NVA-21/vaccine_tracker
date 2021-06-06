@@ -58,12 +58,9 @@ You will also see any lint errors in the console.
 
 
 ## Screenshots 📸
-![Desktop](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Desktop.png?raw=true)
-![Mobile Search](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SearchUi.jpeg?raw=true)
-![Mobile Slots](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SlotsUi.jpeg?raw=true)
+![Desktop](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Desktop.jpg?raw=true)
+![Mobile](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile.jpg?raw=true)
 
-
-for more screenshots visit [Screenshots](https://github.com/NVA-21/vaccine_tracker/tree/master/Screenshots) folder in the master branch.
 
 ## Supported Browsers
 Our site works with all browsers and devices but unfortunately notification feature isn't compatible with some ios and android mobile device browsers; So we recommend using our site from Desktop. 
