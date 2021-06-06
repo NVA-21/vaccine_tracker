@@ -56,13 +56,18 @@ You will also see any lint errors in the console.
 
 
 ## Screenshots 📸
-![Desktop](https://github.com/NVA-21/vaccine_tracker/tree/master/public/Screenshots/Dark%20Mode/Desktop.png)
-![Mobile](https://github.com/NVA-21/vaccine_tracker/tree/master/public/Screenshots/Dark%20Mode/Main%20Menu.png)
-![Need Help](https://github.com/NVA-21/vaccine_tracker/tree/master/public/Screenshots/Dark%20Mode/Need%20Help.png)
+![Desktop](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Desktop.png?raw=true)
+![Mobile Search](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SearchUi.jpeg?raw=true)
+![Mobile Slots](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SlotsUi.jpeg?raw=true)
 
 
-for more screenshots visit [Screenshots](https://github.com/vishakhg98/Inventory-Management-System/tree/master/Screenshots) folder in the master branch.
+for more screenshots visit [Screenshots](https://github.com/NVA-21/vaccine_tracker/tree/master/Screenshots) folder in the master branch.
 
+## Supported Browsers
+Our site works with all browsers and devices but unfortunately notification feature isn't compatible with some ios and android mobile device browsers; So we recommend using our site from Desktop. 
+
+![Compatibility](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Supported%20Browsers.jpeg?raw=true)
+![Not supported](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Notif%20not%20supported.jpeg?raw=true)
 
 ## Bugs
 None, if found any bugs please open an issue.
