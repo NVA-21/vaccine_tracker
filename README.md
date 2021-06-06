@@ -4,6 +4,8 @@ Covid Vaccine Tracker App is a user-friendly web application that sends you a no
 Just keep this web app opened in a browser tab with notifications enabled and you can go in peace doing your work. As soon as the slots are available you will 
 receive the notification. Our web app doesn't gather any user information by using any cookies or third party softwares.
 
+### https://nva-vaccine-tracker.netlify.app/
+
 
 ## Features
 * Blazing Fast- Built using React.
