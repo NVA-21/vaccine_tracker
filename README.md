@@ -1,15 +1,12 @@
-# Covid Vaccine Tracker
-Inventory Management System is a full-fledged GUI application for maintenance of inventory and to generate sales invoices with keeping records of every sales.
-Consists of following Pages:
-* Login
-* Sales
-* Inventory
-* Extras : Includes Theme Switch, Password Changer
-* Invoice/ Bill
+<h1>COVID Vaccine Tracking App</h1>
+
+Covid Vaccine Tracker App is a user-friendly web application that sends you a notification as soon as there are slots available near your district or pincode.
+Just keep this web app opened in a browser tab with notifications enabled and you can go in peace doing your work. As soon as the slots are available you will 
+receive the notification. Our web app doesn't gather any user information by using any cookies or third party softwares.
 
 
 ## Features
-* Blazing Fast- made with react.
+* Blazing Fast- Built using React.
 * Notification when new slots appears on your filter and search criteria.
 * Filter according to your needs.
 * On filter change data accoding to filter is shown instantly.
