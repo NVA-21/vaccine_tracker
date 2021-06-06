@@ -250,6 +250,10 @@
 		flex-direction: column;
 	}
 
+	.leftContainer {
+		padding-bottom: 20px;
+	}
+
 	.rightContainer {
 		height: calc((100vh - var(--footer-height)) - 50px);
 	}
