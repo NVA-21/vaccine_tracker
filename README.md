@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+<h1>COVID Vaccine Tracking App</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Covid Vaccine Tracker App is a user-friendly web application that sends you a notification as soon as there are slots available near your district or pincode.
+Just keep this web app opened in a browser tab with notifications enabled and you can go in peace doing your work. As soon as the slots are available you will 
+receive the notification. Our web app doesn't gather any user information by using any cookies or third party softwares.
 
-## Available Scripts
+### https://nva-vaccine-tracker.netlify.app/
 
-In the project directory, you can run:
 
+## Features
+* Blazing Fast- Built using React.
+* Search on either pincode and district.
+* Search for 7 days slots. 
+* Notification when new slots appears on your filter and search criteria.
+* Filter according to your needs.
+* On filter change data accoding to filter is shown instantly.
+* Instant search on new district selected.
+* User-Friendly UI.
+* Responsive.
+
+
+## Scope
+Covid Vaccine Tracker can be used by anyone who needs to get notified only when new vacant slots appears.
+
+## Technologies
+Project is created with:
+* ReactJs
+* Functional Coomponents.
+* React hooks
+* Css for Styling.
+* VanillaJs Notification API.
+
+
+## Installation
+1. Download the project to your Device using one of the ways listed below
+   1. git clone the project:
+git clone https://github.com/NVA-21/vaccine_tracker.git
+   1. Download Zip using : [Download](https://github.com/NVA-21/vaccine_tracker/archive/refs/heads/master.zip)
+	 
+1. If Nodejs isn't installed, download and install Nodejs:
+	
+    https://nodejs.org/en/
+		
+
+1. Open a terminal in the cloned or downloaded folder and install the necessary dependencies with command below.
+  
+    ### `npm install`
+
+
+## How To Run
 ### `npm start`
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Screenshots 📸
+![Desktop](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Desktop.png?raw=true)
+![Mobile Search](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SearchUi.jpeg?raw=true)
+![Mobile Slots](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Mobile%20SlotsUi.jpeg?raw=true)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+for more screenshots visit [Screenshots](https://github.com/NVA-21/vaccine_tracker/tree/master/Screenshots) folder in the master branch.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Supported Browsers
+Our site works with all browsers and devices but unfortunately notification feature isn't compatible with some ios and android mobile device browsers; So we recommend using our site from Desktop. 
 
-### `npm run eject`
+![Compatibility](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Supported%20Browsers.jpeg?raw=true)
+![Not supported](https://github.com/NVA-21/vaccine_tracker/blob/master/Screenshots/Notif%20not%20supported.jpeg?raw=true)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Bugs
+None, if found any bugs please open an issue.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)

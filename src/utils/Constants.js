@@ -1,3 +1,6 @@
+export const COUNT_NAMESPACE = 'nva-vaccine-tracker.netlify.app';
+export const COUNT_KEY = '957487c9-9554-40ed-b6db-ba69cb660154';
+
 export const PUBLIC_IMAGE_PATH = '/assets/images/';
 
 export const NUMBER_REGEX = /^[0-9]+$/;

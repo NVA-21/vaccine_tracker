@@ -94,6 +94,10 @@
 }
 
 @media (max-width: 768px) {
+	.default,
+	.animate {
+		height: var(--input-height-responsive);
+	}
 	.button_text {
 		font-size: var(--input-fontSize-responsive);
 	}

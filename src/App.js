@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import {
+	COUNT_NAMESPACE,
+	COUNT_KEY,
 	fetchApiData,
 	NUMBER_REGEX,
 	PUBLIC_IMAGE_PATH,
@@ -65,6 +67,13 @@ function App() {
 
 	// Modal opening.
 	const [showModal, setShowModal] = useState(false);
+
+	// Counts each visit - Analytics purpose
+	useEffect(() => {
+		fetchApiData(
+			`https://api.countapi.xyz/update/${COUNT_NAMESPACE}/${COUNT_KEY}?amount=1`
+		);
+	}, []);
 
 	useEffect(() => {
 		// Check for Notification Permission granted or not at Page Load
