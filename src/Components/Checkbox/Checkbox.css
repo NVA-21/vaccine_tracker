@@ -1,0 +1,66 @@
+.checkBoxBase {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.check-color {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	box-shadow: var(--input-boxShadow);
+	border-top: var(--border-top);
+	overflow: hidden;
+}
+
+.check-color input {
+	opacity: 0;
+	visibility: 0;
+}
+
+.check-label {
+	padding: 8px;
+	font-weight: 500;
+	font-size: var(--input-fontSize);
+	color: var(--primary-color);
+}
+
+.change-color {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.change-color::before {
+	position: absolute;
+	content: '';
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	box-shadow: var(--input-boxShadow);
+}
+
+.check-color input:checked + .change-color::before {
+	background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+	.check-label {
+		font-size: var(--input-fontSize-responsive);
+	}
+
+	.change-color {
+		left: -20px;
+	}
+
+	.checkBoxBase::-webkit-scrollbar {
+		display: none;
+	}
+}

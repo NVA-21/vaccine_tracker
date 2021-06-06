@@ -1,0 +1,75 @@
+.profileCard {
+	height: 400px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	align-items: center;
+	backdrop-filter: blur(10px);
+	padding: 0 5px;
+	box-shadow: 0px 0px 5px #e0e0e0;
+}
+
+.profileCard .main-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.profileCard .main-card .main-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+}
+
+.profileCard .main-card:hover .main-content {
+	transform: translateY(-10px);
+}
+
+.profileCard .main-card .img-box {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 6px solid rgba(0, 0, 0, 0.25);
+	margin-top: 40px;
+}
+
+.profileCard .main-card .img-box img {
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	margin-top: -3px;
+}
+
+.profileCard .main-card .contentBox {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.profileCard .main-card .social-profiles {
+	position: absolute;
+	bottom: 50px;
+	display: flex;
+	transform: translateY(40px);
+	transition: 0.5s;
+	width: 160px;
+	justify-content: space-between;
+	opacity: 0;
+}
+
+.profileCard:hover .main-card .social-profiles {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.profileCard .main-card .contentBox .profileName {
+	color: var(--primary-color);
+}
+
+.profileCard .main-card .contentBox .profileDesignation {
+	color: var(--secondary-color);
+	margin-top: 5px;
+}

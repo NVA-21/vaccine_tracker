@@ -1,0 +1,40 @@
+.footerBase {
+	background-color: var(--secondary-color);
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: var(--footer-height);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-style: normal;
+	font-weight: 100;
+	font-size: var(--input-fontSize);
+	letter-spacing: 1px;
+	overflow: hidden;
+}
+
+.footerBase > h4 {
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	font-size: 22px;
+}
+
+@media (max-width: 768px) {
+	.footerBase {
+		position: static;
+		min-height: 4vh;
+		height: auto;
+	}
+	.footerBase > h4 {
+		font-size: 11px;
+	}
+
+	.footerBase img {
+		width: 12px;
+		height: 12px;
+	}
+}

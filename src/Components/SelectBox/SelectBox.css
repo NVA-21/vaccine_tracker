@@ -1,0 +1,89 @@
+/* Reset Select */
+#select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	outline: 0;
+	box-shadow: none;
+	border: 0 !important;
+	background: #fff;
+	background-image: none;
+	border-radius: 40px;
+	margin: 3px 5px 3px 5px;
+}
+/* Remove IE arrow */
+#select::-ms-expand {
+	display: none;
+}
+/* Custom Select */
+.selectBoxBase {
+	position: relative;
+	background: #fff;
+	display: flex;
+	width: 100%;
+	line-height: 3;
+	overflow: hidden;
+	height: var(--input-height);
+	border-radius: var(--input-borderRadius);
+	box-shadow: var(--input-boxShadow);
+	border-top: var(--border-top);
+}
+#select {
+	width: 100%;
+	padding: 0 0.5em;
+	padding-left: 25px;
+	color: #000;
+	font-size: var(--input-fontSize);
+	font-weight: 300;
+	cursor: pointer;
+}
+
+#select option {
+	font-size: 15px;
+}
+
+#select::-webkit-scrollbar {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: var(--input-boxShadow);
+	width: 10px;
+}
+
+#select::-webkit-scrollbar-thumb {
+	background: var(--secondary-color);
+	border-radius: 8px;
+	box-shadow: var(--input-boxShadow);
+}
+
+/* Arrow */
+.selectBoxBase::after {
+	content: '\25BC';
+	position: absolute;
+	top: -5px;
+	right: 10px;
+	padding: 0 1em;
+	height: 15px;
+	width: 5px;
+	background: #fff;
+	cursor: pointer;
+	pointer-events: none;
+	border-radius: 0 25px 25px 0;
+	margin: 3px 5px 3px 5px;
+	-webkit-transition: 0.25s all ease;
+	-o-transition: 0.25s all ease;
+	transition: 0.25s all ease;
+}
+/* Transition */
+.selectBoxBase:hover::after {
+	color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+	.selectBoxBase {
+		height: var(--input-height-responsive);
+	}
+	#select {
+		font-size: var(--input-fontSize-responsive);
+	}
+}

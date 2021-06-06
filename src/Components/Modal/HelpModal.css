@@ -1,0 +1,98 @@
+.helpModal-topicHead {
+	font-size: 30px;
+	color: var(--primary-color);
+	margin-top: 15px;
+}
+
+.helpModal-Links {
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	color: var(--primary-color);
+	word-break: break-word;
+}
+
+.helpModal-head .notif-help {
+	height: 330px;
+	width: 100%;
+	border: 1px solid var(--primary-color);
+	border-radius: 30px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.helpModal-head .notif-help img {
+	height: 250px;
+	width: auto;
+}
+
+.helpModal-head .notif-help h5 {
+	color: var(--primary-color);
+	overflow: hidden;
+	width: 100%;
+}
+
+.notif-helpList {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 13px;
+	width: 100%;
+}
+
+.helpModal-head .api-link {
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	margin-top: 15px;
+}
+
+.developerNames {
+	color: var(--primary-color);
+	cursor: pointer;
+}
+
+.profileCards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	overflow: visible;
+	padding: 4px;
+}
+
+@media (max-width: 768px) {
+	.helpModal-topicHead {
+		font-size: 20px;
+		text-align: center;
+	}
+	.notif-helpList {
+		flex-direction: column;
+	}
+
+	.helpModal-list,
+	.helpModal-head p {
+		font-size: 14px;
+		text-align: justify;
+	}
+
+	.helpModal-head ol {
+		text-align: left;
+	}
+
+	.helpModal-head .notif-help {
+		height: auto;
+		width: 100%;
+		border: 2px solid var(--primary-color);
+		border-radius: 30px;
+		padding: 20px;
+		box-shadow: var(--input-boxShadow);
+	}
+
+	.profileCards {
+		grid-template-columns: 1fr;
+	}
+}
