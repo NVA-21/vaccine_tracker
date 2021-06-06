@@ -9,6 +9,8 @@ receive the notification. Our web app doesn't gather any user information by usi
 
 ## Features
 * Blazing Fast- Built using React.
+* Search on either pincode and district.
+* Search for 7 days slots. 
 * Notification when new slots appears on your filter and search criteria.
 * Filter according to your needs.
 * On filter change data accoding to filter is shown instantly.
