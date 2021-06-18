@@ -26,7 +26,7 @@ const SlotCard = props => {
 						<>
 							Paid{' '}
 							<span style={{ color: secondaryColor, fontSize: '12px' }}>
-								(₹{data.vaccine_fees[0].fee})
+								(₹{data.vaccine_fees[0].fee && data.vaccine_fees[0].fee})
 							</span>
 						</>
 					) : (
